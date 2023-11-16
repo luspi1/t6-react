@@ -1,0 +1,25 @@
+.profileHeader {
+  padding: 13px 0;
+  border-bottom: 1px solid #5388A7;
+  h3 {
+    color: #ffffff;
+    font-family: "Open Sans", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-right: 117px;
+  }
+}
+
+.profileHeaderContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profileSearchInput {
+  width: 378px;
+  input {
+    outline-color: transparent;
+    border-radius: 50px;
+  }
+}

@@ -15,7 +15,8 @@ body {
   line-height: 1;
   position: relative;
   @include opensans-regular;
-  background-color: #F2F2F2;
+  color: #000;
+  background-color: #ffffff;
 }
 
 #root {
@@ -99,17 +100,10 @@ textarea {
   padding: 0 15px;
 }
 
-.col-item {
-  width: 340px;
-  min-width: 340px;
-}
-
 ._hidden {
   display: none;
 }
 
-._rotate {
-  transform: rotate(180deg);
-}
+
 
 
