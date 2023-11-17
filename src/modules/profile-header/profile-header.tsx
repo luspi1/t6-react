@@ -4,6 +4,7 @@ import { Container } from 'src/UI/Container/Container'
 
 import styles from './index.module.scss'
 import { SearchSvg } from 'src/UI/icons/searchSVG'
+import { ProfilePersonal } from 'src/modules/profile-header/components/profile-personal/profile-personal'
 export const ProfileHeader: FC = () => {
 	return (
 		<header className={styles.profileHeader}>
@@ -15,6 +16,7 @@ export const ProfileHeader: FC = () => {
 					placeholder='Поиск'
 					svgnode={<SearchSvg />}
 				/>
+				<ProfilePersonal />
 			</Container>
 		</header>
 	)

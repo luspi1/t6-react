@@ -11,7 +11,7 @@ body {
   margin: 0;
   min-width: 340px;
   overflow-x: hidden;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1;
   position: relative;
   @include opensans-regular;
@@ -92,6 +92,10 @@ input[type=number] {
 
 textarea {
   resize: none;
+}
+
+a {
+  color: #113770;
 }
 
 .container {

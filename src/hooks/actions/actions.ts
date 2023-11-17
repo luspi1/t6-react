@@ -1,9 +1,9 @@
 import { bindActionCreators } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
-// import { tasksActions } from 'src/store/tasks/tasks.slice'
+import { profileSidebarActions } from 'src/modules/profile-sidebar/store/profile-sidebar.slice'
 
 const actions = {
-	// ...tasksActions,
+	...profileSidebarActions,
 }
 export const useActions = () => {
 	const dispatch = useDispatch()
