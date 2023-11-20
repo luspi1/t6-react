@@ -1,0 +1,17 @@
+.profileNav {
+  display: flex;
+  background-color: #fff;
+  border-radius: 3px;
+  li {
+    &:not(:last-child) {
+      border-right: 1px solid #E3DDDD;
+    }
+  }
+}
+
+.profileLink {
+  color: #000000;
+  padding: 12px 10px;
+  display: inline-block;
+
+}

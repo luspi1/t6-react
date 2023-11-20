@@ -17,9 +17,9 @@ export const menuItems: MenuItem[] = [
 			'</svg>\n',
 		active: false,
 		childItems: [
-			{ title: 'Кабинет', link: 'org-cabinet', active: false },
-			{ title: 'Статистика', link: 'org-statistics', active: false },
-			{ title: 'Сотрудники', link: 'org-employees', active: false },
+			{ title: 'Кабинет', link: 'profile-org/cabinet', active: false },
+			{ title: 'Статистика', link: 'profile-statistics', active: false },
+			{ title: 'Сотрудники', link: 'profile-employees', active: false },
 		],
 	},
 	{

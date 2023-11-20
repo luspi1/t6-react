@@ -1,8 +1,10 @@
 export enum AppRoute {
 	Home = '/',
 	Profile = 'profile',
-	OrganizerCabinet = 'org-cabinet',
-	OrganizerDocs = 'org-docs',
+	OrgCabinet = 'profile-org',
+	Cabinet = 'cabinet',
+	OrganizerDocs = 'docs',
+	Statistics = 'profile-statistics',
 }
 export enum NameSpace {
 	User = 'USER',

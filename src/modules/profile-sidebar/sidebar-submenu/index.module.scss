@@ -10,8 +10,10 @@
       font-weight: 600;
     }
     &._active {
-      color: #ffffff;
-      pointer-events: none;
+      a {
+        color: #ffffff;
+        pointer-events: none;
+      }
     }
   }
 

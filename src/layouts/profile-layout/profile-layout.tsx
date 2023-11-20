@@ -10,7 +10,7 @@ import { ProfileSidebar } from 'src/modules/profile-sidebar/profile-sidebar'
 
 export const ProfileLayout: FC = () => {
 	const { pathname } = useLocation()
-	if (pathname === `/${AppRoute.Profile}`) return <Navigate to={AppRoute.OrganizerCabinet} />
+	if (pathname === `/${AppRoute.Profile}`) return <Navigate to='profile-org/cabinet' />
 	return (
 		<>
 			<main className={styles.profileLayout}>
@@ -18,11 +18,6 @@ export const ProfileLayout: FC = () => {
 				<Container className={styles.profileLayoutContainer} $padding='15px 15px 70px'>
 					<ProfileSidebar />
 					<div className={styles.profileRight}>
-						<ul>
-							<li>пункт 1</li>
-							<li>пункт 2</li>
-							<li>пункт 3</li>
-						</ul>
 						<div className={styles.profileContent}>
 							<Outlet />
 						</div>
