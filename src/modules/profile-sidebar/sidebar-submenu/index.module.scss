@@ -1,0 +1,18 @@
+.submenu {
+  padding: 10px 0 5px 30px;
+  li {
+    padding: 10px 0;
+    &:last-child {
+      padding-bottom: 0;
+    }
+    a {
+      color: #8EFFF8;
+      font-weight: 600;
+    }
+    &._active {
+      color: #ffffff;
+      pointer-events: none;
+    }
+  }
+
+}
