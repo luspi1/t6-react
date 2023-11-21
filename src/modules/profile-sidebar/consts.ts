@@ -17,9 +17,27 @@ export const menuItems: MenuItem[] = [
 			'</svg>\n',
 		active: false,
 		childItems: [
-			{ title: 'Кабинет', link: 'profile-org/cabinet', active: false },
-			{ title: 'Статистика', link: 'profile-statistics', active: false },
-			{ title: 'Сотрудники', link: 'profile-employees', active: false },
+			{
+				title: 'Кабинет',
+				link: 'profile-org/cabinet',
+				linksMatches: [
+					'profile/profile-org/cabinet',
+					'profile/profile-org/personal',
+					'profile/profile-org/docs',
+					'profile/profile-org/contract',
+					'profile/profile-org/tariffs',
+				],
+			},
+			{
+				title: 'Статистика',
+				link: 'statistics',
+				linksMatches: ['profile/statistics'],
+			},
+			{
+				title: 'Сотрудники',
+				link: 'employees',
+				linksMatches: ['profile/employees'],
+			},
 		],
 	},
 	{
@@ -37,9 +55,21 @@ export const menuItems: MenuItem[] = [
 			'</svg>\n',
 		active: false,
 		childItems: [
-			{ title: 'События 1', link: 'org-cabinet', active: false },
-			{ title: 'События 2', link: 'org-statistics', active: false },
-			{ title: 'События 3', link: 'org-employees', active: false },
+			{
+				title: 'События 1',
+				link: 'profile-statistics',
+				linksMatches: ['profile/profile-statistics'],
+			},
+			{
+				title: 'События 2',
+				link: 'profile-statistics',
+				linksMatches: ['profile/profile-statistics'],
+			},
+			{
+				title: 'События 3',
+				link: 'profile-statistics',
+				linksMatches: ['profile/profile-statistics'],
+			},
 		],
 	},
 	{
@@ -57,9 +87,9 @@ export const menuItems: MenuItem[] = [
 			'</svg>\n',
 		active: false,
 		childItems: [
-			{ title: 'Сотрудники 1', link: 'org-cabinet', active: false },
-			{ title: 'Сотрудники 2', link: 'org-statistics', active: false },
-			{ title: 'Сотрудники 3', link: 'org-employees', active: false },
+			{ title: 'Сотрудники 1', link: '', linksMatches: ['profile/profile-statistics'] },
+			{ title: 'Сотрудники 2', link: '', linksMatches: ['profile/profile-statistics'] },
+			{ title: 'Сотрудники 3', link: '', linksMatches: ['profile/profile-statistics'] },
 		],
 	},
 	{
@@ -78,9 +108,21 @@ export const menuItems: MenuItem[] = [
 			'</svg>\n',
 		active: false,
 		childItems: [
-			{ title: 'Статистика 1', link: 'org-cabinet', active: false },
-			{ title: 'Статистика 2', link: 'org-statistics', active: false },
-			{ title: 'Статистика 3', link: 'org-employees', active: false },
+			{
+				title: 'Статистика 1',
+				link: 'profile-statistics',
+				linksMatches: ['profile/profile-statistics'],
+			},
+			{
+				title: 'Статистика 2',
+				link: 'profile-statistics',
+				linksMatches: ['profile/profile-statistics'],
+			},
+			{
+				title: 'Статистика 3',
+				link: 'profile-statistics',
+				linksMatches: ['profile/profile-statistics'],
+			},
 		],
 		border: true,
 	},

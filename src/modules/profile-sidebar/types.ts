@@ -1,7 +1,7 @@
 export type SubmenuItem = {
 	title: string
 	link: string
-	active: boolean
+	linksMatches: string[]
 }
 
 export type MenuItem = {

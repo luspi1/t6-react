@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { Navigate, Outlet, useLocation } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
 
 import { Container } from 'src/UI/Container/Container'
 import { ProfileHeader } from 'src/modules/profile-header/profile-header'
@@ -7,10 +7,11 @@ import { AppRoute } from 'src/helpers/consts'
 
 import styles from './index.module.scss'
 import { ProfileSidebar } from 'src/modules/profile-sidebar/profile-sidebar'
+import { useLocationMatch } from 'src/hooks/location-match'
 
 export const ProfileLayout: FC = () => {
-	const { pathname } = useLocation()
-	if (pathname === `/${AppRoute.Profile}`) return <Navigate to='profile-org/cabinet' />
+	const matchLocation = useLocationMatch([AppRoute.Profile])
+	if (matchLocation) return <Navigate to={AppRoute.OrgCabinet} />
 	return (
 		<>
 			<main className={styles.profileLayout}>
@@ -18,9 +19,7 @@ export const ProfileLayout: FC = () => {
 				<Container className={styles.profileLayoutContainer} $padding='15px 15px 70px'>
 					<ProfileSidebar />
 					<div className={styles.profileRight}>
-						<div className={styles.profileContent}>
-							<Outlet />
-						</div>
+						<Outlet />
 					</div>
 				</Container>
 			</main>

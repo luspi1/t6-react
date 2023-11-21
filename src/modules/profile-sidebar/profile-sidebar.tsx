@@ -26,7 +26,6 @@ export const ProfileSidebar: FC = () => {
 							_border: item.border,
 						})}
 						key={item.title}
-						onClick={() => changeMenuItemActive(idx)}
 					>
 						{item.link ? (
 							<Link className={styles.titleItem} to={item.link}>
@@ -35,7 +34,7 @@ export const ProfileSidebar: FC = () => {
 							</Link>
 						) : (
 							<>
-								<p className={styles.titleItem}>
+								<p className={styles.titleItem} onClick={() => changeMenuItemActive(idx)}>
 									<span dangerouslySetInnerHTML={{ __html: item.icon }}></span>
 									{item.title}
 								</p>

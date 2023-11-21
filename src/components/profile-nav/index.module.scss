@@ -6,12 +6,25 @@
     &:not(:last-child) {
       border-right: 1px solid #E3DDDD;
     }
+
+    &:first-child{
+      a {
+        border-radius: 3px 0 0 3px;
+      }
+    }
+    &:last-child{
+      a {
+        border-radius: 0 3px 3px 0;
+      }
+    }
   }
 }
 
 .profileLink {
   color: #000000;
   padding: 12px 10px;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  height: 100%;
 
 }

@@ -7,7 +7,7 @@ export const cabinetNavItems: NavProfileItem[] = [
 	},
 	{
 		title: 'Профиль',
-		link: 'person',
+		link: 'personal',
 	},
 	{
 		title: 'Документы',
@@ -15,10 +15,18 @@ export const cabinetNavItems: NavProfileItem[] = [
 	},
 	{
 		title: 'Договорная работа',
-		link: 'contract-work',
+		link: 'contract',
 	},
 	{
 		title: 'Тарифы и платежи',
 		link: 'tariffs',
 	},
 ]
+
+export const cabinetPathMap = {
+	cabinet: 'Кабинет',
+	personal: 'Профиль',
+	docs: 'Документы',
+	contract: 'Договорная работа',
+	tariffs: 'Тарифы и платежи',
+}
