@@ -1,0 +1,19 @@
+.dashboardPage {
+
+}
+
+.dashboardDesc {
+  color: #91969A;
+  font-size: 13px;
+  margin-bottom: 30px;
+  a {
+    font-weight: 600;
+  }
+}
+
+.dashboardContent {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}

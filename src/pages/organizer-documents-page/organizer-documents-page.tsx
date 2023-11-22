@@ -1,5 +1,5 @@
 import { type FC } from 'react'
 
-export const OrganizerDocuments: FC = () => {
+export const OrganizerDocumentsPage: FC = () => {
 	return <div>Документы</div>
 }

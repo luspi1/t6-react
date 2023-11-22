@@ -2,8 +2,8 @@ import { type NavProfileItem } from 'src/types/navProfile'
 
 export const cabinetNavItems: NavProfileItem[] = [
 	{
-		title: 'Кабинет',
-		link: 'cabinet',
+		title: 'Дашборд',
+		link: 'dashboard',
 	},
 	{
 		title: 'Профиль',
@@ -24,7 +24,7 @@ export const cabinetNavItems: NavProfileItem[] = [
 ]
 
 export const cabinetPathMap = {
-	cabinet: 'Кабинет',
+	dashboard: 'Дашборд',
 	personal: 'Профиль',
 	docs: 'Документы',
 	contract: 'Договорная работа',

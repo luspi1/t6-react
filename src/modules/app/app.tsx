@@ -6,15 +6,18 @@ import { Layout } from 'src/layouts/layout/layout'
 import { HomePage } from 'src/pages/home-page/home-page'
 
 import { NotFound } from 'src/pages/not-found/not-found'
-import { OrganizerCabinet } from 'src/pages/organizer-cabinet/organizer-cabinet'
 import { ProfileLayout } from 'src/layouts/profile-layout/profile-layout'
 import { StatisticsPage } from 'src/pages/statistics-page/statistics-page'
 import { CabinetLayout } from 'src/layouts/cabinet-layout/cabinet-layout'
-import { OrganizerDocuments } from 'src/pages/organizer-documents/organizer-documents'
+import { OrganizerDocumentsPage } from 'src/pages/organizer-documents-page/organizer-documents-page'
 import { PersonalPage } from 'src/pages/personal-page/personal-page'
 import { ContractPage } from 'src/pages/contract-page/contract-page'
 import { TariffsPage } from 'src/pages/tariffs-page/tariffs-page'
 import { EmployeesPage } from 'src/pages/employees-page/employees-page'
+import { EventsListPage } from 'src/pages/events-list-page/events-list-page'
+import { CreateEventPage } from 'src/pages/create-event-page/create-event-page'
+import { TypesVisitorsPage } from 'src/pages/types-visitors-page/types-visitors-page'
+import { OrganizerDashboardPage } from 'src/pages/organizer-dashboard-page/organizer-dashboard-page'
 
 export const App: FC = () => {
 	return (
@@ -24,14 +27,17 @@ export const App: FC = () => {
 			</Route>
 			<Route path={AppRoute.Profile} element={<ProfileLayout />}>
 				<Route path={AppRoute.OrgCabinet} element={<CabinetLayout />}>
-					<Route path={AppRoute.Cabinet} element={<OrganizerCabinet />} />
+					<Route path={AppRoute.Dashboard} element={<OrganizerDashboardPage />} />
 					<Route path={AppRoute.Personal} element={<PersonalPage />} />
-					<Route path={AppRoute.OrganizerDocs} element={<OrganizerDocuments />} />
+					<Route path={AppRoute.OrganizerDocs} element={<OrganizerDocumentsPage />} />
 					<Route path={AppRoute.Contract} element={<ContractPage />} />
 					<Route path={AppRoute.Tariffs} element={<TariffsPage />} />
 				</Route>
 				<Route path={AppRoute.Statistics} element={<StatisticsPage />} />
 				<Route path={AppRoute.Employees} element={<EmployeesPage />} />
+				<Route path={AppRoute.TypesVisitors} element={<TypesVisitorsPage />} />
+				<Route path={AppRoute.EventsList} element={<EventsListPage />} />
+				<Route path={AppRoute.CreateEvent} element={<CreateEventPage />} />
 			</Route>
 			<Route path='*' element={<NotFound />} />
 		</Routes>

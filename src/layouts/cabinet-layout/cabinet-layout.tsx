@@ -6,23 +6,24 @@ import { AppRoute } from 'src/helpers/consts'
 import styles from './index.module.scss'
 import { useLocationMatch } from 'src/hooks/location-match'
 import { getCurrentPath } from 'src/helpers/utils'
+import { ProfileContent } from 'src/components/profile-content/profile-content'
 export const CabinetLayout = () => {
 	const matchesLocation = useLocationMatch([`${AppRoute.Profile}/${AppRoute.OrgCabinet}`])
 	const { pathname } = useLocation()
 	const currentPath = getCurrentPath(pathname)
 
-	if (matchesLocation) return <Navigate to={AppRoute.Cabinet} />
+	if (matchesLocation) return <Navigate to={AppRoute.Dashboard} />
 	return (
-		<div>
+		<>
 			<div className={styles.cabinetTop}>
 				<h2 className={styles.cabinetTitle}>
 					Организатор: {cabinetPathMap?.[currentPath as keyof typeof cabinetPathMap]}
 				</h2>
 				<ProfileNav navItems={cabinetNavItems} />
 			</div>
-			<div className={styles.cabinetContent}>
+			<ProfileContent>
 				<Outlet />
-			</div>
-		</div>
+			</ProfileContent>
+		</>
 	)
 }

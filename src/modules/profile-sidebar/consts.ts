@@ -18,15 +18,29 @@ export const menuItems: MenuItem[] = [
 		active: false,
 		childItems: [
 			{
-				title: 'Кабинет',
-				link: 'profile-org/cabinet',
-				linksMatches: [
-					'profile/profile-org/cabinet',
-					'profile/profile-org/personal',
-					'profile/profile-org/docs',
-					'profile/profile-org/contract',
-					'profile/profile-org/tariffs',
-				],
+				title: 'Дашборд',
+				link: 'profile-org/dashboard',
+				linksMatches: ['profile/profile-org/dashboard'],
+			},
+			{
+				title: 'Профиль',
+				link: 'profile-org/personal',
+				linksMatches: ['profile/profile-org/personal'],
+			},
+			{
+				title: 'Документы',
+				link: 'profile-org/docs',
+				linksMatches: ['profile/profile-org/docs'],
+			},
+			{
+				title: 'Договорная работа',
+				link: 'profile-org/contract',
+				linksMatches: ['profile/profile-org/contract'],
+			},
+			{
+				title: 'Тарифы и платежи',
+				link: 'profile-org/tariffs',
+				linksMatches: ['profile/profile-org/tariffs'],
 			},
 			{
 				title: 'Статистика',
@@ -37,6 +51,11 @@ export const menuItems: MenuItem[] = [
 				title: 'Сотрудники',
 				link: 'employees',
 				linksMatches: ['profile/employees'],
+			},
+			{
+				title: 'Типы посетителей',
+				link: 'types-visitors',
+				linksMatches: ['profile/types-visitors'],
 			},
 		],
 	},
@@ -54,26 +73,22 @@ export const menuItems: MenuItem[] = [
 			'</g>\n' +
 			'</svg>\n',
 		active: false,
+		border: true,
 		childItems: [
 			{
-				title: 'События 1',
-				link: 'profile-statistics',
-				linksMatches: ['profile/profile-statistics'],
+				title: 'Список событий',
+				link: 'events-list',
+				linksMatches: ['profile/events-list'],
 			},
 			{
-				title: 'События 2',
-				link: 'profile-statistics',
-				linksMatches: ['profile/profile-statistics'],
-			},
-			{
-				title: 'События 3',
-				link: 'profile-statistics',
-				linksMatches: ['profile/profile-statistics'],
+				title: 'Создать событие',
+				link: 'create-event',
+				linksMatches: ['profile/create-event'],
 			},
 		],
 	},
 	{
-		title: 'Сотрудники',
+		title: 'Судья',
 		icon:
 			'<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
 			'<g opacity="0.7">\n' +
@@ -86,6 +101,7 @@ export const menuItems: MenuItem[] = [
 			'</g>\n' +
 			'</svg>\n',
 		active: false,
+		border: true,
 		childItems: [
 			{ title: 'Сотрудники 1', link: '', linksMatches: ['profile/profile-statistics'] },
 			{ title: 'Сотрудники 2', link: '', linksMatches: ['profile/profile-statistics'] },
@@ -93,7 +109,75 @@ export const menuItems: MenuItem[] = [
 		],
 	},
 	{
-		title: 'Статистика',
+		title: 'Пользователь',
+		icon:
+			'<svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
+			'<g opacity="0.7" clip-path="url(#clip0_912_62)">\n' +
+			'<path d="M18.0361 18.5042V7.23718H13.5399V18.5042H11.7117V10.4497H7.21461V18.5042H5.43589V13.6612H0.938771V18.5042H0V19.6406H0.938771H5.43589H7.21461H11.7117H13.5399H18.0361H18.9757V18.5042H18.0361Z" fill="#8EFFF8"/>\n' +
+			'<path d="M15.6524 3.9654C16.1079 3.50994 16.5391 3.03651 16.9478 2.54601V3.95103H18.0348V0.640625H14.7244V1.72762H16.2013C12.5675 6.15107 7.08038 8.99703 0.9375 9.06441V10.1514C3.71069 10.1227 6.40124 9.56568 8.93816 8.49216C11.4535 7.42852 13.7129 5.90493 15.6524 3.9654Z" fill="#8EFFF8"/>\n' +
+			'</g>\n' +
+			'<defs>\n' +
+			'<clipPath id="clip0_912_62">\n' +
+			'<rect width="18.9757" height="19" fill="white" transform="translate(0 0.640625)"/>\n' +
+			'</clipPath>\n' +
+			'</defs>\n' +
+			'</svg>\n',
+		active: false,
+		childItems: [
+			{
+				title: 'Статистика 1',
+				link: 'profile-statistics',
+				linksMatches: ['profile/profile-statistics'],
+			},
+			{
+				title: 'Статистика 2',
+				link: 'profile-statistics',
+				linksMatches: ['profile/profile-statistics'],
+			},
+			{
+				title: 'Статистика 3',
+				link: 'profile-statistics',
+				linksMatches: ['profile/profile-statistics'],
+			},
+		],
+		border: false,
+	},
+	{
+		title: 'Группы',
+		icon:
+			'<svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
+			'<g opacity="0.7" clip-path="url(#clip0_912_62)">\n' +
+			'<path d="M18.0361 18.5042V7.23718H13.5399V18.5042H11.7117V10.4497H7.21461V18.5042H5.43589V13.6612H0.938771V18.5042H0V19.6406H0.938771H5.43589H7.21461H11.7117H13.5399H18.0361H18.9757V18.5042H18.0361Z" fill="#8EFFF8"/>\n' +
+			'<path d="M15.6524 3.9654C16.1079 3.50994 16.5391 3.03651 16.9478 2.54601V3.95103H18.0348V0.640625H14.7244V1.72762H16.2013C12.5675 6.15107 7.08038 8.99703 0.9375 9.06441V10.1514C3.71069 10.1227 6.40124 9.56568 8.93816 8.49216C11.4535 7.42852 13.7129 5.90493 15.6524 3.9654Z" fill="#8EFFF8"/>\n' +
+			'</g>\n' +
+			'<defs>\n' +
+			'<clipPath id="clip0_912_62">\n' +
+			'<rect width="18.9757" height="19" fill="white" transform="translate(0 0.640625)"/>\n' +
+			'</clipPath>\n' +
+			'</defs>\n' +
+			'</svg>\n',
+		active: false,
+		childItems: [
+			{
+				title: 'Статистика 1',
+				link: 'profile-statistics',
+				linksMatches: ['profile/profile-statistics'],
+			},
+			{
+				title: 'Статистика 2',
+				link: 'profile-statistics',
+				linksMatches: ['profile/profile-statistics'],
+			},
+			{
+				title: 'Статистика 3',
+				link: 'profile-statistics',
+				linksMatches: ['profile/profile-statistics'],
+			},
+		],
+		border: false,
+	},
+	{
+		title: 'Сообщества',
 		icon:
 			'<svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
 			'<g opacity="0.7" clip-path="url(#clip0_912_62)">\n' +
@@ -150,5 +234,6 @@ export const menuItems: MenuItem[] = [
 			'</g>\n' +
 			'</svg>\n',
 		active: false,
+		border: false,
 	},
 ]
