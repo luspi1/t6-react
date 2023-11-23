@@ -8,6 +8,7 @@ import { AppRoute } from 'src/helpers/consts'
 import styles from './index.module.scss'
 import { ProfileSidebar } from 'src/modules/profile-sidebar/profile-sidebar'
 import { useLocationMatch } from 'src/hooks/location-match'
+import { ProfileFooter } from 'src/modules/profile-footer/profile-footer'
 
 export const ProfileLayout: FC = () => {
 	const matchLocation = useLocationMatch([AppRoute.Profile])
@@ -23,6 +24,7 @@ export const ProfileLayout: FC = () => {
 					</div>
 				</Container>
 			</main>
+			<ProfileFooter />
 		</>
 	)
 }
