@@ -12,7 +12,8 @@ type SidebarSubmenuProps = {
 export const SidebarSubmenu: FC<SidebarSubmenuProps> = ({ items }) => {
 	const cx = cnBind.bind(styles)
 	const checkMatches = (links: string[]) => {
-		return useLocationMatch(links)
+		const [matchesLocation] = useLocationMatch(links)
+		return matchesLocation
 	}
 
 	return (

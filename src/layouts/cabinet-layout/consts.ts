@@ -1,9 +1,7 @@
-import { type NavProfileItem } from 'src/types/navProfile'
-
-export const cabinetNavItems: NavProfileItem[] = [
+export const cabinetNavItems = [
 	{
-		title: 'Дашборд',
-		link: 'dashboard',
+		title: 'Кабинет',
+		link: 'cabinet',
 	},
 	{
 		title: 'Профиль',
@@ -22,11 +20,3 @@ export const cabinetNavItems: NavProfileItem[] = [
 		link: 'tariffs',
 	},
 ]
-
-export const cabinetPathMap = {
-	dashboard: 'Дашборд',
-	personal: 'Профиль',
-	docs: 'Документы',
-	contract: 'Договорная работа',
-	tariffs: 'Тарифы и платежи',
-}

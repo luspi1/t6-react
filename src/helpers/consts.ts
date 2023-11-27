@@ -4,6 +4,7 @@ export enum AppRoute {
 	Personal = 'personal',
 	OrgCabinet = 'profile-org',
 	Dashboard = 'dashboard',
+	Cabinet = 'cabinet',
 	OrganizerDocs = 'docs',
 	Statistics = 'statistics',
 	Contract = 'contract',

@@ -11,7 +11,7 @@ import { useLocationMatch } from 'src/hooks/location-match'
 import { ProfileFooter } from 'src/modules/profile-footer/profile-footer'
 
 export const ProfileLayout: FC = () => {
-	const matchLocation = useLocationMatch([AppRoute.Profile])
+	const [matchLocation] = useLocationMatch([AppRoute.Profile])
 	if (matchLocation) return <Navigate to={AppRoute.OrgCabinet} />
 	return (
 		<>

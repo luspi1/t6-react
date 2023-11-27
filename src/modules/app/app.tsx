@@ -17,7 +17,7 @@ import { EmployeesPage } from 'src/pages/employees-page/employees-page'
 import { EventsListPage } from 'src/pages/events-list-page/events-list-page'
 import { CreateEventPage } from 'src/pages/create-event-page/create-event-page'
 import { TypesVisitorsPage } from 'src/pages/types-visitors-page/types-visitors-page'
-import { OrganizerDashboardPage } from 'src/pages/organizer-dashboard-page/organizer-dashboard-page'
+import { OrganizerCabinetPage } from 'src/pages/organizer-cabinet-page/organizer-cabinet-page'
 
 export const App: FC = () => {
 	return (
@@ -27,7 +27,7 @@ export const App: FC = () => {
 			</Route>
 			<Route path={AppRoute.Profile} element={<ProfileLayout />}>
 				<Route path={AppRoute.OrgCabinet} element={<CabinetLayout />}>
-					<Route path={AppRoute.Dashboard} element={<OrganizerDashboardPage />} />
+					<Route path={AppRoute.Cabinet} element={<OrganizerCabinetPage />} />
 					<Route path={AppRoute.Personal} element={<PersonalPage />} />
 					<Route path={AppRoute.OrganizerDocs} element={<OrganizerDocumentsPage />} />
 					<Route path={AppRoute.Contract} element={<ContractPage />} />

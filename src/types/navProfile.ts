@@ -1,4 +1,3 @@
-export type NavProfileItem = {
-	title: string
-	link: string
+export type ContentNav = {
+	linkIdx: number
 }

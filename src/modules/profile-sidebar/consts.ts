@@ -19,8 +19,8 @@ export const menuItems: MenuItem[] = [
 		childItems: [
 			{
 				title: 'Дашборд',
-				link: 'profile-org/dashboard',
-				linksMatches: ['profile/profile-org/dashboard'],
+				link: 'profile-org/cabinet',
+				linksMatches: ['profile/profile-org/cabinet'],
 			},
 			{
 				title: 'Профиль',

@@ -1,26 +1,21 @@
-import { ProfileNav } from 'src/components/profile-nav/profile-nav'
-import { cabinetNavItems, cabinetPathMap } from 'src/layouts/cabinet-layout/consts'
-import { Navigate, Outlet, useLocation } from 'react-router-dom'
+import { cabinetNavItems } from 'src/layouts/cabinet-layout/consts'
+import { Navigate, Outlet } from 'react-router-dom'
 import { AppRoute } from 'src/helpers/consts'
 
-import styles from './index.module.scss'
 import { useLocationMatch } from 'src/hooks/location-match'
-import { getCurrentPath } from 'src/helpers/utils'
 import { ProfileContent } from 'src/components/profile-content/profile-content'
+import { type ContentNav } from 'src/types/navProfile'
+import { ProfileContentHeader } from 'src/modules/profile-content-header/profile-content-header'
 export const CabinetLayout = () => {
-	const matchesLocation = useLocationMatch([`${AppRoute.Profile}/${AppRoute.OrgCabinet}`])
-	const { pathname } = useLocation()
-	const currentPath = getCurrentPath(pathname)
+	const [matchesLocation] = useLocationMatch<ContentNav>([
+		`${AppRoute.Profile}/${AppRoute.OrgCabinet}`,
+	])
 
-	if (matchesLocation) return <Navigate to={AppRoute.Dashboard} />
+	if (matchesLocation) return <Navigate to={AppRoute.Cabinet} />
+
 	return (
 		<>
-			<div className={styles.cabinetTop}>
-				<h2 className={styles.cabinetTitle}>
-					Организатор: {cabinetPathMap?.[currentPath as keyof typeof cabinetPathMap]}
-				</h2>
-				<ProfileNav navItems={cabinetNavItems} />
-			</div>
+			<ProfileContentHeader mainTitle='Организатор' navItems={cabinetNavItems} />
 			<ProfileContent>
 				<Outlet />
 			</ProfileContent>
