@@ -7,7 +7,7 @@ import { BottomArrowSvg } from 'src/UI/icons/bottomArrowSVG'
 
 export const ProfilePersonal: FC = () => {
 	const { data: userData } = useGetUserByIdQuery('0')
-	if (!userData) return <button>Войти</button>
+	if (!userData) return <button className={styles.authBtn}>Войти</button>
 	return (
 		<div className={styles.profilePersonal}>
 			<a className={styles.profileName} href='#'>
