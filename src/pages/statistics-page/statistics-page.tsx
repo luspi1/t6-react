@@ -32,7 +32,14 @@ export const StatisticsPage: FC = () => {
 						)}
 					</div>
 					<div className={styles.statisticsPageRight}>
-						<RoundChart />
+						<RoundChart
+							title='Мероприятия по месяцам'
+							percentData={data?.orgStatistics.percentEvents ?? 0}
+						/>
+						<RoundChart
+							title='Мероприятия по месяцам'
+							percentData={data?.orgStatistics.percentEvents ?? 0}
+						/>
 					</div>
 				</div>
 			</ProfileContent>

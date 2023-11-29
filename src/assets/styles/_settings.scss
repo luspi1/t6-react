@@ -115,3 +115,6 @@ a {
   font-weight: 600;
 }
 
+img, video, canvas {
+  overflow: hidden !important;
+}
