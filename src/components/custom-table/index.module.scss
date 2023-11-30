@@ -1,0 +1,55 @@
+.customTable {
+  min-width: 100%;
+  width: auto;
+  flex: 1;
+  border: 1px solid #C2CAC9;
+  border-radius: 5px;
+  display: grid;
+  border-collapse: collapse;
+
+  thead,
+  tbody,
+  tr {
+    display: contents;
+  }
+
+  thead {
+    th:first-child {
+      border-radius: 5px 0 0 0;
+    }
+    th:last-child {
+      border-radius: 0 5px 0 0;
+    }
+  }
+
+  th {
+    background: #EDF2F6;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.5;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    text-align: left;
+    min-height: 47px;
+    padding: 0 10px;
+    border-bottom: 1px solid #C2CAC9;
+  }
+
+  td {
+    padding: 15px 10px;
+    line-height: 1.2;
+    &:not(:last-child) {
+      padding-right: 10px;
+    }
+  }
+
+  tbody {
+    tr:not(:last-child) {
+      td {
+        border-bottom: 1px solid #C2CAC9;
+      }
+    }
+  }
+
+}
