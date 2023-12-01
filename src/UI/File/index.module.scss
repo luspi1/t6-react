@@ -1,0 +1,7 @@
+.fileLink {
+    &:hover {
+        svg path:first-child {
+            fill: #113770;
+        }
+    }    
+}
