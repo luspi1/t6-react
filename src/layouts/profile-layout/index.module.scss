@@ -5,9 +5,13 @@
 .profileLayoutContainer {
   display: flex;
   gap: 40px;
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
 }
 
 .profileRight {
   flex-grow: 1;
+  overflow-x: auto;
 }
 

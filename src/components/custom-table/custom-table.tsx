@@ -23,11 +23,11 @@ export const CustomTable: FC<CustomTableProps & React.HTMLAttributes<HTMLTableEl
 	additionalElements,
 	...rest
 }) => {
-	const cellArraysCopy = [...cellsData]
+	const copyCellsData = [...cellsData]
 
-	if (additionalElements && cellArraysCopy[0]?.length !== colTitles?.length) {
+	if (additionalElements && copyCellsData[0]?.length !== colTitles?.length) {
 		additionalElements?.forEach((addEl) => {
-			cellArraysCopy.forEach((cells) => cells.splice(addEl.col, 0, addEl.el))
+			copyCellsData.forEach((cells) => cells.splice(addEl.col, 0, addEl.el))
 		})
 	}
 
@@ -44,7 +44,7 @@ export const CustomTable: FC<CustomTableProps & React.HTMLAttributes<HTMLTableEl
 			)}
 
 			<tbody>
-				{cellArraysCopy?.map((row, rowIdx) => (
+				{copyCellsData?.map((row, rowIdx) => (
 					<tr key={rowIdx}>
 						{row.map((cell, cellIdx) => (
 							<td key={cellIdx}>{cell}</td>
