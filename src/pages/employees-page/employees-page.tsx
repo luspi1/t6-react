@@ -3,9 +3,9 @@ import { EmployeesTable } from 'src/pages/employees-page/employees-table/employe
 
 export const EmployeesPage: FC = () => {
 	return (
-		<div>
+		<>
 			<p>Сотрудники</p>
 			<EmployeesTable />
-		</div>
+		</>
 	)
 }
