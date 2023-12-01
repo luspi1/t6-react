@@ -1,0 +1,49 @@
+.contractWrapper {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px !important;
+    border-radius: 5px !important;
+}
+
+.contractNameWrapper {
+    min-width: 380px;
+}
+
+.contractName {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.noContract {
+    color: #C2CAC9;
+}
+
+.contractStatus {
+    color: #9A0606;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: normal;
+
+    &Green {
+        color: #069A7F;
+    }
+}
+
+.cost {
+    position: relative;
+    margin-left: auto;
+    padding-right: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+
+    &::after {
+        position: absolute;
+        right: 5px;
+        content: '₽';
+        font-weight: 400;
+    }
+}

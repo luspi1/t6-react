@@ -1,0 +1,32 @@
+.contractsList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-bottom: 30px;
+}
+
+.controlPanel {
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+        min-width: 430px;
+    }
+}
+
+.searchButton {
+    color: #113770;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+
+    border-radius: 3px;
+    border: 1px solid #113770;
+
+    padding: 3px 5px;
+}

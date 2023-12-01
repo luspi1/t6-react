@@ -1,0 +1,41 @@
+.contractButton {
+    margin-left: auto;
+    padding: 2px 6px 4px 8px;
+    border-radius: 3px;
+    border: 1px solid #C2CAC9;
+    background: #FFF;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: normal;
+
+    &Green {
+        color: #069A7F;
+
+        &:hover {
+            border: 1px solid #069A7F;
+        }
+    }
+
+    &Red {
+        color: #9A0606;
+
+        &:hover {
+            border: 1px solid #9A0606;
+        }
+    }
+
+    &Blue {
+        color: #113770;
+
+        &:hover {
+            border: 1px solid #113770;
+        }
+    }
+}
+
+.buttonsContainer {
+    margin-left: auto;
+    display: flex;
+    gap: 6px;
+
+}
