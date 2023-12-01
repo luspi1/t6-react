@@ -5,17 +5,17 @@ import cn from 'classnames'
 import cnBind from 'classnames/bind'
 
 type MainInputProps = {
-	className?: string
-	svgnode?: ReactNode
+	svgNode?: ReactNode
 }
-export const MainInput: FC<MainInputProps & React.InputHTMLAttributes<HTMLInputElement>> = (
-	props,
-) => {
+export const MainInput: FC<MainInputProps & React.InputHTMLAttributes<HTMLInputElement>> = ({
+	svgNode,
+	...props
+}) => {
 	const cx = cnBind.bind(styles)
 	return (
 		<div className={cn(styles.mainInputWrapper, props.className)}>
-			<input {...props} className={cx({ _iconInput: props.svgnode })} />
-			{props?.svgnode}
+			<input {...props} className={cx({ _iconInput: svgNode })} />
+			{svgNode}
 		</div>
 	)
 }

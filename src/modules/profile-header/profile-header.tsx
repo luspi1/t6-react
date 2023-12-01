@@ -14,7 +14,7 @@ export const ProfileHeader: FC = () => {
 					className={styles.profileSearchInput}
 					name='global_search'
 					placeholder='Поиск'
-					svgnode={<SearchSvg />}
+					svgNode={<SearchSvg />}
 				/>
 				<ProfilePersonal />
 			</Container>
