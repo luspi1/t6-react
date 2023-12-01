@@ -1,0 +1,42 @@
+.employeesTable {
+  grid-template-columns:
+    minmax(40px, 0.2fr)
+    minmax(110px, 0.9fr)
+    minmax(80px, 0.65fr)
+    minmax(100px, 2fr)
+    minmax(80px, 0.6fr)
+    minmax(70px, 0.6fr)
+    minmax(112px, 0.8fr);
+
+
+  th:nth-child(4), th:nth-child(7) {
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  td:nth-child(7) {
+    text-align: left;
+  }
+
+
+  td:nth-child(4) {
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+}
+
+.editLink {
+  color: #000;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  border-radius: 3px;
+  min-width: 112px;
+  border: 1px solid #C2CAC9;
+  background: #FFF;
+  line-height: 1;
+  padding: 3px 7px;
+}
