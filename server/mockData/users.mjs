@@ -18,7 +18,19 @@ export let users = [
 					position: 'Помощник',
 					fullName: 'Никанорова Василиса Константиновна (Вася)',
 					dateEmployment: '27.03.2023',
-					status: 'Активен'
+					status: 'Активен',
+					email: 'test@ya.ru',
+					phone: '+7 (999) 999-99-99',
+					avatar: 'https://masterpiecer-images.s3.yandex.net/a2e0950d474b11ee99acbaea8797b5f2:upscaled',
+					events: [
+						{
+							id:'1',
+							relevance: 'Прошедшее',
+							position: 'Нападающий',
+							title: 'Битва на Неве — 2023 (спортивный турнир)',
+							dates: '23.03.2023 — 24.03.2023'
+						}
+					]
 				},
 				{
 					id: '2',
@@ -26,7 +38,32 @@ export let users = [
 					position: 'Вратарь',
 					fullName: 'Иванов Иван Иванович (Оригинал)',
 					dateEmployment: '27.03.2023',
-					status: 'Активен'
+					status: 'Активен',
+					email: 'ivanov@inanov.iv',
+					phone: '+7 (999) 999-99-99',
+					events: [
+						{
+							id:'1',
+							relevance: 'Прошедшее',
+							position: 'Вратарь',
+							title: 'Битва на Неве — 2023 (спортивный турнир)',
+							dates: '23.03.2023 — 24.03.2023'
+						},
+						{
+							id:'2',
+							relevance: 'Предстоящее',
+							position: 'Вратарь',
+							title: 'Судейский семинар ММА (учебное мероприятие)',
+							dates: '26.01.2024 — 26.01.2024'
+						},
+						{
+							id:'3',
+							relevance: 'Предстоящее',
+							position: 'Вратарь',
+							title: 'Судейский семинар ММА (учебное мероприятие)',
+							dates: '29.01.2024 — 30.01.2024'
+						},
+					]
 				}
 			]
 		},
