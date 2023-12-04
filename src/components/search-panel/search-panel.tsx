@@ -1,10 +1,12 @@
-import React, { type FC, type ReactNode } from 'react'
+import React, { type FC, type ReactNode, useState } from 'react'
 import { type SelOption } from 'src/types/select'
 
 import styles from './index.module.scss'
 import { MainInput } from 'src/UI/MainInput/MainInput'
 import cn from 'classnames'
 import Select from 'react-select'
+import { type SearchPanelData } from 'src/types/searchPanel'
+import { MainButton } from 'src/UI/MainButton/MainButton'
 
 type SearchPanelProps = {
 	selectOptions: SelOption[]
@@ -13,26 +15,48 @@ type SearchPanelProps = {
 		placeholder: string
 	}
 	additionalNode?: ReactNode
+	handleFormData: (values: SearchPanelData) => void
 }
 export const SearchPanel: FC<SearchPanelProps & React.HTMLAttributes<HTMLDivElement>> = ({
 	additionalNode,
 	searchConfig: { name, placeholder },
 	selectOptions,
+	handleFormData,
 	...props
 }) => {
+	const [inputValue, setInputValue] = useState<string>('')
+	const [selectValue, setSelectValue] = useState<SelOption | null>(selectOptions[0])
+
 	return (
 		<div className={cn(styles.searchPanelWrapper, props.className)}>
 			{additionalNode}
 			<form
-				className={styles.searchPanel}
+				className={styles.searchPanelForm}
 				action='#'
 				onSubmit={(e) => {
 					e.preventDefault()
+					const formData: SearchPanelData = {
+						inputValue,
+						selectValue,
+					}
+					handleFormData(formData)
 				}}
 			>
-				<MainInput name={name} placeholder={placeholder} />
-				<Select classNamePrefix='main-select' options={selectOptions} />
-				<button type='submit'>Искать</button>
+				<MainInput
+					className={styles.searchPanelInput}
+					name={name}
+					placeholder={placeholder}
+					value={inputValue}
+					onChange={(e) => setInputValue(e.currentTarget.value)}
+				/>
+				<Select
+					classNamePrefix='main-select'
+					options={selectOptions}
+					value={selectValue}
+					defaultValue={selectOptions[0]}
+					onChange={setSelectValue}
+				/>
+				<MainButton type='submit'>Искать</MainButton>
 			</form>
 		</div>
 	)

@@ -1,5 +1,7 @@
 .mainInputWrapper {
   position: relative;
+  height: 35px;
+
   svg {
     position: absolute;
     right: 10px;
@@ -8,6 +10,7 @@
   }
   input {
     width: 100%;
+    height: 100%;
     border-radius: 5px;
     outline: 1px solid #C2CAC9;
     background: #FFF;

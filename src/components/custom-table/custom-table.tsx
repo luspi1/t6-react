@@ -21,7 +21,7 @@ export const CustomTable: FC<CustomTableProps & React.HTMLAttributes<HTMLTableEl
 	cellsData,
 	className,
 	additionalElements,
-	...rest
+	...props
 }) => {
 	const copyCellsData = [...cellsData]
 
@@ -32,7 +32,7 @@ export const CustomTable: FC<CustomTableProps & React.HTMLAttributes<HTMLTableEl
 	}
 
 	return (
-		<table {...rest} className={cn(styles.customTable, className)}>
+		<table {...props} className={cn(styles.customTable, className)}>
 			{!!colTitles && (
 				<thead>
 					<tr>

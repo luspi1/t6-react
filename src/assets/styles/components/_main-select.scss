@@ -1,0 +1,37 @@
+.main-select {
+
+  &__control {
+    min-width: 200px;
+    min-height: 37px !important;
+    height: 37px !important;
+    border: 1px solid #C2CAC9 !important;
+    border-radius: 5px !important;
+    align-self: flex-start;
+    margin-top: -1px;
+    box-shadow: none !important;
+  }
+
+  &__input-container {
+    color: #000000 !important;
+    font-size: 14px;
+    line-height: 1;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  &__value-container {
+    padding: 0 10px !important;
+  }
+
+  &__single-value {
+    color: #000000 !important;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  &__indicator-separator {
+    display: none;
+  }
+
+
+}
