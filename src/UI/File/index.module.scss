@@ -1,0 +1,22 @@
+.fileLink {
+    display: block;
+    position: relative;
+
+    .deleteFileIcon {
+        display: none;
+        position: absolute;
+        top: -10px;
+        right: -20px;
+        padding: 10px;
+    }
+
+    &:hover {
+        .fileIcon svg path:first-child {
+            fill: #113770;
+        }
+
+        .deleteFileIcon {
+            display: block;
+        }
+    }
+}
