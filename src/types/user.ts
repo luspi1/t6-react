@@ -13,6 +13,7 @@ export type Contract = {
 	date: string
 	status: ContractStatus
 	cost?: string
+	type: 'payment' | 'contract'
 }
 
 export type EmployeeUser = {

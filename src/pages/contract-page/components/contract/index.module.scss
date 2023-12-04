@@ -1,8 +1,10 @@
 .contractWrapper {
     display: flex;
     align-items: center;
-    padding: 5px 10px !important;
-    border-radius: 5px !important;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px dashed #98A5A3;
+    background: #F4F7FA;
 }
 
 .contractNameWrapper {
@@ -27,7 +29,7 @@
     font-weight: 500;
     line-height: normal;
 
-    &Green {
+    &.contractStatusGreen {
         color: #069A7F;
     }
 }

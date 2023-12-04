@@ -1,14 +1,15 @@
 import { type FC, useState } from 'react'
-import cn from 'classnames'
 
-import styles from './index.module.scss'
 import { AddFile } from 'src/components/add-file/add-file'
-import { ContractButton } from 'src/pages/contract-page/components/contract-button/contract-button'
-import { CardInfo } from 'src/UI/CardInfo/CardInfo'
 import { ContractStatus } from 'src/helpers/consts'
+import { ContractButton } from 'src/pages/contract-page/components/contract-button/contract-button'
+
+import cn from 'classnames'
+import cnBind from 'classnames/bind'
+import styles from './index.module.scss'
 
 type ContractItemProps = {
-	type: 'contract' | 'payment'
+	type: 'payment' | 'contract' | 'not-created'
 	contractData?: {
 		name: string
 		date: string
@@ -17,33 +18,33 @@ type ContractItemProps = {
 	}
 }
 
-export const ContractItem: FC<ContractItemProps> = ({ type, contractData }) => {
+export const ContractItem: FC<ContractItemProps> = ({ contractData, type }) => {
 	const [downloadedContracts, setDownloadedContracts] = useState<any>([])
 	console.log(`downloadedContracts: ${downloadedContracts}`)
 
+	const cx = cnBind.bind(styles)
+
 	return (
-		<CardInfo className={styles.contractWrapper}>
-			{contractData ? (
+		<li className={styles.contractWrapper}>
+			{type === 'not-created' ? (
+				<div className={styles.contractNameWrapper}>
+					<p className={cn(styles.contractName, styles.noContract)}>Необходимо создать Договор</p>
+					<p className={styles.contractStatus}>договор не создан</p>
+				</div>
+			) : (
 				<div className={styles.contractNameWrapper}>
 					<p className={styles.contractName}>
 						{contractData?.name} от {contractData?.date}
 					</p>
 					<p
-						className={cn(
-							styles.contractStatus,
-							contractData.status === ContractStatus.ContractSigned ||
-								contractData.status === ContractStatus.ActSigned
-								? styles.contractStatusGreen
-								: '',
-						)}
+						className={cx(styles.contractStatus, {
+							contractStatusGreen:
+								contractData?.status === ContractStatus.ContractSigned ||
+								contractData?.status === ContractStatus.ActSigned,
+						})}
 					>
 						{contractData?.status}
 					</p>
-				</div>
-			) : (
-				<div className={styles.contractNameWrapper}>
-					<p className={cn(styles.contractName, styles.noContract)}>Необходимо создать Договор</p>
-					<p className={styles.contractStatus}>договор не создан</p>
 				</div>
 			)}
 
@@ -58,6 +59,6 @@ export const ContractItem: FC<ContractItemProps> = ({ type, contractData }) => {
 			) : (
 				<p className={styles.cost}>{contractData?.cost}</p>
 			)}
-		</CardInfo>
+		</li>
 	)
 }

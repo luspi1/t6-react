@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 
 import styles from './index.module.scss'
-import { CardInfo } from 'src/UI/CardInfo/CardInfo'
+import { CardInfo } from 'src/components/card-info/card-info'
 export const OrganizerCabinetPage: FC = () => {
 	return (
 		<div className={styles.cabinetPage}>

@@ -35,14 +35,16 @@ export let users = [
 				id: '0',
 				name: 'Договор № 27-123',
 				date: '23.06.2023',
-				status: 'договор подписан обеими сторонами'
+				status: 'договор подписан обеими сторонами',
+				type: 'contract'
 			},
 
 			{
 				id: '1',
 				name: 'Договор № 27-123',
 				date: '23.06.2023',
-				status: 'договор не подписан'
+				status: 'договор не подписан',
+				type: 'contract'
 			}
 		],
 
@@ -52,7 +54,8 @@ export let users = [
 				name: 'Счёт № 27-123',
 				date: '23.06.2023',
 				status: 'счет оплачен',
-				cost: '20 000'
+				cost: '20000',
+				type: 'payment'
 			},
 
 			{
@@ -60,7 +63,8 @@ export let users = [
 				name: 'Акт № 27-123',
 				date: '23.06.2023',
 				status: 'акт не подписан',
-				cost: '20 000'
+				cost: '20000',
+				type: 'payment'
 			},
 		],
 	},
