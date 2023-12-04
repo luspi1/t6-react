@@ -1,3 +1,5 @@
+import { type ContractStatus } from 'src/helpers/consts'
+
 export type UserOrgStatistics = {
 	events: number[]
 	visits: number[]
@@ -9,7 +11,7 @@ export type Contract = {
 	id: number
 	name: string
 	date: string
-	status: string
+	status: ContractStatus
 	cost?: string
 }
 

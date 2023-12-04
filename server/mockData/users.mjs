@@ -33,6 +33,7 @@ export let users = [
 				name: 'Счёт № 27-123',
 				date: '23.06.2023',
 				status: 'счет оплачен',
+				cost: '20 000'
 			},
 
 			{
@@ -40,6 +41,7 @@ export let users = [
 				name: 'Акт № 27-123',
 				date: '23.06.2023',
 				status: 'акт не подписан',
+				cost: '20 000'
 			},
 		],
 	},

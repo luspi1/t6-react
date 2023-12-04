@@ -6,7 +6,7 @@ import { Button } from 'src/UI/Button/button'
 import { ContractStatus, ContractsInteraction } from 'src/helpers/consts'
 
 type ContractButtonProps = {
-	contractStatus: string | undefined
+	contractStatus: ContractStatus | undefined
 }
 
 export const ContractButton: FC<ContractButtonProps> = ({ contractStatus }) => {

@@ -1,10 +1,14 @@
 import { type FC, type ChangeEvent, useState } from 'react'
 
-import { PlusSvg } from 'src/UI/icons/plusSVG'
+import { AddFileSvg } from 'src/UI/icons/addFileSVG'
 import styles from './index.module.scss'
 import { File } from 'src/UI/File/File'
 
-export const AddFile: FC = () => {
+type AddFileProps = {
+	inputName: string
+}
+
+export const AddFile: FC<AddFileProps> = ({ inputName }) => {
 	const [file, setFile] = useState<File>()
 
 	const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -15,12 +19,12 @@ export const AddFile: FC = () => {
 
 	return (
 		<label className={styles.inputFile}>
-			<input type='file' name='file' onChange={handleFileChange} />
-			<span>
-				<PlusSvg />
+			<input type='file' name={inputName} onChange={handleFileChange} />
+			<span className={styles.addFileIcon}>
+				<AddFileSvg />
 			</span>
 
-			{file && <File fileType='doc' />}
+			<p style={{ border: '3px solid green' }}>{file && <File fileType='doc' />}</p>
 		</label>
 	)
 }

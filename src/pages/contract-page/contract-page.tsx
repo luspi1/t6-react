@@ -6,21 +6,14 @@ import { OrgStatus } from 'src/modules/org-status/org-status'
 import { ContractItem } from './components/contract/contract'
 import { MainInput } from 'src/UI/MainInput/MainInput'
 import { Button } from 'src/UI/Button/button'
-
 import { SelectArrow } from 'src/UI/icons/selectArrow'
 import { Pagination } from 'src/UI/Pagination/Pagination'
+
 import { useGetUserByIdQuery } from 'src/store/user/user.api'
 
-interface ISelectOption {
-	label: string
-	value: string
-}
-
-const selectOptions: ISelectOption[] = [
-	{ value: '0', label: 'все документы' },
-	{ value: '1', label: '1' },
-	{ value: '2', label: '2' },
-]
+import { type SelOption } from 'src/types/select'
+import { ContractItemBlock } from 'src/helpers/consts'
+import { selectOptions } from 'src/helpers/selectOptions'
 
 const customStyles = {
 	control: () => ({
@@ -53,7 +46,7 @@ const DropdownIndicator = (props: any) => {
 
 export const ContractPage: FC = () => {
 	const { data: userData } = useGetUserByIdQuery('0')
-	const [selectedOption, setSelectedOption] = useState<null | ISelectOption>(selectOptions[0])
+	const [selectedOption, setSelectedOption] = useState<null | SelOption>(selectOptions[0])
 
 	return (
 		<div>
@@ -62,10 +55,10 @@ export const ContractPage: FC = () => {
 			<div className={styles.contractsList}>
 				{userData?.contracts?.length ? (
 					userData?.contracts.map((item) => (
-						<ContractItem key={item.id} contractData={item} type='contract' />
+						<ContractItem key={item.id} contractData={item} type={ContractItemBlock.Contract} />
 					))
 				) : (
-					<ContractItem type='contract' />
+					<ContractItem type={ContractItemBlock.Contract} />
 				)}
 			</div>
 
@@ -91,10 +84,10 @@ export const ContractPage: FC = () => {
 			<div className={styles.contractsList}>
 				{userData?.contracts?.length ? (
 					userData?.payments?.map((item) => (
-						<ContractItem key={item.id} contractData={item} type='payment' />
+						<ContractItem key={item.id} contractData={item} type={ContractItemBlock.Payment} />
 					))
 				) : (
-					<ContractItem type='payment' />
+					<ContractItem type={ContractItemBlock.Payment} />
 				)}
 			</div>
 

@@ -41,3 +41,8 @@ export enum ContractsInteraction {
 	ContractTerminate = 'Расторгнуть договор',
 	AdditionalAgreement = 'Дополнительное соглашение',
 }
+
+export enum ContractItemBlock {
+	Contract = 'contract',
+	Payment = 'payment',
+}
