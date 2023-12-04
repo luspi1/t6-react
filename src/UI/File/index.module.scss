@@ -5,8 +5,9 @@
     .deleteFileIcon {
         display: none;
         position: absolute;
-        top: 0;
-        right: -10px;
+        top: -10px;
+        right: -20px;
+        padding: 10px;
     }
 
     &:hover {

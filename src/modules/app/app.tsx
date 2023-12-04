@@ -18,6 +18,9 @@ import { EventsListPage } from 'src/pages/events-list-page/events-list-page'
 import { CreateEventPage } from 'src/pages/create-event-page/create-event-page'
 import { TypesVisitorsPage } from 'src/pages/types-visitors-page/types-visitors-page'
 import { OrganizerCabinetPage } from 'src/pages/organizer-cabinet-page/organizer-cabinet-page'
+import { EmployeesLayout } from 'src/layouts/employees-layout/employees-layout'
+import { OneEmployeePage } from 'src/pages/one-employee-page/one-employee-page'
+import { WorkforcePage } from 'src/pages/workforce-page/workforce-page'
 
 export const App: FC = () => {
 	return (
@@ -34,7 +37,11 @@ export const App: FC = () => {
 					<Route path={AppRoute.Tariffs} element={<TariffsPage />} />
 				</Route>
 				<Route path={AppRoute.Statistics} element={<StatisticsPage />} />
-				<Route path={AppRoute.Employees} element={<EmployeesPage />} />
+				<Route path={AppRoute.OrgEmployees} element={<EmployeesLayout />}>
+					<Route path={AppRoute.Employees} element={<EmployeesPage />} />
+					<Route path={AppRoute.OneEmployee} element={<OneEmployeePage />} />
+					<Route path={AppRoute.Workforce} element={<WorkforcePage />} />
+				</Route>
 				<Route path={AppRoute.TypesVisitors} element={<TypesVisitorsPage />} />
 				<Route path={AppRoute.EventsList} element={<EventsListPage />} />
 				<Route path={AppRoute.CreateEvent} element={<CreateEventPage />} />

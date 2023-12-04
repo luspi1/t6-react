@@ -49,8 +49,12 @@ export const menuItems: MenuItem[] = [
 			},
 			{
 				title: 'Сотрудники',
-				link: 'employees',
-				linksMatches: ['profile/employees'],
+				link: 'employees-org',
+				linksMatches: [
+					'profile/employees-org/employees',
+					'profile/employees-org/one-employee',
+					'profile/employees-org/workforce',
+				],
 			},
 			{
 				title: 'Типы посетителей',

@@ -6,9 +6,10 @@ import { File } from 'src/UI/File/File'
 
 type AddFileProps = {
 	inputName: string
+	downloadFile: any
 }
 
-export const AddFile: FC<AddFileProps> = ({ inputName }) => {
+export const AddFile: FC<AddFileProps> = ({ inputName, downloadFile }) => {
 	const [file, setFile] = useState<File>()
 
 	const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +25,7 @@ export const AddFile: FC<AddFileProps> = ({ inputName }) => {
 				<AddFileSvg />
 			</span>
 
-			<p style={{ border: '3px solid green' }}>{file && <File fileType='doc' />}</p>
+			<div>{file && <File fileType='doc' downloadFile={downloadFile} />}</div>
 		</label>
 	)
 }

@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { type FC, useState } from 'react'
 import cn from 'classnames'
 
 import styles from './index.module.scss'
@@ -18,6 +18,9 @@ type ContractItemProps = {
 }
 
 export const ContractItem: FC<ContractItemProps> = ({ type, contractData }) => {
+	const [downloadedContracts, setDownloadedContracts] = useState<any>([])
+	console.log(`downloadedContracts: ${downloadedContracts}`)
+
 	return (
 		<CardInfo className={styles.contractWrapper}>
 			{contractData ? (
@@ -44,7 +47,12 @@ export const ContractItem: FC<ContractItemProps> = ({ type, contractData }) => {
 				</div>
 			)}
 
-			<AddFile inputName={`${contractData?.name} contract file`} />
+			<AddFile
+				inputName={`${contractData?.name} contract file`}
+				downloadFile={() => {
+					setDownloadedContracts([1, 2])
+				}}
+			/>
 			{type === 'contract' ? (
 				<ContractButton contractStatus={contractData?.status} />
 			) : (
