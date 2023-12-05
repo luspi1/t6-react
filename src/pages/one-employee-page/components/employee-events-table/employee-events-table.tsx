@@ -1,25 +1,29 @@
 import { type FC } from 'react'
+import { type EmployeeEventItem } from 'src/types/user'
+
 import { CustomTable } from 'src/components/custom-table/custom-table'
-import { tableColTitles } from 'src/pages/employees-page/employees-table/consts'
-import { formatTableData } from 'src/helpers/utils'
+import { formatToTable } from 'src/helpers/utils'
 import { useGetUserByIdQuery } from 'src/store/user/user.api'
+import { tableColTitles } from 'src/pages/one-employee-page/components/employee-events-table/consts'
 
 import styles from './index.module.scss'
 
 export const EmployeeEventsTable: FC = () => {
 	const { data } = useGetUserByIdQuery('0')
-
+	if (!data?.employees.employeesList[1].events) return <h3>Данных о мероприятиях не найдено</h3>
 	return (
 		<>
-			{data?.employees?.employeesList?.events.length ? (
-				<CustomTable
-					className={styles.employeesTable}
-					colTitles={tableColTitles}
-					cellsData={formatTableData(data.employees.employeesList)}
-				/>
-			) : (
-				<h3>Данных о мероприятиях не найдено</h3>
-			)}
+			<CustomTable
+				className={styles.employeeEventsTable}
+				colTitles={tableColTitles}
+				cellsData={formatToTable<EmployeeEventItem>(data.employees.employeesList[1].events, [
+					'id',
+					'relevance',
+					'position',
+					'title',
+					'dates',
+				])}
+			/>
 		</>
 	)
 }

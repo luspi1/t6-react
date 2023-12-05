@@ -16,13 +16,25 @@ export type Contract = {
 	type: 'payment' | 'contract'
 }
 
-export type EmployeeUser = {
+export type EmployeeEventItem = {
+	id: string
+	relevance: string
+	position: string
+	title: string
+	dates: string
+}
+
+export type EmployeeItem = {
 	id: string
 	typeEmployment: string
 	position: string
 	fullName: string
 	dateEmployment: string
 	status: string
+	email: string
+	phone: string
+	avatar: string
+	events: EmployeeEventItem[]
 }
 
 export type User = {
@@ -34,6 +46,6 @@ export type User = {
 	contracts?: Contract[]
 	payments?: Contract[]
 	employees: {
-		employeesList: Array<Record<string, string>>
+		employeesList: EmployeeItem[]
 	}
 }

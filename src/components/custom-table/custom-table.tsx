@@ -3,7 +3,7 @@ import React, { type FC, type ReactNode } from 'react'
 import styles from './index.module.scss'
 import cn from 'classnames'
 
-type TableCells = Array<string | ReactNode>
+export type TableCells = Array<string | ReactNode>
 
 type AddEl = {
 	col: number

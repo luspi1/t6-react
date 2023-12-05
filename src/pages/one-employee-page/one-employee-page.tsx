@@ -6,6 +6,7 @@ import { type SearchPanelData } from 'src/types/searchPanel'
 import { EventSelectOptions } from 'src/pages/one-employee-page/consts'
 
 import styles from './index.module.scss'
+import { EmployeeEventsTable } from 'src/pages/one-employee-page/components/employee-events-table/employee-events-table'
 
 export const OneEmployeePage: FC = () => {
 	const getSearchPanelValues = (data: SearchPanelData) => {
@@ -20,6 +21,7 @@ export const OneEmployeePage: FC = () => {
 				searchConfig={{ name: 'event_search', placeholder: 'Поиск по названию мероприятия' }}
 				handleFormData={getSearchPanelValues}
 			/>
+			<EmployeeEventsTable />
 		</div>
 	)
 }
