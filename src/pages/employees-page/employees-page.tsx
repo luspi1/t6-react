@@ -5,7 +5,7 @@ import { employeeSelect } from 'src/pages/employees-page/consts'
 import { type SearchPanelData } from 'src/types/searchPanel'
 import { MainButton } from 'src/UI/MainButton/MainButton'
 import { PlusSvg } from 'src/UI/icons/plusSVG'
-import { Pagination } from 'src/components/pagination/Pagination'
+import { Pagination } from 'src/components/pagination/pagination'
 
 export const EmployeesPage: FC = () => {
 	const getSearchPanelValues = (data: SearchPanelData) => {
