@@ -5,7 +5,7 @@ import { useGetUserByIdQuery } from 'src/store/user/user.api'
 import { ContractSelectOptions } from 'src/pages/contract-page/consts'
 
 import { OrgStatus } from 'src/modules/org-status/org-status'
-import { Pagination } from 'src/UI/Pagination/Pagination'
+import { Pagination } from 'src/components/pagination/Pagination'
 import { SearchPanel } from 'src/components/search-panel/search-panel'
 import { ContractsList } from 'src/pages/contract-page/components/contracts-list/contracts-list'
 
@@ -26,7 +26,7 @@ export const ContractPage: FC = () => {
 				handleFormData={getSearchPanelValues}
 			/>
 			<ContractsList contracts={userData?.payments} />
-			<Pagination paginationSteps={[1, 2, 3, 4, 5]} />
+			<Pagination pagesCount={5} activePage={2} />
 		</div>
 	)
 }

@@ -1,0 +1,16 @@
+.isActiveAcc,
+.isNotActiveAcc {
+  color: #069A7F;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  svg {
+    margin-right: 5px;
+    width: 15px;
+    height: 10px;
+  }
+}
+
+.isNotActiveAcc {
+  color: #9A0606;
+}

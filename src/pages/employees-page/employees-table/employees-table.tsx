@@ -5,27 +5,18 @@ import { Link } from 'react-router-dom'
 import { useGetUserByIdQuery } from 'src/store/user/user.api'
 
 import styles from './index.module.scss'
-import { type EmployeeItem } from 'src/types/user'
-import { formatToTable } from 'src/helpers/utils'
 
 export const EmployeesTable: FC = () => {
 	const { data } = useGetUserByIdQuery('0')
 
-	if (!data?.employees.employeesList) return <h3>Нет сотрудников</h3>
+	if (!data?.employees.tableEmployees) return <h3>Нет сотрудников</h3>
 
 	return (
 		<>
 			<CustomTable
 				className={styles.employeesTable}
 				colTitles={tableColTitles}
-				cellsData={formatToTable<EmployeeItem>(data.employees.employeesList, [
-					'id',
-					'typeEmployment',
-					'position',
-					'fullName',
-					'dateEmployment',
-					'status',
-				])}
+				cellsData={data.employees.tableEmployees}
 				additionalElements={[
 					{
 						col: 6,

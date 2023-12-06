@@ -4,7 +4,7 @@ export const formatToCurrency = (num: number) => {
 	return new Intl.NumberFormat('ru-RU', { useGrouping: true }).format(num)
 }
 
-export const formatToTable = <T>(dataArr: T[], keyArr: Array<keyof (typeof dataArr)[0]>) => {
+export const formatToTable = <T>(dataArr: T[], keyArr: Array<keyof T>) => {
 	return dataArr.map((el) => {
 		return keyArr.map((key) => String(el[key]))
 	})

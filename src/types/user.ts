@@ -7,6 +7,8 @@ export type UserOrgStatistics = {
 	percentEvents: number
 }
 
+export type TableData = string[][]
+
 export type Contract = {
 	id: number
 	name: string
@@ -26,14 +28,16 @@ export type EmployeeEventItem = {
 
 export type EmployeeItem = {
 	id: string
-	typeEmployment: string
+	typeEmployment: 'постоянный' | 'временный'
+	status: 'активен' | 'не активен'
+	accountActivity: boolean
 	position: string
 	fullName: string
 	dateEmployment: string
-	status: string
 	email: string
 	phone: string
 	avatar: string
+	tableEvents: TableData
 	events: EmployeeEventItem[]
 }
 
@@ -46,6 +50,7 @@ export type User = {
 	contracts?: Contract[]
 	payments?: Contract[]
 	employees: {
+		tableEmployees: TableData
 		employeesList: EmployeeItem[]
 	}
 }

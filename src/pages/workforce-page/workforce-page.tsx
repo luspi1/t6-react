@@ -5,6 +5,7 @@ import { MainButton } from 'src/UI/MainButton/MainButton'
 import { PlusSvg } from 'src/UI/icons/plusSVG'
 import { employeeSelect } from 'src/pages/employees-page/consts'
 import { EmployeesTable } from 'src/pages/employees-page/employees-table/employees-table'
+import { Pagination } from 'src/components/pagination/Pagination'
 
 export const WorkforcePage: FC = () => {
 	const getSearchPanelValues = (data: SearchPanelData) => {
@@ -19,6 +20,7 @@ export const WorkforcePage: FC = () => {
 				searchConfig={{ name: 'workforce_search', placeholder: 'Поиск по фамилии или имени' }}
 			/>
 			<EmployeesTable />
+			<Pagination pagesCount={5} activePage={3} />
 		</>
 	)
 }

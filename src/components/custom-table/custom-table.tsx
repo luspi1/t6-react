@@ -23,7 +23,7 @@ export const CustomTable: FC<CustomTableProps & React.HTMLAttributes<HTMLTableEl
 	additionalElements,
 	...props
 }) => {
-	const copyCellsData = [...cellsData]
+	const copyCellsData = structuredClone(cellsData)
 
 	if (additionalElements && copyCellsData[0]?.length !== colTitles?.length) {
 		additionalElements?.forEach((addEl) => {

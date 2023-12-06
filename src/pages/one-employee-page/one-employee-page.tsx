@@ -7,13 +7,14 @@ import { EventSelectOptions } from 'src/pages/one-employee-page/consts'
 
 import styles from './index.module.scss'
 import { EmployeeEventsTable } from 'src/pages/one-employee-page/components/employee-events-table/employee-events-table'
+import { Pagination } from 'src/components/pagination/Pagination'
 
 export const OneEmployeePage: FC = () => {
 	const getSearchPanelValues = (data: SearchPanelData) => {
 		console.log(data)
 	}
 	return (
-		<div>
+		<div className={styles.oneEmployeePage}>
 			<EmployeeInfo />
 			<SearchPanel
 				additionalNode={<h4 className={styles.eventSearchTitle}>Список мероприятий</h4>}
@@ -22,6 +23,7 @@ export const OneEmployeePage: FC = () => {
 				handleFormData={getSearchPanelValues}
 			/>
 			<EmployeeEventsTable />
+			<Pagination pagesCount={5} activePage={2} />
 		</div>
 	)
 }
