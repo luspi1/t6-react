@@ -1,12 +1,18 @@
 import { userApi } from 'src/store/user/user.api'
 
-export const contractFilesApi = userApi.injectEndpoints({
+export const contractsApi = userApi.injectEndpoints({
 	endpoints: (build) => ({
+		getAllContracts: build.query({
+			query: () => ({
+				url: 'all-contracts',
+			}),
+			providesTags: ['ContractFiles'],
+		}),
 		getContractFilesById: build.query({
 			query: (id) => ({
 				url: `contract-files/${id}`,
 			}),
-			providesTags: ['User'],
+			providesTags: ['ContractFiles'],
 		}),
 
 		uploadFile: build.mutation({
@@ -18,8 +24,7 @@ export const contractFilesApi = userApi.injectEndpoints({
 				},
 				body: contractFile,
 			}),
-			// invalidatesTags: () => ['contractFiles'],
-			invalidatesTags: () => ['User'],
+			invalidatesTags: () => ['ContractFiles'],
 		}),
 
 		deleteFile: build.mutation({
@@ -28,10 +33,14 @@ export const contractFilesApi = userApi.injectEndpoints({
 				method: 'DELETE',
 				body: index,
 			}),
-			invalidatesTags: () => ['User'],
+			invalidatesTags: () => ['ContractFiles'],
 		}),
 	}),
 })
 
-export const { useGetContractFilesByIdQuery, useUploadFileMutation, useDeleteFileMutation } =
-	contractFilesApi
+export const {
+	useGetContractFilesByIdQuery,
+	useGetAllContractsQuery,
+	useUploadFileMutation,
+	useDeleteFileMutation,
+} = contractsApi

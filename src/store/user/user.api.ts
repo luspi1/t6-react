@@ -4,7 +4,7 @@ import { type User } from 'src/types/user'
 
 export const userApi = createApi({
 	reducerPath: ReducerPath.User,
-	tagTypes: ['User'],
+	tagTypes: ['User', 'ContractFiles'],
 	baseQuery: fetchBaseQuery({
 		baseUrl: BASE_URL,
 	}),

@@ -10,16 +10,19 @@ import { ContractsList } from 'src/pages/contract-page/components/contracts-list
 
 import styles from './index.module.scss'
 import { Pagination } from 'src/components/pagination/pagination'
+import { useGetAllContractsQuery } from 'src/store/contracts/contracts.api'
 
 export const ContractPage: FC = () => {
 	const { data: userData } = useGetUserByIdQuery('0')
+	const { data: allContracts } = useGetAllContractsQuery(null)
 	const getSearchPanelValues = (data: SearchPanelData) => {
 		console.log(data)
 	}
+
 	return (
 		<div>
 			<OrgStatus />
-			<ContractsList documentsType='contracts' contracts={userData?.contracts} />
+			<ContractsList documentsType='contracts' contracts={allContracts} />
 			<SearchPanel
 				additionalNode={<h4 className={styles.contractSearchTitle}>Платежи организатора</h4>}
 				selectOptions={ContractSelectOptions}

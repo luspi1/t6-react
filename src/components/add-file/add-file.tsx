@@ -5,11 +5,7 @@ import styles from './index.module.scss'
 import { File } from 'src/UI/File/File'
 
 import { type FileType } from 'src/types/user'
-
-import {
-	useUploadFileMutation,
-	useDeleteFileMutation,
-} from 'src/modules/contract-file-upload/store/contract-file-upload.api'
+import { useDeleteFileMutation, useUploadFileMutation } from 'src/store/contracts/contracts.api'
 
 type AddFileProps = {
 	inputName: string
@@ -32,16 +28,10 @@ export const AddFile: FC<AddFileProps> = ({
 			const file = e.target.files[0]
 			const fileId = Date.now()
 			const fileName = file.name
-			// const extension = file.type.split('/')[1]
 
 			console.log('UPLOADING')
 
-			uploadFile(['3', { fileId, fileName }])
-				.unwrap()
-				.then((fulfilled) => console.log(fulfilled))
-				.catch((rejected) => console.error(rejected))
-			// .then((res) => console.log(res))
-			// .catch((err) => console.log(`ERROR: ${err}`))
+			uploadFile(['0', { fileId, fileName }]).catch((err) => console.log(`ERROR: ${err}`))
 		}
 	}
 

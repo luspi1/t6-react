@@ -113,29 +113,6 @@ export let users = [
 				},
 			],
 		},
-		contracts: [
-			{
-				id: '0',
-				name: 'Договор № 27-123',
-				date: '23.06.2023',
-				status: 'договор подписан обеими сторонами',
-				//type: 'contract'
-				files: [
-					{ id: '0', data: 'A1' },
-					{ id: '1', data: 'A2' },
-				],
-			},
-
-			{
-				id: '1',
-				name: 'Договор № 27-123',
-				date: '23.06.2023',
-				status: 'договор не подписан',
-				//type: 'contract'
-				files: [{ id: '2', data: 'B1' }],
-			},
-		],
-
 		payments: [
 			{
 				id: '2',
@@ -162,12 +139,3 @@ export let users = [
 	},
 ]
 
-export let contracts = users
-	.reduce(function (result, user) {
-		return [
-			...result,
-			...user.contracts.map((item) => item.files),
-			...user.payments.map((item) => item.files),
-		]
-	}, [])
-	.flat()
