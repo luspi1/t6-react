@@ -8,15 +8,18 @@ import styles from './index.module.scss'
 
 type ContractsListProps = {
 	contracts?: Contract[]
+	documentsType: 'contracts' | 'payments'
 }
-export const ContractsList: FC<ContractsListProps> = ({ contracts }) => {
+export const ContractsList: FC<ContractsListProps> = ({ contracts, documentsType }) => {
 	return (
 		<ul className={styles.contractsList}>
 			{contracts?.map((contract) => (
-				<ContractItem key={contract.id} contractData={contract} type={contract.type} />
+				<ContractItem key={contract.id} contractData={contract} documentsListType={documentsType} />
 			))}
 
-			{contracts && contracts[0].type === 'contract' && <ContractItem type='not-created' />}
+			{contracts && documentsType === 'contracts' && (
+				<ContractItem documentsListType='not-created' />
+			)}
 		</ul>
 	)
 }
