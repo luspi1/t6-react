@@ -35,17 +35,17 @@
 }
 
 .cost {
-    position: relative;
+    //  position: relative;
     margin-left: auto;
     padding-right: 20px;
     font-size: 18px;
     font-weight: 600;
     line-height: normal;
 
-    &::after {
-        position: absolute;
-        right: 5px;
-        content: '₽';
-        font-weight: 400;
-    }
+    // &::after {
+    //     position: absolute;
+    //     right: 5px;
+    //     content: '₽';
+    //     font-weight: 400;
+    // }
 }

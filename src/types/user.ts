@@ -15,7 +15,12 @@ export type Contract = {
 	date: string
 	status: ContractStatus
 	cost?: string
-	type: 'payment' | 'contract'
+	type: 'payments' | 'contracts'
+}
+
+export type FileType = {
+	id: string
+	data: string
 }
 
 export type EmployeeEventItem = {

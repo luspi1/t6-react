@@ -1,5 +1,6 @@
 .inputFile {
     position: relative;
+    align-items: center;
     display: flex;
     gap: 20px;
 
@@ -21,4 +22,10 @@
     display: block;
     width: 0;
     height: 0;
+}
+
+.fileContainer {
+    svg {
+        margin-left: 20px;
+    }
 }

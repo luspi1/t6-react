@@ -8,15 +8,15 @@ import { PdfFileSVG } from '../icons/pdfFileSVG'
 
 type FileProps = {
 	fileType: 'doc' | 'pdf'
-	downloadFile: any
+	onDeleteFile: () => void
 }
 
-export const File: FC<FileProps> = ({ fileType, downloadFile }) => {
+export const File: FC<FileProps> = ({ fileType, onDeleteFile }) => {
 	return (
 		<a className={cn(styles.fileLink, styles.isHovered)} href='#' download>
 			<p className={styles.fileIcon}>{fileType === 'doc' ? <DocFileSVG /> : <PdfFileSVG />}</p>
 
-			<p className={styles.deleteFileIcon} onClick={downloadFile}>
+			<p className={styles.deleteFileIcon} onClick={onDeleteFile}>
 				<RemoveFile />
 			</p>
 		</a>

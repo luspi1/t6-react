@@ -19,7 +19,7 @@ export const ContractPage: FC = () => {
 	return (
 		<div>
 			<OrgStatus />
-			<ContractsList contracts={userData?.contracts} />
+			<ContractsList documentsType='contracts' contracts={userData?.contracts} />
 			<SearchPanel
 				additionalNode={<h4 className={styles.contractSearchTitle}>Платежи организатора</h4>}
 				selectOptions={ContractSelectOptions}
@@ -29,7 +29,7 @@ export const ContractPage: FC = () => {
 				}}
 				handleFormData={getSearchPanelValues}
 			/>
-			<ContractsList contracts={userData?.payments} />
+			<ContractsList documentsType='payments' contracts={userData?.payments} />
 			<Pagination pagesCount={5} activePage={2} />
 		</div>
 	)
