@@ -1,4 +1,4 @@
-export const RemoveFile = () => {
+export const RemoveFileSvg = () => {
 	return (
 		<svg width='9' height='10' viewBox='0 0 9 10' fill='none' xmlns='http://www.w3.org/2000/svg'>
 			<path

@@ -45,12 +45,12 @@ export enum ContractsInteraction {
 	AdditionalAgreement = 'Дополнительное соглашение',
 }
 
-// export enum ContractItemBlock {
-// 	Contract = 'contract',
-// 	Payment = 'payment',
-// }
-
 export enum ContractsListType {
 	Contracts,
 	Payments,
+}
+
+export enum FileTypes {
+	Word = 'doc',
+	Pdf = 'pdf',
 }

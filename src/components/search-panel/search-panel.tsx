@@ -9,7 +9,7 @@ import { type SearchPanelData } from 'src/types/searchPanel'
 import { MainButton } from 'src/UI/MainButton/MainButton'
 
 type SearchPanelProps = {
-	selectOptions: SelOption[]
+	selectOptions: SelOption[] | null
 	searchConfig: {
 		name: string
 		placeholder: string
@@ -25,7 +25,7 @@ export const SearchPanel: FC<SearchPanelProps & React.HTMLAttributes<HTMLDivElem
 	...props
 }) => {
 	const [inputValue, setInputValue] = useState<string>('')
-	const [selectValue, setSelectValue] = useState<SelOption | null>(selectOptions[0])
+	const [selectValue, setSelectValue] = useState<SelOption | null>(selectOptions?.[0] ?? null)
 
 	return (
 		<div className={cn(styles.searchPanelWrapper, props.className)}>
@@ -49,13 +49,15 @@ export const SearchPanel: FC<SearchPanelProps & React.HTMLAttributes<HTMLDivElem
 					value={inputValue}
 					onChange={(e) => setInputValue(e.currentTarget.value)}
 				/>
-				<Select
-					classNamePrefix='main-select'
-					options={selectOptions}
-					value={selectValue}
-					defaultValue={selectOptions[0]}
-					onChange={setSelectValue}
-				/>
+				{!!selectOptions?.length && (
+					<Select
+						classNamePrefix='main-select'
+						options={selectOptions}
+						value={selectValue}
+						defaultValue={selectOptions[0]}
+						onChange={setSelectValue}
+					/>
+				)}
 				<MainButton type='submit'>Искать</MainButton>
 			</form>
 		</div>

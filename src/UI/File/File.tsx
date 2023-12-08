@@ -2,7 +2,7 @@ import { type FC } from 'react'
 import cn from 'classnames'
 
 import styles from './index.module.scss'
-import { RemoveFile } from '../icons/removeFileSVG'
+import { RemoveFileSvg } from '../icons/removeFileSVG'
 import { DocFileSVG } from '../icons/docFileSVG'
 import { PdfFileSVG } from '../icons/pdfFileSVG'
 
@@ -13,11 +13,11 @@ type FileProps = {
 
 export const File: FC<FileProps> = ({ fileType, onDeleteFile }) => {
 	return (
-		<a className={cn(styles.fileLink, styles.isHovered)} href='#' download>
+		<a className={cn(styles.fileLink, styles.isHovered)}>
 			<p className={styles.fileIcon}>{fileType === 'doc' ? <DocFileSVG /> : <PdfFileSVG />}</p>
 
 			<p className={styles.deleteFileIcon} onClick={onDeleteFile}>
-				<RemoveFile />
+				<RemoveFileSvg />
 			</p>
 		</a>
 	)

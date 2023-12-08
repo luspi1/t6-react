@@ -1,26 +1,27 @@
 import { type FC } from 'react'
 
-import { AddFile } from 'src/components/add-file/add-file'
 import { ContractStatus } from 'src/helpers/consts'
 import { ContractButton } from 'src/pages/contract-page/components/contract-button/contract-button'
 
 import { formatToCurrencyWithSymbol } from 'src/helpers/utils'
 
-import { type FileType } from 'src/types/user'
-
 import cn from 'classnames'
 import cnBind from 'classnames/bind'
 import styles from './index.module.scss'
+import { DocUpload } from 'src/pages/contract-page/components/contract/components/doc-upload/doc-upload'
+
+type ContractData = {
+	name: string
+	date: string
+	status: ContractStatus
+	cost?: string
+	files: File[]
+	id: string
+}
 
 type ContractItemProps = {
 	documentsListType: 'payments' | 'contracts' | 'not-created'
-	contractData?: {
-		name: string
-		date: string
-		status: ContractStatus
-		cost?: string
-		files?: FileType[]
-	}
+	contractData: ContractData | null
 }
 
 export const ContractItem: FC<ContractItemProps> = ({ contractData, documentsListType }) => {
@@ -50,14 +51,18 @@ export const ContractItem: FC<ContractItemProps> = ({ contractData, documentsLis
 				</div>
 			)}
 
-			<div>
-				<AddFile
-					inputName={`${contractData?.name} contract file`}
-					documentsListType={documentsListType}
-					documentsCount={documentsListType === 'payments' ? 1 : 2}
-					currentFiles={contractData?.files}
-				/>
-			</div>
+			{/* <div> */}
+			{/* 	<AddFile */}
+			{/* 		inputName={`${contractData?.name} contract file`} */}
+			{/* 		documentsListType={documentsListType} */}
+			{/* 		documentsCount={2} */}
+			{/* 		currentFiles={contractData?.files} */}
+			{/* 		contractId={contractData?.id ?? '0'} */}
+			{/* 	/> */}
+			{/* </div> */}
+
+			<DocUpload docFiles={contractData?.files ?? []} />
+
 			{documentsListType === 'contracts' || documentsListType === 'not-created' ? (
 				<ContractButton contractStatus={contractData?.status} />
 			) : (

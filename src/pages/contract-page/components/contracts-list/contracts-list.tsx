@@ -1,13 +1,12 @@
 import { type FC } from 'react'
 
-import { type Contract } from 'src/types/user'
-
 import { ContractItem } from 'src/pages/contract-page/components/contract/contract'
 
 import styles from './index.module.scss'
+import { type Contract } from 'src/types/contracts'
 
 type ContractsListProps = {
-	contracts?: Contract[]
+	contracts: Contract[]
 	documentsType: 'contracts' | 'payments'
 }
 export const ContractsList: FC<ContractsListProps> = ({ contracts, documentsType }) => {
@@ -18,7 +17,7 @@ export const ContractsList: FC<ContractsListProps> = ({ contracts, documentsType
 			))}
 
 			{contracts && documentsType === 'contracts' && (
-				<ContractItem documentsListType='not-created' />
+				<ContractItem documentsListType='not-created' contractData={null} />
 			)}
 		</ul>
 	)

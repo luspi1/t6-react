@@ -1,4 +1,4 @@
-import { type ContractStatus } from 'src/helpers/consts'
+import { type Contract } from 'src/types/contracts'
 
 export type UserOrgStatistics = {
 	events: number[]
@@ -8,20 +8,6 @@ export type UserOrgStatistics = {
 }
 
 export type TableData = string[][]
-
-export type Contract = {
-	id: number
-	name: string
-	date: string
-	status: ContractStatus
-	cost?: string
-	type: 'payments' | 'contracts'
-}
-
-export type FileType = {
-	id: string
-	data: string
-}
 
 export type EmployeeEventItem = {
 	id: string
