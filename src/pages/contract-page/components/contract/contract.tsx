@@ -51,17 +51,7 @@ export const ContractItem: FC<ContractItemProps> = ({ contractData, documentsLis
 				</div>
 			)}
 
-			{/* <div> */}
-			{/* 	<AddFile */}
-			{/* 		inputName={`${contractData?.name} contract file`} */}
-			{/* 		documentsListType={documentsListType} */}
-			{/* 		documentsCount={2} */}
-			{/* 		currentFiles={contractData?.files} */}
-			{/* 		contractId={contractData?.id ?? '0'} */}
-			{/* 	/> */}
-			{/* </div> */}
-
-			<DocUpload docFiles={contractData?.files ?? []} />
+			<DocUpload docFiles={contractData?.files ?? []} contractId={contractData?.id ?? ''} />
 
 			{documentsListType === 'contracts' || documentsListType === 'not-created' ? (
 				<ContractButton contractStatus={contractData?.status} />

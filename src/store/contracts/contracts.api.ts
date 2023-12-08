@@ -8,21 +8,11 @@ export const contractsApi = userApi.injectEndpoints({
 			}),
 			providesTags: ['ContractFiles'],
 		}),
-		getContractFilesById: build.query({
-			query: (id) => ({
-				url: `contract-files/${id}`,
-			}),
-			providesTags: ['ContractFiles'],
-		}),
-
 		uploadFile: build.mutation({
-			query: ([id, contractFile]) => ({
+			query: ([id, contractFiles]) => ({
 				url: `upload-contract-files/${id}`,
 				method: 'POST',
-				headers: {
-					'content-type': 'application/json',
-				},
-				body: contractFile,
+				body: contractFiles,
 			}),
 			invalidatesTags: () => ['ContractFiles'],
 		}),
@@ -31,16 +21,12 @@ export const contractsApi = userApi.injectEndpoints({
 			query: ([id, index]) => ({
 				url: `delete-contract-files/${id}`,
 				method: 'DELETE',
-				body: index,
+				body: { fileIndex: index },
 			}),
 			invalidatesTags: () => ['ContractFiles'],
 		}),
 	}),
 })
 
-export const {
-	useGetContractFilesByIdQuery,
-	useGetAllContractsQuery,
-	useUploadFileMutation,
-	useDeleteFileMutation,
-} = contractsApi
+export const { useGetAllContractsQuery, useUploadFileMutation, useDeleteFileMutation } =
+	contractsApi

@@ -8,7 +8,7 @@ import { FileTypes } from 'src/helpers/consts'
 
 type UploadDocListProps = {
 	filesList: File[]
-	handleDelete: () => void
+	handleDelete: (idx: number) => void
 }
 export const UploadDocList: FC<UploadDocListProps> = ({ filesList, handleDelete }) => {
 	const fileTypeRender = (type: string) => {
@@ -24,10 +24,10 @@ export const UploadDocList: FC<UploadDocListProps> = ({ filesList, handleDelete 
 
 	return (
 		<ul className={styles.docFilesList}>
-			{filesList?.map((file) => (
+			{filesList?.map((file, idx) => (
 				<li key={file.lastModified}>
-					<a href='#'>{fileTypeRender(file.type)}</a>
-					<button className={styles.deleteFileIcon} type='button' onClick={handleDelete}>
+					<a href='#'>{fileTypeRender(file?.type)}</a>
+					<button className={styles.deleteFileIcon} type='button' onClick={() => handleDelete(idx)}>
 						<RemoveFileSvg />
 					</button>
 				</li>

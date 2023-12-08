@@ -12,6 +12,6 @@ export let contracts = [
 		name: 'Договор № 27-123',
 		date: '23.06.2023',
 		status: 'договор не подписан',
-		files: [{ id: '2', data: 'B1' }],
+		files: [],
 	},
 ]
