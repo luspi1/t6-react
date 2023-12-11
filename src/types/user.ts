@@ -1,4 +1,4 @@
-import { type Contract } from 'src/types/contracts'
+import { type DocPact } from 'src/types/docs'
 
 export type UserOrgStatistics = {
 	events: number[]
@@ -38,8 +38,8 @@ export type User = {
 	avatar: string
 	activated: boolean
 	orgStatistics: UserOrgStatistics
-	contracts?: Contract[]
-	payments?: Contract[]
+	contracts?: DocPact[]
+	payments?: DocPact[]
 	employees: {
 		tableEmployees: TableData
 		employeesList: EmployeeItem[]

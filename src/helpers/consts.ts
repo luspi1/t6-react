@@ -29,7 +29,7 @@ export enum ReducerPath {
 
 export const BASE_URL = 'http://localhost:4001/api/v1'
 
-export enum ContractStatus {
+export enum DocStatus {
 	NoContract = 'договор не создан',
 	NoContractSigned = 'договор не подписан',
 	ContractSigned = 'договор подписан обеими сторонами',

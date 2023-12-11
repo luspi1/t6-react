@@ -113,29 +113,6 @@ export let users = [
 				},
 			],
 		},
-		payments: [
-			{
-				id: '2',
-				name: 'Счёт № 27-123',
-				date: '23.06.2023',
-				status: 'счет оплачен',
-				cost: '20000',
-				//type: 'payment'
-				files: [{ id: '3', data: 'C1' }],
-			},
-
-			{
-				id: '3',
-				name: 'Акт № 27-123',
-				date: '23.06.2023',
-				status: 'акт не подписан',
-				cost: '20000',
-				//type: 'payment'
-				files: [
-					// { id: '5', data: 'D1' },
-				],
-			},
-		],
 	},
 ]
 

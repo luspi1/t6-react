@@ -8,6 +8,12 @@ export const contractsApi = userApi.injectEndpoints({
 			}),
 			providesTags: ['ContractFiles'],
 		}),
+		getAllPayments: build.query({
+			query: () => ({
+				url: 'all-payments',
+			}),
+			providesTags: ['ContractFiles'],
+		}),
 		uploadFile: build.mutation({
 			query: ([id, contractFiles]) => ({
 				url: `upload-contract-files/${id}`,
@@ -28,5 +34,9 @@ export const contractsApi = userApi.injectEndpoints({
 	}),
 })
 
-export const { useGetAllContractsQuery, useUploadFileMutation, useDeleteFileMutation } =
-	contractsApi
+export const {
+	useGetAllContractsQuery,
+	useGetAllPaymentsQuery,
+	useUploadFileMutation,
+	useDeleteFileMutation,
+} = contractsApi

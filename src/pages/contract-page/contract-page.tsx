@@ -3,14 +3,16 @@ import { type SearchPanelData } from 'src/types/searchPanel'
 
 import { OrgStatus } from 'src/modules/org-status/org-status'
 import { SearchPanel } from 'src/components/search-panel/search-panel'
-import { ContractsList } from 'src/pages/contract-page/components/contracts-list/contracts-list'
+import { DocList } from 'src/pages/contract-page/components/doc-list/doc-list'
 
-import styles from './index.module.scss'
 import { Pagination } from 'src/components/pagination/pagination'
-import { useGetAllContractsQuery } from 'src/store/contracts/contracts.api'
+import { useGetAllContractsQuery, useGetAllPaymentsQuery } from 'src/store/contracts/contracts.api'
+import { ContractSelectOptions } from 'src/pages/contract-page/consts'
+import styles from './index.module.scss'
 
 export const ContractPage: FC = () => {
 	const { data: allContracts } = useGetAllContractsQuery(null)
+	const { data: allPayments } = useGetAllPaymentsQuery(null)
 	const getSearchPanelValues = (data: SearchPanelData) => {
 		console.log(data)
 	}
@@ -18,17 +20,17 @@ export const ContractPage: FC = () => {
 	return (
 		<div>
 			<OrgStatus />
-			<ContractsList documentsType='contracts' contracts={allContracts} />
+			<DocList contracts={allContracts} />
 			<SearchPanel
 				additionalNode={<h4 className={styles.contractSearchTitle}>Платежи организатора</h4>}
-				selectOptions={null}
+				selectOptions={ContractSelectOptions}
 				searchConfig={{
 					name: 'org_payments',
 					placeholder: 'Поиск по названию',
 				}}
 				handleFormData={getSearchPanelValues}
 			/>
-			<ContractsList documentsType='payments' contracts={allContracts} />
+			<DocList contracts={allPayments} />
 			<Pagination pagesCount={5} activePage={2} />
 		</div>
 	)
