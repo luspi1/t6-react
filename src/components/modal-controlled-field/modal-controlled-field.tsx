@@ -1,40 +1,51 @@
+import React, { type FC, type ReactNode } from 'react'
+import { useFormContext } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
 import cn from 'classnames'
-import React, { type FC, type HTMLAttributes, type ReactNode } from 'react'
-import { type FieldErrors, useController, type UseControllerProps } from 'react-hook-form'
-import MaskedInput, { type Mask } from 'react-text-mask'
-
 import styles from './index.module.scss'
+import InputMask from 'react-input-mask'
 
 type customControlledFieldProps = {
-	mask?: Mask | ((value: string) => Mask)
+	mask?: string
 	svg?: ReactNode
-	errors?: FieldErrors
-	type: string
+	type?: string
+	className?: string
+	name: string
 }
 
-type ModalControlledFieldProps = customControlledFieldProps & HTMLAttributes<HTMLInputElement>
+export const ModalControlledField: FC<customControlledFieldProps> = ({
+	name,
+	className,
+	svg,
+	mask,
+	type,
+}) => {
+	const {
+		register,
+		formState: { errors },
+	} = useFormContext()
 
-export const ModalControlledField: FC<UseControllerProps & ModalControlledFieldProps> = (props) => {
-	const { field } = useController(props)
+	const renderInput = (inputProps: React.InputHTMLAttributes<HTMLInputElement>): ReactNode => {
+		return <input {...inputProps} />
+	}
 
 	return (
 		<div className={styles.fieldEl}>
 			<div className={styles.fieldWrapper}>
-				{props.svg}
-				<MaskedInput
-					{...props}
-					{...field}
-					type={props.type}
-					className={cn(styles.controlledField, props.className, {
-						[styles.isSvg]: props.svg,
+				{svg}
+				<InputMask
+					{...register(name)}
+					mask={mask ?? ''}
+					className={cn(styles.controlledField, className, {
+						[styles.isSvg]: svg,
 					})}
-					mask={props.mask ? props.mask : false}
-				/>
+				>
+					{renderInput}
+				</InputMask>
 			</div>
-			{props.errors && (
+			{errors[name] && (
 				<p className={styles.warningMessage}>
-					<ErrorMessage errors={props.errors} name={props.name} />
+					<ErrorMessage errors={errors} name={name} />
 				</p>
 			)}
 		</div>

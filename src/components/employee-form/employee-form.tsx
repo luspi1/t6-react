@@ -1,32 +1,41 @@
-import { type FieldValues, type SubmitHandler, useForm } from 'react-hook-form'
+import { FormProvider, type SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { employeeSchema } from 'src/components/employee-form/schema'
 import { ModalControlledField } from 'src/components/modal-controlled-field/modal-controlled-field'
+import { type FC } from 'react'
+import { positiveNumber } from 'src/helpers/masks'
 
-export const EmployeeForm = () => {
-	const {
-		handleSubmit,
-		control,
-		formState: { errors },
-	} = useForm<FieldValues>({
-		mode: 'onBlur',
-		resolver: yupResolver(employeeSchema),
-	})
+type Inputs = {
+	secondName: string
+	// name: string
+	// email: string
+	// mobileNumber: string
+	// password: string
+	// passwordRepeat: string
+	// patronymicName?: string
+	// alias?: string
+}
 
-	const onSubmit: SubmitHandler<FieldValues> = (data) => {
+export const EmployeeForm: FC = () => {
+	const methods = useForm<Inputs>({ mode: 'onBlur', resolver: yupResolver(employeeSchema) })
+
+	const onSubmit: SubmitHandler<Inputs> = (data) => {
 		console.log(data)
 	}
 	return (
-		<form onSubmit={handleSubmit(onSubmit)} noValidate>
-			<ModalControlledField control={control} name='secondName' type='text' errors={errors} />
-			<ModalControlledField control={control} name='name' type='text' errors={errors} />
-			<ModalControlledField control={control} name='patronymficName' type='text' errors={errors} />
-			<ModalControlledField control={control} name='alias' type='text' errors={errors} />
-			<ModalControlledField control={control} name='email' type='text' errors={errors} />
-			<ModalControlledField control={control} name='mobileNumber' type='text' errors={errors} />
-			<ModalControlledField control={control} name='password' type='text' errors={errors} />
-			<ModalControlledField control={control} name='passwordRepeat' type='text' errors={errors} />
-			<button type='submit'>Отправить</button>
-		</form>
+		<FormProvider {...methods}>
+			<form onSubmit={methods.handleSubmit(onSubmit)} noValidate>
+				<ModalControlledField name='secondName' type='text' mask='99.9999' />
+				{/* <ModalControlledField name='name' type='text' /> */}
+				{/* <ModalControlledField name='patronymicName' type='text' /> */}
+				{/* <ModalControlledField name='alias' type='text' /> */}
+				{/* <ModalControlledField name='email' type='text' /> */}
+				{/* <ModalControlledField name='mobileNumber' type='text' /> */}
+				{/* <ModalControlledField name='password' type='text' /> */}
+				{/* <ModalControlledField name='passwordRepeat' type='text' /> */}
+
+				<button type='submit'>Отправить</button>
+			</form>
+		</FormProvider>
 	)
 }
