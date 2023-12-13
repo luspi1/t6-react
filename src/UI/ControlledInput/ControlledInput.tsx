@@ -1,23 +1,26 @@
-import React, { type FC, type ReactNode } from 'react'
+import React, { type FC } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
 import cn from 'classnames'
 import styles from './index.module.scss'
 import InputMask from 'react-input-mask'
+import { PromptSvg } from 'src/UI/icons/promptSVG'
 
-type customControlledFieldProps = {
+type ControlledInputProps = {
 	mask?: string
-	svg?: ReactNode
 	type?: string
 	className?: string
+	label?: string
+	promptTitle?: string
 	name: string
 }
 
-export const ModalControlledField: FC<customControlledFieldProps> = ({
+export const ControlledInput: FC<ControlledInputProps> = ({
 	name,
 	className,
-	svg,
 	mask,
+	label,
+	promptTitle,
 	type,
 }) => {
 	const {
@@ -25,23 +28,23 @@ export const ModalControlledField: FC<customControlledFieldProps> = ({
 		formState: { errors },
 	} = useFormContext()
 
-	const renderInput = (inputProps: React.InputHTMLAttributes<HTMLInputElement>): ReactNode => {
-		return <input {...inputProps} />
-	}
-
 	return (
-		<div className={styles.fieldEl}>
-			<div className={styles.fieldWrapper}>
-				{svg}
+		<div className={cn(styles.inputEl, className)}>
+			<div className={styles.inputWrapper}>
+				<label>{label}</label>
 				<InputMask
 					{...register(name)}
 					mask={mask ?? ''}
-					className={cn(styles.controlledField, className, {
-						[styles.isSvg]: svg,
+					type={type ?? 'text'}
+					className={cn(styles.controlledInput, {
+						[styles.noValid]: errors[name],
 					})}
-				>
-					{renderInput}
-				</InputMask>
+				/>
+				{promptTitle && (
+					<span title={promptTitle}>
+						<PromptSvg />
+					</span>
+				)}
 			</div>
 			{errors[name] && (
 				<p className={styles.warningMessage}>

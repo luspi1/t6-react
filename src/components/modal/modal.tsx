@@ -1,6 +1,7 @@
 import { type FC, type PropsWithChildren } from 'react'
 import styles from './index.module.scss'
 import cn from 'classnames'
+import { CloseSvg } from 'src/UI/icons/closeSVG'
 
 type ModalProps = PropsWithChildren<{
 	active: boolean
@@ -15,6 +16,13 @@ export const Modal: FC<ModalProps> = ({ active, setActive, children, className }
 			onClick={() => (setActive ? setActive(false) : null)}
 		>
 			<div className={cn(styles.modalContent, className)} onClick={(e) => e.stopPropagation()}>
+				<button
+					className={styles.closeBtn}
+					type='button'
+					onClick={() => (setActive ? setActive(false) : null)}
+				>
+					<CloseSvg />
+				</button>
 				{children}
 			</div>
 		</div>
