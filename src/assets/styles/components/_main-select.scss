@@ -1,5 +1,8 @@
-.main-select {
+.main-select-container {
+  flex-grow: 1;
+}
 
+.main-select {
   &__control {
     min-width: 200px;
     min-height: 37px !important;

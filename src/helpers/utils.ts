@@ -1,5 +1,3 @@
-import { type SelOption } from 'src/types/select'
-
 export const formatToCurrency = (num: number) => {
 	return new Intl.NumberFormat('ru-RU', { useGrouping: true }).format(num)
 }
@@ -12,12 +10,11 @@ export const formatToCurrencyWithSymbol = (num: number) => {
 	}).format(num)
 }
 
-export const formatToTable = <T>(dataArr: T[], keyArr: Array<keyof T>) => {
-	return dataArr.map((el) => {
-		return keyArr.map((key) => String(el[key]))
+export const formatFormData = <T extends NonNullable<object | string>>(data: T) => {
+	const formatArr = Object.entries(data).map((el) => {
+		if (el[1].value) {
+			return [el[0], el[1].value]
+		} else return [el[0], el[1]]
 	})
-}
-
-export const getValue = (value: string, options: SelOption[]) => {
-	return value ? options.find((option) => option.value === value) : ''
+	return Object.fromEntries(formatArr)
 }

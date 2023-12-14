@@ -30,8 +30,8 @@ export const ControlledInput: FC<ControlledInputProps> = ({
 
 	return (
 		<div className={cn(styles.inputEl, className)}>
-			<div className={styles.inputWrapper}>
-				<label>{label}</label>
+			<label className={styles.inputWrapper}>
+				{label && <p>{label}</p>}
 				<InputMask
 					{...register(name)}
 					mask={mask ?? ''}
@@ -45,7 +45,7 @@ export const ControlledInput: FC<ControlledInputProps> = ({
 						<PromptSvg />
 					</span>
 				)}
-			</div>
+			</label>
 			{errors[name] && (
 				<p className={styles.warningMessage}>
 					<ErrorMessage errors={errors} name={name} />

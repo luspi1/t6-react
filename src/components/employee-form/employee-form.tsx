@@ -1,11 +1,12 @@
 import { FormProvider, type SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { employeeSchema } from 'src/components/employee-form/schema'
-import { ControlledInput } from 'src/UI/ControlledInput/ControlledInput'
 import { type FC } from 'react'
 
 import styles from './index.module.scss'
-import { ControlledSelect } from 'src/UI/ControlledSelect/ControlledSelect'
+import { formatFormData } from 'src/helpers/utils'
+import { ControlledSelect } from 'src/components/controlled-select/controlled-select'
+import { ControlledInput } from 'src/components/controlled-input/controlled-input'
 
 type Inputs = {
 	secondName: string
@@ -13,8 +14,10 @@ type Inputs = {
 	email: string
 	mobileNumber: string
 	password: string
-	passwordRepeat: string
+	confirmPassword: string
 	typeAcc?: string
+	typeEmployee?: string
+	position?: string
 	patronymicName?: string
 	alias?: string
 	isServiceAcc?: boolean
@@ -25,11 +28,32 @@ export const EmployeeForm: FC = () => {
 	const methods = useForm<Inputs>({ mode: 'onBlur', resolver: yupResolver(employeeSchema) })
 
 	const onSubmit: SubmitHandler<Inputs> = (data) => {
-		console.log(data)
+		const formatData = formatFormData<Inputs>(data)
+		console.log(formatData)
 	}
 	return (
 		<FormProvider {...methods}>
 			<form className={styles.employeeForm} onSubmit={methods.handleSubmit(onSubmit)} noValidate>
+				<section>
+					<ControlledSelect
+						selectOptions={[
+							{ label: 'Постоянный сотрудник', value: '1' },
+							{ label: 'Временный сотрудник', value: '2' },
+						]}
+						name='typeEmployee'
+						label='Тип занятости'
+						promptTitle='Подсказка про тип занятости'
+					/>
+					<ControlledSelect
+						selectOptions={[
+							{ label: 'Вратарь', value: '1' },
+							{ label: 'Музыкант', value: '2' },
+						]}
+						name='position'
+						label='Должность'
+						promptTitle='Подсказка про должность'
+					/>
+				</section>
 				<section>
 					<ControlledInput name='secondName' label='Фамилия' promptTitle='Подсказка про фамилию' />
 					<ControlledInput name='name' label='Имя' promptTitle='Подсказка про имя' />
@@ -51,6 +75,7 @@ export const EmployeeForm: FC = () => {
 						name='mobileNumber'
 						label='Мобильный телефон'
 						promptTitle='Подсказка про телефон'
+						mask='+7 (999) 999-99-99'
 					/>
 					<ControlledInput
 						name='password'
@@ -59,7 +84,7 @@ export const EmployeeForm: FC = () => {
 						promptTitle='Подсказка про пароль'
 					/>
 					<ControlledInput
-						name='passwordRepeat'
+						name='confirmPassword'
 						type='password'
 						label='Повторить пароль'
 						promptTitle='Подсказка про пароль'
@@ -70,6 +95,8 @@ export const EmployeeForm: FC = () => {
 							{ label: 'Участник', value: '2' },
 						]}
 						name='typeAcc'
+						label='Тип учетной записи'
+						promptTitle='Подсказка про тип уч. записи'
 					/>
 				</section>
 				<section className={styles.bottomSection}>
