@@ -6,7 +6,7 @@ import { type SearchPanelData } from 'src/types/searchPanel'
 import { MainButton } from 'src/UI/MainButton/MainButton'
 import { PlusSvg } from 'src/UI/icons/plusSVG'
 import { Pagination } from 'src/components/pagination/pagination'
-import { AddEmployeeModal } from 'src/modals/add-employee-modal/add-employee-modal'
+import { EmployeeModal } from 'src/modals/employee-modal/employee-modal'
 
 export const EmployeesPage: FC = () => {
 	const getSearchPanelValues = (data: SearchPanelData) => {
@@ -15,11 +15,17 @@ export const EmployeesPage: FC = () => {
 
 	const [activeEmployeeModal, setActiveEmployeeModal] = useState<boolean>(false)
 
+	const addEmployee = (data: FormData) => {
+		console.log(data)
+	}
+
 	return (
 		<>
-			<AddEmployeeModal
+			<EmployeeModal
 				activeEmployeeModal={activeEmployeeModal}
 				setActiveEmployeeModal={setActiveEmployeeModal}
+				handleSubmit={addEmployee}
+				isEdit
 			/>
 			<SearchPanel
 				additionalNode={

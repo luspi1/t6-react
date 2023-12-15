@@ -1,5 +1,20 @@
 import * as yup from 'yup'
 
+export type Inputs = {
+	secondName: string
+	name: string
+	email: string
+	mobileNumber: string
+	password: string
+	confirmPassword: string
+	typeAcc?: string
+	typeEmployee?: string
+	position?: string
+	patronymicName?: string
+	alias?: string
+	isServiceAcc?: boolean
+	isActiveEmployee?: boolean
+}
 export const employeeSchema = yup.object({
 	secondName: yup
 		.string()
