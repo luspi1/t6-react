@@ -45,7 +45,7 @@ export const CustomTable: FC<CustomTableProps & React.HTMLAttributes<HTMLTableEl
 
 			<tbody>
 				{copyCellsData?.map((row, rowIdx) => (
-					<tr key={rowIdx}>
+					<tr key={rowIdx} data-idx={rowIdx + 1}>
 						{row.map((cell, cellIdx) => (
 							<td key={cellIdx}>{cell}</td>
 						))}

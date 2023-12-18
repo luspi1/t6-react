@@ -1,13 +1,15 @@
 import { Modal } from 'src/components/modal/modal'
 
 import styles from './index.module.scss'
-import { type FC } from 'react'
+import { type FC, useEffect } from 'react'
 import { FormProvider, type SubmitHandler, useForm } from 'react-hook-form'
 import { ControlledSelect } from 'src/components/controlled-select/controlled-select'
 import { ControlledInput } from 'src/components/controlled-input/controlled-input'
-import { employeeSchema, type Inputs } from 'src/modals/employee-modal/schema'
+import { employeeSchema, type EmployeeInputs } from 'src/modals/employee-modal/schema'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { formatFormData } from 'src/helpers/utils'
+import { useAppSelector } from 'src/hooks/store'
+import { getEmployeeFormData } from 'src/store/modals/modals.selectors'
 
 type EmployeeModalProps = {
 	activeEmployeeModal: boolean
@@ -22,12 +24,24 @@ export const EmployeeModal: FC<EmployeeModalProps> = ({
 	handleSubmit,
 	isEdit,
 }) => {
-	const methods = useForm<Inputs>({ mode: 'onBlur', resolver: yupResolver(employeeSchema) })
+	const methods = useForm<EmployeeInputs>({ mode: 'onBlur', resolver: yupResolver(employeeSchema) })
 
-	const onSubmit: SubmitHandler<Inputs> = (data) => {
-		const formatData = formatFormData<Inputs>(data)
+	const formValues = useAppSelector(getEmployeeFormData)
+
+	const onSubmit: SubmitHandler<EmployeeInputs> = (data) => {
+		const formatData = formatFormData<EmployeeInputs>(data)
 		handleSubmit(formatData)
 	}
+
+	useEffect(() => {
+		if (formValues) {
+			formValues.forEach((el) => {
+				methods.setValue(el[0], el[1])
+			})
+		} else {
+			methods.reset()
+		}
+	}, [])
 
 	return (
 		<Modal
@@ -90,12 +104,14 @@ export const EmployeeModal: FC<EmployeeModalProps> = ({
 							type='password'
 							label='Пароль'
 							promptTitle='Подсказка про пароль'
+							autoComplete='true'
 						/>
 						<ControlledInput
 							name='confirmPassword'
 							type='password'
 							label='Повторить пароль'
 							promptTitle='Подсказка про пароль'
+							autoComplete='true'
 						/>
 						<ControlledSelect
 							selectOptions={[

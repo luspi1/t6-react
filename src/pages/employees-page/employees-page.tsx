@@ -1,4 +1,4 @@
-import { type FC, useState } from 'react'
+import { type FC } from 'react'
 import { EmployeesTable } from 'src/pages/employees-page/employees-table/employees-table'
 import { SearchPanel } from 'src/components/search-panel/search-panel'
 import { employeeSelect } from 'src/pages/employees-page/consts'
@@ -7,14 +7,17 @@ import { MainButton } from 'src/UI/MainButton/MainButton'
 import { PlusSvg } from 'src/UI/icons/plusSVG'
 import { Pagination } from 'src/components/pagination/pagination'
 import { EmployeeModal } from 'src/modals/employee-modal/employee-modal'
+import { useActions } from 'src/hooks/actions/actions'
+import { useAppSelector } from 'src/hooks/store'
+import { getEmployeeModalActivity } from 'src/store/modals/modals.selectors'
 
 export const EmployeesPage: FC = () => {
+	const { setActiveEmployee } = useActions()
+
+	const employeeModalActivity = useAppSelector(getEmployeeModalActivity)
 	const getSearchPanelValues = (data: SearchPanelData) => {
 		console.log(data)
 	}
-
-	const [activeEmployeeModal, setActiveEmployeeModal] = useState<boolean>(false)
-
 	const addEmployee = (data: FormData) => {
 		console.log(data)
 	}
@@ -22,23 +25,22 @@ export const EmployeesPage: FC = () => {
 	return (
 		<>
 			<EmployeeModal
-				activeEmployeeModal={activeEmployeeModal}
-				setActiveEmployeeModal={setActiveEmployeeModal}
+				activeEmployeeModal={employeeModalActivity}
+				setActiveEmployeeModal={setActiveEmployee}
 				handleSubmit={addEmployee}
-				isEdit
 			/>
 			<SearchPanel
 				additionalNode={
-					<MainButton
-						svgNode={<PlusSvg />}
-						onClick={() => setActiveEmployeeModal(!activeEmployeeModal)}
-					>
+					<MainButton svgNode={<PlusSvg />} onClick={() => setActiveEmployee(true)}>
 						Добавить сотрудника
 					</MainButton>
 				}
 				handleFormData={getSearchPanelValues}
 				selectOptions={employeeSelect}
-				searchConfig={{ name: 'employee_search', placeholder: 'Поиск по фамилии или имени' }}
+				searchConfig={{
+					name: 'employee_search',
+					placeholder: 'Поиск по фамилии или имени',
+				}}
 			/>
 			<EmployeesTable />
 			<Pagination pagesCount={5} activePage={1} />

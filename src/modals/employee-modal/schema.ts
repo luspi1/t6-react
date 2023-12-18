@@ -1,6 +1,7 @@
 import * as yup from 'yup'
+import { type FieldPathValue } from 'react-hook-form'
 
-export type Inputs = {
+export type EmployeeInputs = {
 	secondName: string
 	name: string
 	email: string
@@ -15,6 +16,11 @@ export type Inputs = {
 	isServiceAcc?: boolean
 	isActiveEmployee?: boolean
 }
+
+export type EmployeeFormData = Array<
+	[keyof EmployeeInputs, FieldPathValue<EmployeeInputs, keyof EmployeeInputs>]
+>
+
 export const employeeSchema = yup.object({
 	secondName: yup
 		.string()

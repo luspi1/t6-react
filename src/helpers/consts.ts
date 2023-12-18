@@ -21,6 +21,7 @@ export enum AppRoute {
 export enum NameSpace {
 	User = 'USER',
 	ProfileSidebar = 'PROFILE_SIDEBAR',
+	Modals = 'MODALS',
 }
 
 export enum ReducerPath {

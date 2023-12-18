@@ -8,12 +8,11 @@ import { PromptSvg } from 'src/UI/icons/promptSVG'
 
 type ControlledInputProps = {
 	mask?: string
-	type?: string
 	className?: string
 	label?: string
 	promptTitle?: string
 	name: string
-}
+} & React.InputHTMLAttributes<HTMLInputElement>
 
 export const ControlledInput: FC<ControlledInputProps> = ({
 	name,
@@ -21,7 +20,7 @@ export const ControlledInput: FC<ControlledInputProps> = ({
 	mask,
 	label,
 	promptTitle,
-	type,
+	...props
 }) => {
 	const {
 		register,
@@ -34,8 +33,8 @@ export const ControlledInput: FC<ControlledInputProps> = ({
 				{label && <p>{label}</p>}
 				<InputMask
 					{...register(name)}
+					{...props}
 					mask={mask ?? ''}
-					type={type ?? 'text'}
 					className={cn(styles.controlledInput, {
 						[styles.noValid]: errors[name],
 					})}
