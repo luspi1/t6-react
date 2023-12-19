@@ -10,6 +10,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { formatFormData } from 'src/helpers/utils'
 import { useAppSelector } from 'src/hooks/store'
 import { getEmployeeFormData } from 'src/store/modals/modals.selectors'
+import { useActions } from 'src/hooks/actions/actions'
 
 type EmployeeModalProps = {
 	activeEmployeeModal: boolean
@@ -27,6 +28,7 @@ export const EmployeeModal: FC<EmployeeModalProps> = ({
 	const methods = useForm<EmployeeInputs>({ mode: 'onBlur', resolver: yupResolver(employeeSchema) })
 
 	const formValues = useAppSelector(getEmployeeFormData)
+	const { setEmployeeNameInputs } = useActions()
 
 	const onSubmit: SubmitHandler<EmployeeInputs> = (data) => {
 		const formatData = formatFormData<EmployeeInputs>(data)
@@ -34,14 +36,17 @@ export const EmployeeModal: FC<EmployeeModalProps> = ({
 	}
 
 	useEffect(() => {
+		setEmployeeNameInputs(Object.keys(methods.getValues()))
+	}, [])
+
+	useEffect(() => {
+		methods.reset()
 		if (formValues) {
 			formValues.forEach((el) => {
 				methods.setValue(el[0], el[1])
 			})
-		} else {
-			methods.reset()
 		}
-	}, [])
+	}, [formValues])
 
 	return (
 		<Modal
@@ -55,8 +60,8 @@ export const EmployeeModal: FC<EmployeeModalProps> = ({
 					<section>
 						<ControlledSelect
 							selectOptions={[
-								{ label: 'Постоянный сотрудник', value: '1' },
-								{ label: 'Временный сотрудник', value: '2' },
+								{ label: 'Постоянный сотрудник', value: 'постоянный' },
+								{ label: 'Временный сотрудник', value: 'временный' },
 							]}
 							name='typeEmployee'
 							label='Тип занятости'
@@ -64,8 +69,9 @@ export const EmployeeModal: FC<EmployeeModalProps> = ({
 						/>
 						<ControlledSelect
 							selectOptions={[
-								{ label: 'Вратарь', value: '1' },
-								{ label: 'Музыкант', value: '2' },
+								{ label: 'Вратарь', value: 'вратарь' },
+								{ label: 'Музыкант', value: 'музыкант' },
+								{ label: 'Помощник', value: 'помощник' },
 							]}
 							name='position'
 							label='Должность'
@@ -115,8 +121,8 @@ export const EmployeeModal: FC<EmployeeModalProps> = ({
 						/>
 						<ControlledSelect
 							selectOptions={[
-								{ label: 'Вратарь', value: '1' },
-								{ label: 'Участник', value: '2' },
+								{ label: 'Тип 1', value: '1' },
+								{ label: 'Тип 2', value: '2' },
 							]}
 							name='typeAcc'
 							label='Тип учетной записи'

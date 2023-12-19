@@ -19,15 +19,19 @@ export type EmployeeEventItem = {
 
 export type EmployeeItem = {
 	id: string
-	typeEmployment: 'постоянный' | 'временный'
-	status: 'активен' | 'не активен'
+	typeEmployee: 'постоянный' | 'временный'
 	accountActivity: boolean
-	position: string
-	fullName: string
+	isActiveEmployee: boolean
+	position: 'вратарь' | 'музыкант' | 'помощник'
+	secondName: string
+	name: string
+	patronymicName: string
+	alias: string
 	dateEmployment: string
 	email: string
-	phone: string
+	mobileNumber: string
 	avatar: string
+	typeAcc: string
 	tableEvents: TableData
 	events: EmployeeEventItem[]
 }

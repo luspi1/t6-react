@@ -25,14 +25,20 @@ export let users = [
 			employeesList: [
 				{
 					id: '1',
-					typeEmployment: 'постоянный',
-					status: 'активен',
+					typeEmployee: 'постоянный',
 					accountActivity: false,
+					isActiveEmployee: true,
 					position: 'помощник',
-					fullName: 'Никанорова Василиса Константиновна (Вася)',
+					secondName: 'Никанорова',
+					name: 'Василиса',
+					patronymicName: 'Константиновна',
+					alias: 'Вася',
 					dateEmployment: '27.03.2023',
 					email: 'test@ya.ru',
-					phone: '+7 (999) 999-99-99',
+					mobileNumber: '+7 (999) 999-99-99',
+					avatar:
+						'https://masterpiecer-images.s3.yandex.net/a2e0950d474b11ee99acbaea8797b5f2:upscaled',
+					typeAcc: '1',
 					tableEvents: [
 						[
 							'1',
@@ -42,8 +48,6 @@ export let users = [
 							'23.03.2023 — 24.03.2023',
 						],
 					],
-					avatar:
-						'https://masterpiecer-images.s3.yandex.net/a2e0950d474b11ee99acbaea8797b5f2:upscaled',
 					events: [
 						{
 							id: '1',
@@ -56,14 +60,18 @@ export let users = [
 				},
 				{
 					id: '2',
-					typeEmployment: 'временный',
-					status: 'активен',
+					typeEmployee: 'временный',
 					accountActivity: true,
+					isActiveEmployee: false,
 					position: 'вратарь',
-					fullName: 'Иванов Иван Иванович (Оригинал)',
+					secondName: 'Иванов',
+					name: 'Иван',
+					patronymicName: 'Иванович',
+					alias: 'Оригинал',
 					dateEmployment: '27.03.2023',
 					email: 'ivanov@inanov.iv',
-					phone: '+7 (999) 999-99-99',
+					mobileNumber: '+7 (900) 123-93-45',
+					typeAcc: '2',
 					tableEvents: [
 						[
 							'1',

@@ -12,7 +12,7 @@ import { useAppSelector } from 'src/hooks/store'
 import { getEmployeeModalActivity } from 'src/store/modals/modals.selectors'
 
 export const EmployeesPage: FC = () => {
-	const { setActiveEmployee } = useActions()
+	const { setActiveEmployee, setEmployeeFormData } = useActions()
 
 	const employeeModalActivity = useAppSelector(getEmployeeModalActivity)
 	const getSearchPanelValues = (data: SearchPanelData) => {
@@ -20,6 +20,11 @@ export const EmployeesPage: FC = () => {
 	}
 	const addEmployee = (data: FormData) => {
 		console.log(data)
+	}
+
+	const changeActivityEmployeeModal = () => {
+		setEmployeeFormData(null)
+		setActiveEmployee(true)
 	}
 
 	return (
@@ -31,7 +36,7 @@ export const EmployeesPage: FC = () => {
 			/>
 			<SearchPanel
 				additionalNode={
-					<MainButton svgNode={<PlusSvg />} onClick={() => setActiveEmployee(true)}>
+					<MainButton svgNode={<PlusSvg />} onClick={changeActivityEmployeeModal}>
 						Добавить сотрудника
 					</MainButton>
 				}
