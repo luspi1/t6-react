@@ -5,6 +5,7 @@ import { Controller, useFormContext } from 'react-hook-form'
 
 import styles from './index.module.scss'
 import { PromptSvg } from 'src/UI/icons/promptSVG'
+import { getValue } from 'src/helpers/utils'
 
 type ControlledSelectProps = {
 	selectOptions: SelOption[]
@@ -19,19 +20,23 @@ export const ControlledSelect: FC<ControlledSelectProps> = ({
 	promptTitle,
 }) => {
 	const { control } = useFormContext()
+
 	return (
 		<div className={styles.selectWrapper}>
 			{label && <label>{label}</label>}
 			<Controller
 				name={name}
 				control={control}
-				defaultValue={selectOptions[0]}
-				render={({ field }) => (
+				defaultValue={selectOptions[0].value}
+				render={({ field: { onChange, value } }) => (
 					<Select
-						{...field}
 						className='main-select-container'
 						classNamePrefix='main-select'
 						options={selectOptions}
+						value={getValue(value, selectOptions)}
+						onChange={(newValue) => {
+							onChange((newValue as SelOption).value)
+						}}
 					/>
 				)}
 			/>

@@ -2,6 +2,7 @@ import { type FC, type PropsWithChildren } from 'react'
 import styles from './index.module.scss'
 import cn from 'classnames'
 import { CloseSvg } from 'src/UI/icons/closeSVG'
+import { createPortal } from 'react-dom'
 
 type ModalProps = PropsWithChildren<{
 	active: boolean
@@ -10,7 +11,7 @@ type ModalProps = PropsWithChildren<{
 }>
 
 export const Modal: FC<ModalProps> = ({ active, setActive, children, className }) => {
-	return (
+	return createPortal(
 		<div
 			className={cn(styles.modal, { [styles.active]: active })}
 			onClick={() => (setActive ? setActive(false) : null)}
@@ -25,6 +26,7 @@ export const Modal: FC<ModalProps> = ({ active, setActive, children, className }
 				</button>
 				{children}
 			</div>
-		</div>
+		</div>,
+		document.getElementById('modal') as HTMLElement,
 	)
 }
