@@ -121,6 +121,35 @@ export let users = [
 				},
 			],
 		},
+
+		eventsStatistic: {
+			createdEventsCount: 25,
+			heldEventsCount: 18,
+			currentEventsCount: 2,
+			cancelledEventsCount: 0,
+			totalVisitors: 920,
+			paidVisitors: 762,
+			earnings: 1200000,
+		},
+
+		cabinetInfo: {
+			shortOrganizationName: 'Еще один Организатор',
+			fullOrganizationName: 'ООО «Организатор и сыновья»',
+			brandName: 'ОРГАНИЗАТОРИЩЕ!!!',
+			region: 'Тамбовская область, Тамбов',
+			site: 'www.nashsite.com',
+			email: 'info@nashsite.com',
+			password: '12345',
+			hidePassword: true,
+			phone: '+79999999999',
+			authenticationSecondFactor: true,
+		},
+
+		eventsDescription: {
+			description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+				Aenean euismod bibendum laoreet. Proin gravida dolor sit 
+				amet lacus accumsan et viverra justo commodo.`,
+			activity: ['Проведение культурных мероприятий', 'Научная деятельность', 'Журналистика'],
+		},
 	},
 ]
-
