@@ -5,13 +5,11 @@ import { type EmployeeFormData } from 'src/modals/employee-modal/schema'
 type ModalsState = {
 	isActiveEmployee: boolean
 	employeeFormData: EmployeeFormData | null
-	employeeNameInputs: string[]
 }
 
 const initialState: ModalsState = {
 	isActiveEmployee: false,
 	employeeFormData: null,
-	employeeNameInputs: [],
 }
 
 export const modalsSlice = createSlice({
@@ -23,9 +21,6 @@ export const modalsSlice = createSlice({
 		},
 		setEmployeeFormData: (state, action: PayloadAction<EmployeeFormData | null>) => {
 			state.employeeFormData = action.payload
-		},
-		setEmployeeNameInputs: (state, action: PayloadAction<string[]>) => {
-			state.employeeNameInputs = action.payload
 		},
 	},
 })

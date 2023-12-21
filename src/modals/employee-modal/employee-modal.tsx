@@ -10,7 +10,6 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { formatFormData } from 'src/helpers/utils'
 import { useAppSelector } from 'src/hooks/store'
 import { getEmployeeFormData } from 'src/store/modals/modals.selectors'
-import { useActions } from 'src/hooks/actions/actions'
 
 type EmployeeModalProps = {
 	activeEmployeeModal: boolean
@@ -28,16 +27,10 @@ export const EmployeeModal: FC<EmployeeModalProps> = ({
 	const methods = useForm<EmployeeInputs>({ mode: 'onBlur', resolver: yupResolver(employeeSchema) })
 
 	const formValues = useAppSelector(getEmployeeFormData)
-	const { setEmployeeNameInputs } = useActions()
-
 	const onSubmit: SubmitHandler<EmployeeInputs> = (data) => {
 		const formatData = formatFormData<EmployeeInputs>(data)
 		handleSubmit(formatData)
 	}
-
-	useEffect(() => {
-		setEmployeeNameInputs(Object.keys(methods.getValues()))
-	}, [])
 
 	useEffect(() => {
 		methods.reset()

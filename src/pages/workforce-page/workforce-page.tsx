@@ -6,15 +6,38 @@ import { PlusSvg } from 'src/UI/icons/plusSVG'
 import { employeeSelect } from 'src/pages/employees-page/consts'
 import { EmployeesTable } from 'src/pages/employees-page/employees-table/employees-table'
 import { Pagination } from 'src/components/pagination/pagination'
+import { EmployeeModal } from 'src/modals/employee-modal/employee-modal'
+import { useAppSelector } from 'src/hooks/store'
+import { getEmployeeModalActivity } from 'src/store/modals/modals.selectors'
+import { useActions } from 'src/hooks/actions/actions'
 
 export const WorkforcePage: FC = () => {
+	const employeeModalActivity = useAppSelector(getEmployeeModalActivity)
+	const { setActiveEmployee, setEmployeeFormData } = useActions()
+	const addEmployee = (data: FormData) => {
+		console.log(data)
+	}
+
+	const changeActivityEmployeeModal = () => {
+		setEmployeeFormData(null)
+		setActiveEmployee(true)
+	}
 	const getSearchPanelValues = (data: SearchPanelData) => {
 		console.log(data)
 	}
 	return (
 		<>
+			<EmployeeModal
+				activeEmployeeModal={employeeModalActivity}
+				setActiveEmployeeModal={setActiveEmployee}
+				handleSubmit={addEmployee}
+			/>
 			<SearchPanel
-				additionalNode={<MainButton svgNode={<PlusSvg />}>Добавить сотрудника</MainButton>}
+				additionalNode={
+					<MainButton svgNode={<PlusSvg />} onClick={changeActivityEmployeeModal}>
+						Добавить сотрудника
+					</MainButton>
+				}
 				handleFormData={getSearchPanelValues}
 				selectOptions={employeeSelect}
 				searchConfig={{ name: 'workforce_search', placeholder: 'Поиск по фамилии или имени' }}

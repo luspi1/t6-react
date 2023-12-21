@@ -7,17 +7,20 @@ import { MainButton } from 'src/UI/MainButton/MainButton'
 import { PlusSvg } from 'src/UI/icons/plusSVG'
 import { Pagination } from 'src/components/pagination/pagination'
 import { useActions } from 'src/hooks/actions/actions'
+import { EmployeeModal } from 'src/modals/employee-modal/employee-modal'
+import { useAppSelector } from 'src/hooks/store'
+import { getEmployeeModalActivity } from 'src/store/modals/modals.selectors'
 
 export const EmployeesPage: FC = () => {
 	const { setActiveEmployee, setEmployeeFormData } = useActions()
 
-	// const employeeModalActivity = useAppSelector(getEmployeeModalActivity)
+	const employeeModalActivity = useAppSelector(getEmployeeModalActivity)
 	const getSearchPanelValues = (data: SearchPanelData) => {
 		console.log(data)
 	}
-	// const addEmployee = (data: FormData) => {
-	// 	console.log(data)
-	// }
+	const addEmployee = (data: FormData) => {
+		console.log(data)
+	}
 
 	const changeActivityEmployeeModal = () => {
 		setEmployeeFormData(null)
@@ -26,11 +29,11 @@ export const EmployeesPage: FC = () => {
 
 	return (
 		<>
-			{/* <EmployeeModal */}
-			{/* 	activeEmployeeModal={employeeModalActivity} */}
-			{/* 	setActiveEmployeeModal={setActiveEmployee} */}
-			{/* 	handleSubmit={addEmployee} */}
-			{/* /> */}
+			<EmployeeModal
+				activeEmployeeModal={employeeModalActivity}
+				setActiveEmployeeModal={setActiveEmployee}
+				handleSubmit={addEmployee}
+			/>
 			<SearchPanel
 				additionalNode={
 					<MainButton svgNode={<PlusSvg />} onClick={changeActivityEmployeeModal}>

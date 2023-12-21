@@ -17,6 +17,22 @@ export type EmployeeInputs = {
 	isActiveEmployee?: boolean
 }
 
+export const employeeInputNames = [
+	'typeEmployee',
+	'position',
+	'secondName',
+	'name',
+	'patronymicName',
+	'alias',
+	'isServiceAcc',
+	'email',
+	'mobileNumber',
+	'password',
+	'confirmPassword',
+	'typeAcc',
+	'isActiveEmployee',
+]
+
 export type EmployeeFormData = Array<
 	[keyof EmployeeInputs, FieldPathValue<EmployeeInputs, keyof EmployeeInputs>]
 >

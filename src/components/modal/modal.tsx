@@ -11,6 +11,10 @@ type ModalProps = PropsWithChildren<{
 }>
 
 export const Modal: FC<ModalProps> = ({ active, setActive, children, className }) => {
+	if (!active) {
+		return null
+	}
+
 	return createPortal(
 		<div
 			className={cn(styles.modal, { [styles.active]: active })}
