@@ -6,24 +6,20 @@ import { useGetUserByIdQuery } from 'src/store/user/user.api'
 import styles from './index.module.scss'
 import { useActions } from 'src/hooks/actions/actions'
 import { type EmployeeFormData, employeeInputNames } from 'src/modals/employee-modal/schema'
-
 export const EmployeesTable: FC = () => {
 	const { data } = useGetUserByIdQuery('0')
 
-	const { setActiveEmployee, setEmployeeFormData } = useActions()
-
+	const { setEmployeeModal } = useActions()
 	const handleEditEmployee = (e: React.MouseEvent<HTMLButtonElement>) => {
-		if (!data?.employees) return
-		setActiveEmployee(true)
 		const employeeId = e.currentTarget.closest('tr')?.dataset.idx
-		const searchedEmployee = data.employees.employeesList.find(
+		const searchedEmployee = data?.employees.employeesList.find(
 			(employee) => employee.id === employeeId,
 		)
 		if (searchedEmployee) {
 			const filteredEmployeeData = Object.entries(searchedEmployee).filter(([key]) =>
 				employeeInputNames.includes(key),
 			) as EmployeeFormData
-			setEmployeeFormData(filteredEmployeeData)
+			setEmployeeModal({ formData: filteredEmployeeData, isActive: true, isEdit: true })
 		}
 	}
 

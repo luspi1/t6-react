@@ -9,43 +9,39 @@ import { employeeSchema, type EmployeeInputs } from 'src/modals/employee-modal/s
 import { yupResolver } from '@hookform/resolvers/yup'
 import { formatFormData } from 'src/helpers/utils'
 import { useAppSelector } from 'src/hooks/store'
-import { getEmployeeFormData } from 'src/store/modals/modals.selectors'
+import { getEmployeeModalState } from 'src/store/modals/modals.selectors'
+import { useActions } from 'src/hooks/actions/actions'
 
-type EmployeeModalProps = {
-	activeEmployeeModal: boolean
-	setActiveEmployeeModal: (arg: boolean) => void
-	handleSubmit: (data: FormData) => void
-	isEdit?: boolean
-}
+export const EmployeeModal: FC = () => {
+	const { formData, isActive, isEdit } = useAppSelector(getEmployeeModalState)
+	const { setEmployeeModal } = useActions()
 
-export const EmployeeModal: FC<EmployeeModalProps> = ({
-	setActiveEmployeeModal,
-	activeEmployeeModal,
-	handleSubmit,
-	isEdit,
-}) => {
 	const methods = useForm<EmployeeInputs>({ mode: 'onBlur', resolver: yupResolver(employeeSchema) })
-
-	const formValues = useAppSelector(getEmployeeFormData)
 	const onSubmit: SubmitHandler<EmployeeInputs> = (data) => {
 		const formatData = formatFormData<EmployeeInputs>(data)
-		handleSubmit(formatData)
+		console.log(formatData)
+		setEmployeeModal({ isActive: false, isEdit: false, formData: null })
+	}
+
+	const handleFireEmployee = () => {
+		setEmployeeModal({ isActive: false, isEdit: false, formData: null })
+		alert('сотрудник уволен')
 	}
 
 	useEffect(() => {
 		methods.reset()
-		if (formValues) {
-			formValues.forEach((el) => {
+		if (formData) {
+			formData.forEach((el) => {
 				methods.setValue(el[0], el[1])
 			})
 		}
-	}, [formValues])
+	}, [formData])
 
 	return (
 		<Modal
 			className={styles.employeeModal}
-			active={activeEmployeeModal}
-			setActive={setActiveEmployeeModal}
+			active={isActive ?? false}
+			customClose={() => setEmployeeModal({ isActive: false, isEdit: false, formData: null })}
 		>
 			<h4>Добавление сотрудника</h4>
 			<FormProvider {...methods}>
@@ -137,7 +133,9 @@ export const EmployeeModal: FC<EmployeeModalProps> = ({
 								Уволенный сотрудник будет перемещен в список кадрового резерва. В случае
 								необходимости, Вы сможете принять его обратно.
 							</p>
-							<button type='button'>Уволить сотрудника</button>
+							<button type='button' onClick={handleFireEmployee}>
+								Уволить сотрудника
+							</button>
 						</section>
 					)}
 				</form>
