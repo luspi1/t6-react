@@ -1,0 +1,50 @@
+.dropzoneContainer {
+	display: flex;
+	gap: 16px;
+}
+
+.imageContainer {
+	cursor: pointer;
+	width: 147px;
+	height: 147px;
+	border-radius: 5px;
+	border: 1px dashed #7b7b7b;
+	background: #fff;
+	position: relative;
+
+	svg {
+		position: absolute;
+		margin: auto;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	}
+
+	img {
+		height: 100%;
+		text-align: center;
+	}
+}
+
+.dropzoneRight {
+	padding-top: 7px;
+
+	p {
+		margin-bottom: 17px;
+		font-size: 13px;
+		font-weight: 400;
+		line-height: normal;
+	}
+
+	button {
+		color: #113770;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: normal;
+		border-radius: 3px;
+		border: 1px solid #113770;
+		background: #f4f7fa;
+		padding: 5px 10px;
+	}
+}

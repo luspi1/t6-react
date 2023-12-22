@@ -48,4 +48,32 @@ export type User = {
 		tableEmployees: TableData
 		employeesList: EmployeeItem[]
 	}
+
+	eventsStatistic: {
+		createdEventsCount: number
+		heldEventsCount: number
+		currentEventsCount: number
+		cancelledEventsCount: number
+		totalVisitors: number
+		paidVisitors: number
+		earnings: number
+	}
+
+	cabinetInfo: {
+		shortOrganizationName: string
+		fullOrganizationName: string
+		brandName: string
+		region: string
+		site: string
+		email: string
+		password: string
+		hidePassword: boolean
+		phone: string
+		authenticationSecondFactor: true
+	}
+
+	eventsDescription: {
+		description: string
+		activity: string[]
+	}
 }
