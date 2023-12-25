@@ -10,14 +10,9 @@ type CopyTextButtonProps = {
 export const CopyTextButton: FC<CopyTextButtonProps> = ({ copyText }) => {
 	const [isCopied, setIsCopied] = useState(false)
 
-	async function copyTextToClipboard(text: string) {
-		if ('clipboard' in navigator) {
-			return await navigator.clipboard.writeText(text)
-		}
-	}
-
 	const handleCopyClick = () => {
-		copyTextToClipboard(copyText)
+		navigator.clipboard
+			.writeText(copyText)
 			.then(() => {
 				setIsCopied(true)
 				setTimeout(() => {
@@ -32,7 +27,7 @@ export const CopyTextButton: FC<CopyTextButtonProps> = ({ copyText }) => {
 	return (
 		<button className={styles.copyButton} onClick={handleCopyClick}>
 			<WebsiteSvg />
-			<span>{isCopied ? 'Copied!' : ''}</span>
+			<span>{isCopied ? 'Скопировано!' : ''}</span>
 		</button>
 	)
 }

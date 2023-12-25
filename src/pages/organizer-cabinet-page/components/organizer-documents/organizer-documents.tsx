@@ -10,7 +10,7 @@ type OrganizerDocumentsProps = {
 
 export const OrganizerDocuments: FC<OrganizerDocumentsProps> = ({ documents }) => {
 	return (
-		<CardInfo className={styles.organizerTable}>
+		<CardInfo>
 			<h4>Документы</h4>
 
 			<div className={styles.cardInfoTable}>

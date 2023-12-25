@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 
 import { CardInfo } from 'src/components/card-info/card-info'
-import styles from '../../index.module.scss'
+import styles from './index.module.scss'
 import { type EventsStatistic } from 'src/types/user'
 
 type OrganizerEventsBlockProps = {

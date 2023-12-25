@@ -10,7 +10,7 @@ type OrganizerTariffsProps = {
 
 export const OrganizerTariffs: FC<OrganizerTariffsProps> = ({ tariffs }) => {
 	return (
-		<CardInfo className={styles.organizerTable}>
+		<CardInfo>
 			<h4>Тарифы</h4>
 
 			<div className={styles.cardInfoTable}>

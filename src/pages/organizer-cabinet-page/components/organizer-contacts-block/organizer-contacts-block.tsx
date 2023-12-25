@@ -1,12 +1,14 @@
 import { type FC, useState } from 'react'
 import cn from 'classnames'
 
-import styles from '../../index.module.scss'
 import { type CabinetInfo } from 'src/types/user'
 
 import { CardInfo } from 'src/components/card-info/card-info'
 import { EditPencilSVG } from 'src/UI/icons/editPencilSVG'
 import { GreenConfirmSVG } from 'src/UI/icons/greenConfirmSVG'
+
+import styles from '../../index.module.scss'
+import componentBlock from './index.module.scss'
 
 type OrganizerContactsBlockProps = {
 	cabinetInfo?: CabinetInfo
@@ -18,7 +20,7 @@ export const OrganizerContactsBlock: FC<OrganizerContactsBlockProps> = ({ cabine
 		<CardInfo className={cn(styles.cardInfo, styles.editableBlock)}>
 			<div className={styles.cabinetInfoItem}>
 				<p className={styles.cabinetInfoTitle}>E-mail / Логин</p>
-				<p className={cn(styles.cabinetInfoValue, styles.email)}>{cabinetInfo?.email}</p>
+				<p className={cn(styles.cabinetInfoValue, componentBlock.email)}>{cabinetInfo?.email}</p>
 			</div>
 
 			<div className={styles.cabinetInfoItem}>
@@ -39,7 +41,7 @@ export const OrganizerContactsBlock: FC<OrganizerContactsBlockProps> = ({ cabine
 				</p>
 
 				<p
-					className={cn(styles.cabinetInfoValue, styles.hidePassword)}
+					className={cn(styles.cabinetInfoValue, componentBlock.hidePassword)}
 					onClick={() => setPasswordShown(!isPasswordShown)}
 				>
 					{!isPasswordShown ? 'Показать пароль' : 'Скрыть пароль'}
@@ -52,7 +54,7 @@ export const OrganizerContactsBlock: FC<OrganizerContactsBlockProps> = ({ cabine
 			</div>
 
 			{cabinetInfo?.authenticationSecondFactor ? (
-				<div className={cn(styles.cabinetInfoItem, styles.authFactor)}>
+				<div className={cn(styles.cabinetInfoItem, componentBlock.authFactor)}>
 					<GreenConfirmSVG />
 					Второй фактор аутентификации включен
 				</div>
