@@ -60,8 +60,11 @@ export type EventsStatistic = {
 
 export type Tariff = {
 	title: string
-	description: string
+	description?: string
 	cost: number
+	startPeriod?: string
+	endPeriod?: string
+	params?: string[]
 }
 
 export type Document = {
@@ -93,4 +96,7 @@ export type User = {
 		description: string
 		activity: string[]
 	}
+
+	tableTariffPayments: string[][]
+	currentTariffInfo: Tariff
 }

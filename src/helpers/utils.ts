@@ -9,6 +9,8 @@ export const formatToCurrencyWithSymbol = (num: number) => {
 		useGrouping: true,
 		style: 'currency',
 		currency: 'RUB',
+		maximumFractionDigits: 0,
+		minimumFractionDigits: 0,
 	}).format(num)
 }
 
