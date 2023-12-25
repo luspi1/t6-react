@@ -132,6 +132,33 @@ export let users = [
 			earnings: 1200000,
 		},
 
+		
+		tariffs: [
+			{
+				title: 'Тариф 1',
+				description: 'Lorem ipsum dolor sit amet, consectetur...',
+				cost: 299,
+			},
+			{
+				title: 'Тариф 2',
+				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do...',
+				cost: 699,
+			},
+		],
+
+		documents: [
+			{
+				type: 'Счет',
+				title: 'Счет № 23-233 от 03.03.2023г, ООО...',
+				date: '27.03.2023',
+			},
+			{
+				type: 'Квитанция',
+				title: 'Квитанция ООО Мусоровоз от 04.04.2023г...',
+				date: '27.03.2023',
+			},
+		],
+
 		cabinetInfo: {
 			shortOrganizationName: 'Еще один Организатор',
 			fullOrganizationName: 'ООО «Организатор и сыновья»',
@@ -140,7 +167,6 @@ export let users = [
 			site: 'www.nashsite.com',
 			email: 'info@nashsite.com',
 			password: '12345',
-			hidePassword: true,
 			phone: '+79999999999',
 			authenticationSecondFactor: true,
 		},

@@ -1,23 +1,52 @@
 .cabinetPage {
-	// border: 3px solid red;
+	.organizerStatus {
+		flex-direction: column;
+		align-items: flex-start;
+		margin-bottom: 0;
+
+		p {
+			font-size: 18px;
+			margin-bottom: 5px;
+		}
+	}
+
+	h4 {
+		margin-bottom: 12px;
+		font-size: 18px;
+		font-weight: 600;
+	}
 }
 
 .cabinetDesc {
 	color: #91969a;
 	font-size: 13px;
 	margin-bottom: 30px;
+
 	a {
 		font-weight: 600;
 	}
-
-	// border: 3px solid yellow;
 }
 
 .cabinetContent {
 	display: flex;
-	gap: 20px;
 	flex-wrap: wrap;
 	align-items: flex-start;
+
+	.cardInfo {
+		display: flex;
+		flex-direction: column;
+		gap: 13px;
+	}
+
+	.editableBlock {
+		position: relative;
+
+		.editButton {
+			position: absolute;
+			top: 15px;
+			right: 13px;
+		}
+	}
 }
 
 .cabinetLeft {
@@ -25,6 +54,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+	margin-right: 20px;
 
 	.cardInfo {
 		max-width: 370px;
@@ -33,7 +63,6 @@
 
 .createdEvents {
 	padding: 100px;
-
 	min-height: 240px;
 	display: flex;
 	align-items: center;
@@ -43,13 +72,90 @@
 		max-width: 204px;
 		color: #91969a;
 		text-align: center;
-
 		font-size: 14px;
-
 		font-weight: 400;
 		line-height: normal;
 	}
 }
+
+.statistic {
+	.statisticItem {
+		margin-bottom: 5px;
+		padding-top: 13px;
+
+		div {
+			display: flex;
+			gap: 20px;
+			padding-bottom: 18px;
+			border-bottom: 1px solid #E3DDDD;
+		}
+
+		p {
+			color: #91969A;
+		}
+
+		span {
+			display: block;
+			padding-top: 10px;
+			color: #000;
+		}
+	}
+
+	h6 {
+		margin-bottom: 12px;
+		font-size: 14px;
+		font-weight: 600;
+	}
+}
+
+.organizerTable {
+	.tableLink {
+		display: inline-block;
+		color: #113770;
+		font-size: 14px;
+
+		font-weight: 600;
+		line-height: normal;
+		padding: 5px 0;
+	}
+}
+
+.cardInfoTable {
+	margin-bottom: 7px;
+	padding-top: 6px;
+
+	.titleRow {
+		color: #91969A;
+		margin-bottom: 14px;
+		display: flex;
+	}
+
+	.firstColumn {
+		width: 28%;
+	}
+
+	.secondColumn {
+		max-width: 152px;
+		min-width: 49%;
+	}
+
+	.thirdColumn {
+		width: 23%;
+	}
+
+	.dataRow {
+		line-height: 1.2;
+		display: flex;
+		margin-bottom: 14px;
+
+		a {
+			color: #113770;
+			font-weight: 600;
+			line-height: normal;
+		}
+	}
+}
+
 
 .cabinetRight {
 	flex: 1;
@@ -62,10 +168,6 @@
 	display: flex;
 	font-size: 14px;
 	line-height: 1.3;
-
-	&:not(:last-child) {
-		margin-bottom: 13px;
-	}
 
 	.email {
 		color: #113770;
@@ -93,14 +195,19 @@
 	}
 }
 
+.hidePassword {
+	color: #113770;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
 .authFactor {
 	padding-top: 8px;
 	color: #069a7f;
 	font-size: 14px;
-
 	font-weight: 500;
 	line-height: normal;
-
 	display: flex;
 	align-items: center;
 	gap: 3px;

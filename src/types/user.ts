@@ -36,6 +36,40 @@ export type EmployeeItem = {
 	events: EmployeeEventItem[]
 }
 
+export type CabinetInfo = {
+	shortOrganizationName: string
+	fullOrganizationName: string
+	brandName: string
+	region: string
+	site: string
+	email: string
+	password: string
+	phone: string
+	authenticationSecondFactor: true
+}
+
+export type EventsStatistic = {
+	createdEventsCount: number
+	heldEventsCount: number
+	currentEventsCount: number
+	cancelledEventsCount: number
+	totalVisitors: number
+	paidVisitors: number
+	earnings: number
+}
+
+export type Tariff = {
+	title: string
+	description: string
+	cost: number
+}
+
+export type Document = {
+	type: string
+	title: string
+	date: string
+}
+
 export type User = {
 	id: string
 	name: string
@@ -49,28 +83,11 @@ export type User = {
 		employeesList: EmployeeItem[]
 	}
 
-	eventsStatistic: {
-		createdEventsCount: number
-		heldEventsCount: number
-		currentEventsCount: number
-		cancelledEventsCount: number
-		totalVisitors: number
-		paidVisitors: number
-		earnings: number
-	}
+	eventsStatistic: EventsStatistic
+	cabinetInfo: CabinetInfo
 
-	cabinetInfo: {
-		shortOrganizationName: string
-		fullOrganizationName: string
-		brandName: string
-		region: string
-		site: string
-		email: string
-		password: string
-		hidePassword: boolean
-		phone: string
-		authenticationSecondFactor: true
-	}
+	tariffs: Tariff[]
+	documents: Document[]
 
 	eventsDescription: {
 		description: string
