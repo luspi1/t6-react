@@ -8,7 +8,7 @@ import { EditPencilSVG } from 'src/UI/icons/editPencilSVG'
 import { GreenConfirmSVG } from 'src/UI/icons/greenConfirmSVG'
 
 import styles from '../../index.module.scss'
-import componentBlock from './index.module.scss'
+import componentStyles from './index.module.scss'
 
 type OrganizerContactsBlockProps = {
 	cabinetInfo?: CabinetInfo
@@ -20,7 +20,7 @@ export const OrganizerContactsBlock: FC<OrganizerContactsBlockProps> = ({ cabine
 		<CardInfo className={cn(styles.cardInfo, styles.editableBlock)}>
 			<div className={styles.cabinetInfoItem}>
 				<p className={styles.cabinetInfoTitle}>E-mail / Логин</p>
-				<p className={cn(styles.cabinetInfoValue, componentBlock.email)}>{cabinetInfo?.email}</p>
+				<p className={cn(styles.cabinetInfoValue, componentStyles.email)}>{cabinetInfo?.email}</p>
 			</div>
 
 			<div className={styles.cabinetInfoItem}>
@@ -41,7 +41,7 @@ export const OrganizerContactsBlock: FC<OrganizerContactsBlockProps> = ({ cabine
 				</p>
 
 				<p
-					className={cn(styles.cabinetInfoValue, componentBlock.hidePassword)}
+					className={cn(styles.cabinetInfoValue, componentStyles.hidePassword)}
 					onClick={() => setPasswordShown(!isPasswordShown)}
 				>
 					{!isPasswordShown ? 'Показать пароль' : 'Скрыть пароль'}
@@ -54,7 +54,7 @@ export const OrganizerContactsBlock: FC<OrganizerContactsBlockProps> = ({ cabine
 			</div>
 
 			{cabinetInfo?.authenticationSecondFactor ? (
-				<div className={cn(styles.cabinetInfoItem, componentBlock.authFactor)}>
+				<div className={cn(styles.cabinetInfoItem, componentStyles.authFactor)}>
 					<GreenConfirmSVG />
 					Второй фактор аутентификации включен
 				</div>
