@@ -28,13 +28,14 @@
 }
 
 .dropzoneRight {
-	padding-top: 7px;
+	min-width: 179px;
+	padding-top: 4px;
 
 	p {
-		margin-bottom: 17px;
+		margin-bottom: 12px;
 		font-size: 13px;
 		font-weight: 400;
-		line-height: normal;
+		line-height: 1.4;
 	}
 
 	button {
@@ -45,6 +46,6 @@
 		border-radius: 3px;
 		border: 1px solid #113770;
 		background: #f4f7fa;
-		padding: 5px 10px;
+		padding: 6px 42px;
 	}
 }

@@ -1,0 +1,15 @@
+.copyButton {
+    display: flex;
+    position: relative;
+
+    svg {
+        margin: auto;
+    }
+
+    span {        
+        position: absolute;
+        bottom: -15px;
+        right: -50%;
+        font-size: 10px;
+    }
+}

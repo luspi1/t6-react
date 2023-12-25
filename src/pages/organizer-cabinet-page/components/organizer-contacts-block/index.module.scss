@@ -1,0 +1,24 @@
+.email {
+    color: #113770;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.hidePassword {
+    color: #113770;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.authFactor {
+    padding-top: 8px;
+    color: #069a7f;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}

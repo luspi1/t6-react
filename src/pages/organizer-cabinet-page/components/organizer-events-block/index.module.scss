@@ -1,0 +1,16 @@
+.createdEvents {
+    padding: 100px;
+    min-height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .noCreatedEvents {
+        max-width: 204px;
+        color: #91969a;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: normal;
+    }
+}

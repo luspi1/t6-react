@@ -1,0 +1,29 @@
+.statistic {
+    .statisticItem {
+        margin-bottom: 5px;
+        padding-top: 13px;
+
+        div {
+            display: flex;
+            gap: 20px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #E3DDDD;
+        }
+
+        p {
+            color: #91969A;
+        }
+
+        span {
+            display: block;
+            padding-top: 10px;
+            color: #000;
+        }
+    }
+
+    h6 {
+        margin-bottom: 12px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
