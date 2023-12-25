@@ -1,0 +1,19 @@
+.tariffInfoSearchPanel {
+    padding-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+
+    h4 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-right: auto;
+    }
+
+    form {
+        justify-content: flex-end;
+
+        div {
+            max-width: 430px;
+        }
+    }
+}
