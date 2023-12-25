@@ -5,7 +5,7 @@ import styles from './index.module.scss'
 import { useGetUserByIdQuery } from 'src/store/user/user.api'
 
 import { OrgStatus } from 'src/modules/org-status/org-status'
-import { TariffInfo } from 'src/UI/TariffInfo/TariffInfo'
+import { TariffInfo } from './components/tariff-info/tariff-info'
 import { SearchPanel } from 'src/components/search-panel/search-panel'
 import { PaymentsTable } from 'src/pages/tariffs-page/components/payments-table/payments-table'
 import { Pagination } from 'src/components/pagination/pagination'
@@ -17,11 +17,9 @@ export const TariffsPage: FC = () => {
 	}
 
 	return (
-		<div>
+		<>
 			<OrgStatus />
-			<div className={styles.tafiffInfoContainer}>
-				<TariffInfo currentTariffInfo={data?.currentTariffInfo} />
-			</div>
+			<TariffInfo currentTariffInfo={data?.currentTariffInfo} />
 			<SearchPanel
 				additionalNode={<h4>Платежи организатора</h4>}
 				selectOptions={null}
@@ -32,9 +30,8 @@ export const TariffsPage: FC = () => {
 				handleFormData={getSearchPanelValues}
 				className={styles.tariffInfoSearchPanel}
 			/>
-
 			<PaymentsTable />
 			<Pagination pagesCount={5} activePage={2} />
-		</div>
+		</>
 	)
 }

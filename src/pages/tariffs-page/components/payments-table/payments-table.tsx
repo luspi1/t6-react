@@ -8,7 +8,7 @@ import styles from './index.module.scss'
 
 export const PaymentsTable: FC = () => {
 	const { data } = useGetUserByIdQuery('0')
-	if (!data?.tableTariffPayments.length) return <h3>Данных о мероприятиях не найдено</h3>
+	if (!data?.tableTariffPayments.length) return <h3>Данных о платежах не найдено</h3>
 	return (
 		<>
 			<CustomTable
