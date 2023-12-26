@@ -21,12 +21,14 @@ import { OrganizerCabinetPage } from 'src/pages/organizer-cabinet-page/organizer
 import { EmployeesLayout } from 'src/layouts/employees-layout/employees-layout'
 import { OneEmployeePage } from 'src/pages/one-employee-page/one-employee-page'
 import { WorkforcePage } from 'src/pages/workforce-page/workforce-page'
+import { SchedulePage } from 'src/pages/schedule-page/schedule-page'
 
 export const App: FC = () => {
 	return (
 		<Routes>
 			<Route path={AppRoute.Home} element={<Layout />}>
 				<Route path={AppRoute.Home} element={<HomePage />} />
+				<Route path={AppRoute.Schedule} element={<SchedulePage />} />
 			</Route>
 			<Route path={AppRoute.Profile} element={<ProfileLayout />}>
 				<Route path={AppRoute.OrgCabinet} element={<CabinetLayout />}>
@@ -35,8 +37,10 @@ export const App: FC = () => {
 					<Route path={AppRoute.OrganizerDocs} element={<OrganizerDocumentsPage />} />
 					<Route path={AppRoute.Contract} element={<ContractPage />} />
 					<Route path={AppRoute.Tariffs} element={<TariffsPage />} />
+					<Route path={AppRoute.Schedule} element={<SchedulePage />} />
 				</Route>
 				<Route path={AppRoute.Statistics} element={<StatisticsPage />} />
+
 				<Route path={AppRoute.OrgEmployees} element={<EmployeesLayout />}>
 					<Route path={AppRoute.Employees} element={<EmployeesPage />} />
 					<Route path={AppRoute.OneEmployee} element={<OneEmployeePage />} />

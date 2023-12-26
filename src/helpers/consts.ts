@@ -16,6 +16,7 @@ export enum AppRoute {
 	CreateEvent = 'create-event',
 	EventsList = 'events-list',
 	TypesVisitors = 'types-visitors',
+	Schedule = 'schedule',
 }
 
 export enum NameSpace {
@@ -26,6 +27,7 @@ export enum NameSpace {
 
 export enum ReducerPath {
 	User = 'user/api',
+	Events = 'events/api',
 }
 
 export const BASE_URL = 'http://localhost:4001/api/v1'

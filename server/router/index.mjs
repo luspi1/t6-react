@@ -2,7 +2,10 @@ import {
 	getUserById,
 	getContractsFilesById,
 	uploadContractsFilesById,
-	deleteContractsFileById, getAllContracts, getAllPayments
+	deleteContractsFileById,
+	getAllContracts,
+	getAllPayments,
+	getAllEvents,
 } from '../controllers/main-controller.mjs'
 import { Router } from 'express'
 
@@ -12,6 +15,7 @@ router.get('/user/:id', getUserById)
 router.get('/all-contracts', getAllContracts)
 router.get('/all-payments', getAllPayments)
 router.get('/contract-files/:id', getContractsFilesById)
+router.get('/events', getAllEvents)
 
 router.post('/upload-contract-files/:id', uploadContractsFilesById)
 

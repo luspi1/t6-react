@@ -1,0 +1,60 @@
+.scheduleControl {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    .downloadButtons {
+        display: flex;
+
+        button {
+            padding: 5px;
+        }
+    }
+}
+
+.downloadButtons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    a {
+        max-height: 26px;
+        padding: 0 5px 0 8px;
+        font-size: 13px;
+        font-weight: 400;
+    }
+}
+
+.scheduleTable {
+    margin-bottom: 20px;
+
+    &+a {
+        max-width: max-content;
+    }
+}
+
+.scheduleItem {
+    display: flex;
+    line-height: 1.4;
+
+    &Index {
+        width: 2%;
+    }
+
+    &Title {
+        width: 50%;
+    }
+
+    &Location {
+        width: 18%;
+    }
+
+    &Time {
+        width: 30%;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}
