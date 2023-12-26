@@ -14,7 +14,14 @@ export enum AppRoute {
 	Contract = 'contract',
 	Tariffs = 'tariffs',
 	CreateEvent = 'create-event',
-	EventsList = 'events-list',
+	Events = 'events',
+	EventsProfile = 'events-profile',
+	EventsRegistration = 'events-registration',
+	EventsTickets = 'events-tickets',
+	EventsContent = 'events-content',
+	EventsLocation = 'events-location',
+	EventsSchedule = 'events-schedule',
+	EventsLists = 'events-lists',
 	TypesVisitors = 'types-visitors',
 }
 
@@ -44,11 +51,6 @@ export enum ContractsInteraction {
 	ContractSign = 'Подписать договор',
 	ContractTerminate = 'Расторгнуть договор',
 	AdditionalAgreement = 'Дополнительное соглашение',
-}
-
-export enum ContractsListType {
-	Contracts,
-	Payments,
 }
 
 export enum FileTypes {

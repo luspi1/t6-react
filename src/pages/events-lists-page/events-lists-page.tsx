@@ -1,5 +1,5 @@
 import { type FC } from 'react'
 
-export const EventsListPage: FC = () => {
+export const EventsListsPage: FC = () => {
 	return <div>Список событий</div>
 }
