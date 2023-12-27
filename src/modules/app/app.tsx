@@ -29,13 +29,11 @@ import { EventsTicketsPage } from 'src/pages/events-tickets-page/events-tickets-
 import { EventsContentPage } from 'src/pages/events-content-page/events-content-page'
 import { EventsLocationPage } from 'src/pages/events-location-page/events-location-page'
 
-
 export const App: FC = () => {
 	return (
 		<Routes>
 			<Route path={AppRoute.Home} element={<Layout />}>
 				<Route path={AppRoute.Home} element={<HomePage />} />
-				<Route path={AppRoute.Schedule} element={<SchedulePage />} />
 			</Route>
 			<Route path={AppRoute.Profile} element={<ProfileLayout />}>
 				<Route path={AppRoute.OrgCabinet} element={<CabinetLayout />}>
@@ -44,7 +42,6 @@ export const App: FC = () => {
 					<Route path={AppRoute.OrganizerDocs} element={<OrganizerDocumentsPage />} />
 					<Route path={AppRoute.Contract} element={<ContractPage />} />
 					<Route path={AppRoute.Tariffs} element={<TariffsPage />} />
-					<Route path={AppRoute.Schedule} element={<SchedulePage />} />
 				</Route>
 				<Route path={AppRoute.Statistics} element={<StatisticsPage />} />
 
@@ -61,6 +58,7 @@ export const App: FC = () => {
 					<Route path={AppRoute.EventsTickets} element={<EventsTicketsPage />} />
 					<Route path={AppRoute.EventsContent} element={<EventsContentPage />} />
 					<Route path={AppRoute.EventsLocation} element={<EventsLocationPage />} />
+					<Route path={AppRoute.EventsSchedule} element={<SchedulePage />} />
 					<Route path={AppRoute.EventsLists} element={<EventsListsPage />} />
 				</Route>
 
