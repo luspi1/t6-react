@@ -14,7 +14,7 @@ type OrganizerContactsBlockProps = {
 	cabinetInfo?: CabinetInfo
 }
 export const OrganizerContactsBlock: FC<OrganizerContactsBlockProps> = ({ cabinetInfo }) => {
-	const [isPasswordShown, setPasswordShown] = useState(false)
+	const [isPasswordShown, setPasswordShown] = useState<boolean>(false)
 
 	return (
 		<CardInfo className={cn(styles.cardInfo, styles.editableBlock)}>

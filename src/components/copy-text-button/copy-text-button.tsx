@@ -1,6 +1,7 @@
 import { type FC, useState } from 'react'
 
 import styles from './index.module.scss'
+import { MainButton } from 'src/UI/MainButton/MainButton'
 import { WebsiteSvg } from 'src/UI/icons/websiteSVG'
 
 type CopyTextButtonProps = {
@@ -8,7 +9,7 @@ type CopyTextButtonProps = {
 }
 
 export const CopyTextButton: FC<CopyTextButtonProps> = ({ copyText }) => {
-	const [isCopied, setIsCopied] = useState(false)
+	const [isCopied, setIsCopied] = useState<boolean>(false)
 
 	const handleCopyClick = () => {
 		navigator.clipboard
@@ -25,9 +26,9 @@ export const CopyTextButton: FC<CopyTextButtonProps> = ({ copyText }) => {
 	}
 
 	return (
-		<button className={styles.copyButton} onClick={handleCopyClick}>
+		<MainButton className={styles.copyButton} onClick={handleCopyClick} as='button'>
 			<WebsiteSvg />
 			<span>{isCopied ? 'Скопировано!' : ''}</span>
-		</button>
+		</MainButton>
 	)
 }

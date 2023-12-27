@@ -1,6 +1,7 @@
 import { users } from '../mockData/users.mjs'
 import { contracts } from '../mockData/contracts.mjs'
 import { payments } from '../mockData/payments.mjs'
+import { events } from '../mockData/events.mjs'
 
 export const getUserById = (req, res) => {
 	const userId = req.params.id
@@ -32,5 +33,8 @@ export const uploadContractsFilesById = (req, res) => {
 export const deleteContractsFileById = (req, res) => {
 	const deleteFilesIndex = req.body
 	res.status(200).json(deleteFilesIndex)
+}
 
+export const getAllEvents = (req, res) => {
+	res.status(200).json(events)
 }
