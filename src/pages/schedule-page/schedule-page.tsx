@@ -1,54 +1,54 @@
 import { type FC } from 'react'
 
-import { CurrentEvent } from 'src/UI/CurrentEvent/CurrentEvent'
-import { CardInfo } from 'src/components/card-info/card-info'
-import { MainLink } from 'src/UI/MainLink/MainLink'
+import { SectionTitle } from 'src/components/section-title/section-title'
+import { MainButton } from 'src/UI/MainButton/MainButton'
+
+import { CustomTable } from 'src/components/custom-table/custom-table'
 import { LinkArrowSVG } from 'src/UI/icons/linkArrowSVG'
 import { DownloadSvg } from 'src/UI/icons/downloadSVG'
 
 import styles from './index.module.scss'
-import { type Event } from 'src/types/event'
 import { useGetAllEventsQuery } from 'src/store/events/events.api'
 
 export const SchedulePage: FC = () => {
 	const { data } = useGetAllEventsQuery(null)
 	return (
 		<>
-			<CurrentEvent />
+			<SectionTitle />
 			<div className={styles.scheduleControl}>
-				<MainLink href='#'>
+				<MainButton href='#' as='link'>
 					<LinkArrowSVG />
 					Перейти к редактированию расписания
-				</MainLink>
+				</MainButton>
 				<div className={styles.downloadButtons}>
-					<MainLink href='#' download>
+					<MainButton href='#' download as='link'>
 						<DownloadSvg />
 						скачать список в xls
-					</MainLink>
-					<MainLink href='#' download>
+					</MainButton>
+					<MainButton href='#' download as='link'>
 						<DownloadSvg />
 						скачать список в pdf
-					</MainLink>
+					</MainButton>
 				</div>
 			</div>
 
-			<CardInfo className={styles.scheduleTable}>
-				{data?.map((item: Event) => (
-					<li key={item.id} className={styles.scheduleItem}>
-						<p className={styles.scheduleItemIndex}>{+item.id + 1}.</p>
-						<p className={styles.scheduleItemTitle}>{item.name}</p>
-						<p className={styles.scheduleItemLocation}>{item.location}</p>
-						<p className={styles.scheduleItemTime}>
-							<b>{item.startTime}</b> {item.startDate} — <b>{item.endTime}</b> {item.endDate}
-						</p>
-					</li>
-				))}
-			</CardInfo>
+			{data && (
+				<CustomTable
+					className={styles.eventsScheduleTable}
+					cellsData={data.tableSchedule}
+					additionalElements={[
+						{
+							col: 5,
+							el: '—',
+						},
+					]}
+				/>
+			)}
 
-			<MainLink href='#'>
+			<MainButton href='#' as='link'>
 				<LinkArrowSVG />
 				Перейти к редактированию расписания
-			</MainLink>
+			</MainButton>
 		</>
 	)
 }

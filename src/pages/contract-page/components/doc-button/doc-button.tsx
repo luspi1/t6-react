@@ -2,7 +2,7 @@ import { type FC } from 'react'
 import cn from 'classnames'
 
 import styles from './index.module.scss'
-import { Button } from 'src/UI/Button/button'
+import { MainButton } from 'src/UI/MainButton/MainButton'
 import { ContractsInteraction, DocStatus } from 'src/helpers/consts'
 
 type ContractButtonProps = {
@@ -13,28 +13,28 @@ export const DocButton: FC<ContractButtonProps> = ({ contractStatus }) => {
 	switch (contractStatus) {
 		case DocStatus.NoContractSigned:
 			return (
-				<Button className={cn(styles.docButton, styles.docButtonGreen)}>
+				<MainButton className={cn(styles.docButton, styles.docButtonGreen)} as='button'>
 					{ContractsInteraction.ContractSign}
-				</Button>
+				</MainButton>
 			)
 
 		case DocStatus.ContractSigned:
 			return (
 				<div className={styles.buttonsContainer}>
-					<Button className={cn(styles.docButton, styles.docButtonBlue)}>
+					<MainButton className={cn(styles.docButton, styles.docButtonBlue)} as='button'>
 						{ContractsInteraction.AdditionalAgreement}
-					</Button>
-					<Button className={cn(styles.docButton, styles.docButtonRed)}>
+					</MainButton>
+					<MainButton className={cn(styles.docButton, styles.docButtonRed)} as='button'>
 						{ContractsInteraction.ContractTerminate}
-					</Button>
+					</MainButton>
 				</div>
 			)
 
 		default:
 			return (
-				<Button className={cn(styles.docButton, styles.docButtonGreen)}>
+				<MainButton className={cn(styles.docButton, styles.docButtonGreen)} as='button'>
 					{ContractsInteraction.ContractRequest}
-				</Button>
+				</MainButton>
 			)
 	}
 }
