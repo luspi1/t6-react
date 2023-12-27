@@ -6,10 +6,15 @@ import styles from './index.module.scss'
 import { type NavProfileItem } from 'src/modules/profile-content-header/types'
 
 type ProfileContentHeaderProps = {
-	mainTitle: string
+	mainTitle?: string
 	navItems: NavProfileItem[] | string
+	activeIdx?: number
 }
-export const ProfileContentHeader: FC<ProfileContentHeaderProps> = ({ mainTitle, navItems }) => {
+export const ProfileContentHeader: FC<ProfileContentHeaderProps> = ({
+	mainTitle,
+	navItems,
+	activeIdx,
+}) => {
 	const location = useLocation()
 
 	return (
@@ -17,7 +22,8 @@ export const ProfileContentHeader: FC<ProfileContentHeaderProps> = ({ mainTitle,
 			{Array.isArray(navItems) ? (
 				<>
 					<h2 className={styles.cabinetTitle}>
-						{mainTitle}: {navItems[location?.state?.linkIdx]?.title ?? navItems[0]?.title}
+						{mainTitle && `${mainTitle}:`}{' '}
+						{navItems[location?.state?.linkIdx]?.title ?? navItems[activeIdx ?? 0]?.title}
 					</h2>
 					<ProfileNav navItems={navItems} />
 				</>

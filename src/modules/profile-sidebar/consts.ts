@@ -81,8 +81,8 @@ export const menuItems: MenuItem[] = [
 		childItems: [
 			{
 				title: 'Список событий',
-				link: 'events-list',
-				linksMatches: ['profile/events-list'],
+				link: 'events',
+				linksMatches: ['profile/events/events-lists'],
 			},
 			{
 				title: 'Создать событие',
