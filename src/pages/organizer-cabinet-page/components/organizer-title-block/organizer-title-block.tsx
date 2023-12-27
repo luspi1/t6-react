@@ -5,6 +5,7 @@ import styles from '../../index.module.scss'
 import { type CabinetInfo } from 'src/types/user'
 
 import { CardInfo } from 'src/components/card-info/card-info'
+import { MainButton } from 'src/UI/MainButton/MainButton'
 import { CopyTextButton } from 'src/components/copy-text-button/copy-text-button'
 import { EditPencilSVG } from 'src/UI/icons/editPencilSVG'
 
@@ -46,9 +47,9 @@ export const OrganizerTitleBlock: FC<OrganizerTitleBlockProps> = ({ cabinetInfo 
 				</p>
 			</div>
 
-			<div className={styles.editButton}>
+			<MainButton className={styles.editButton} as='link'>
 				<EditPencilSVG />
-			</div>
+			</MainButton>
 		</CardInfo>
 	)
 }

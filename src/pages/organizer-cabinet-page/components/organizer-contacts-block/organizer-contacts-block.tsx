@@ -4,6 +4,7 @@ import cn from 'classnames'
 import { type CabinetInfo } from 'src/types/user'
 
 import { CardInfo } from 'src/components/card-info/card-info'
+import { MainButton } from 'src/UI/MainButton/MainButton'
 import { EditPencilSVG } from 'src/UI/icons/editPencilSVG'
 import { GreenConfirmSVG } from 'src/UI/icons/greenConfirmSVG'
 
@@ -40,12 +41,13 @@ export const OrganizerContactsBlock: FC<OrganizerContactsBlockProps> = ({ cabine
 					{!isPasswordShown ? 'Пароль скрыт' : 'Пароль открыт'}
 				</p>
 
-				<p
+				<MainButton
 					className={cn(styles.cabinetInfoValue, componentStyles.hidePassword)}
 					onClick={() => setPasswordShown(!isPasswordShown)}
+					as='button'
 				>
 					{!isPasswordShown ? 'Показать пароль' : 'Скрыть пароль'}
-				</p>
+				</MainButton>
 			</div>
 
 			<div className={styles.cabinetInfoItem}>
@@ -60,9 +62,9 @@ export const OrganizerContactsBlock: FC<OrganizerContactsBlockProps> = ({ cabine
 				</div>
 			) : null}
 
-			<div className={styles.editButton}>
+			<MainButton className={styles.editButton} as='link'>
 				<EditPencilSVG />
-			</div>
+			</MainButton>
 		</CardInfo>
 	)
 }

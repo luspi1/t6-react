@@ -58,7 +58,9 @@ export const SearchPanel: FC<SearchPanelProps & React.HTMLAttributes<HTMLDivElem
 						onChange={setSelectValue}
 					/>
 				)}
-				<MainButton type='submit'>Искать</MainButton>
+				<MainButton type='submit' as='button'>
+					Искать
+				</MainButton>
 			</form>
 		</div>
 	)

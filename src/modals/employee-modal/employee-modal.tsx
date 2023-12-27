@@ -1,16 +1,19 @@
-import { Modal } from 'src/components/modal/modal'
-
-import styles from './index.module.scss'
 import { type FC, useEffect } from 'react'
 import { FormProvider, type SubmitHandler, useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+
 import { ControlledSelect } from 'src/components/controlled-select/controlled-select'
 import { ControlledInput } from 'src/components/controlled-input/controlled-input'
+import { MainButton } from 'src/UI/MainButton/MainButton'
+import { Modal } from 'src/components/modal/modal'
 import { employeeSchema, type EmployeeInputs } from 'src/modals/employee-modal/schema'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { formatFormData } from 'src/helpers/utils'
-import { useAppSelector } from 'src/hooks/store'
+
 import { getEmployeeModalState } from 'src/store/modals/modals.selectors'
 import { useActions } from 'src/hooks/actions/actions'
+import { useAppSelector } from 'src/hooks/store'
+
+import { formatFormData } from 'src/helpers/utils'
+import styles from './index.module.scss'
 
 export const EmployeeModal: FC = () => {
 	const { formData, isActive, isEdit } = useAppSelector(getEmployeeModalState)
@@ -125,7 +128,9 @@ export const EmployeeModal: FC = () => {
 							label='Сотрудник активен'
 							type='checkbox'
 						/>
-						<button type='submit'>Сохранить изменения</button>
+						<MainButton as='button' type='submit'>
+							Сохранить изменения
+						</MainButton>
 					</section>
 					{isEdit && (
 						<section className={styles.fireSection}>
@@ -133,9 +138,9 @@ export const EmployeeModal: FC = () => {
 								Уволенный сотрудник будет перемещен в список кадрового резерва. В случае
 								необходимости, Вы сможете принять его обратно.
 							</p>
-							<button type='button' onClick={handleFireEmployee}>
+							<MainButton as='button' type='button' onClick={handleFireEmployee}>
 								Уволить сотрудника
-							</button>
+							</MainButton>
 						</section>
 					)}
 				</form>

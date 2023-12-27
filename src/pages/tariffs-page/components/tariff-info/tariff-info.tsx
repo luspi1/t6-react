@@ -1,6 +1,7 @@
 import { type FC } from 'react'
 import cn from 'classnames'
 
+import { MainButton } from 'src/UI/MainButton/MainButton'
 import styles from './index.module.scss'
 import { type Tariff } from 'src/types/user'
 import { formatToCurrencyWithSymbol } from 'src/helpers/utils'
@@ -25,18 +26,20 @@ export const TariffInfo: FC<TariffInfoProps> = ({ currentTariffInfo }) => {
 							<p className={styles.tariffInfoPeriodAvailable}>
 								{currentTariffInfo.startPeriod} — {currentTariffInfo.endPeriod}
 							</p>
-							<a className={styles.tariffInfoLink} href='#'>
+
+							<MainButton className={styles.tariffInfoLink} as='link' href='#'>
 								Продлить обслуживание
-							</a>
+							</MainButton>
 						</div>
 					</div>
 
 					<div className={cn(styles.tariffInfoBlockItem, styles.tariffInfoParams)}>
 						<h6>Параметры тарифа</h6>
 						<ul>{currentTariffInfo.params?.map((item: string) => <li key={item}>{item}</li>)}</ul>
-						<a className={styles.tariffInfoLink} href='#'>
+
+						<MainButton className={styles.tariffInfoLink} as='link' href='#'>
 							Сменить тариф
-						</a>
+						</MainButton>
 					</div>
 				</div>
 			</div>

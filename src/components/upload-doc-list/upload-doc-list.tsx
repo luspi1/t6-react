@@ -5,6 +5,7 @@ import { DocFileSVG } from 'src/UI/icons/docFileSVG'
 import { PdfFileSVG } from 'src/UI/icons/pdfFileSVG'
 import { RemoveFileSvg } from 'src/UI/icons/removeFileSVG'
 import { FileTypes } from 'src/helpers/consts'
+import { MainButton } from 'src/UI/MainButton/MainButton'
 
 type UploadDocListProps = {
 	filesList: File[]
@@ -27,9 +28,15 @@ export const UploadDocList: FC<UploadDocListProps> = ({ filesList, handleDelete 
 			{filesList?.map((file, idx) => (
 				<li key={file.lastModified}>
 					<a href='#'>{fileTypeRender(file?.type)}</a>
-					<button className={styles.deleteFileIcon} type='button' onClick={() => handleDelete(idx)}>
+
+					<MainButton
+						className={styles.deleteFileIcon}
+						as='button'
+						type='button'
+						onClick={() => handleDelete(idx)}
+					>
 						<RemoveFileSvg />
-					</button>
+					</MainButton>
 				</li>
 			))}
 		</ul>

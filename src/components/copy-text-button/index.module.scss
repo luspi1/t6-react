@@ -1,12 +1,13 @@
 .copyButton {
     display: flex;
     position: relative;
+    outline: none;
 
     svg {
         margin: auto;
     }
 
-    span {        
+    span {
         position: absolute;
         bottom: -15px;
         right: -50%;

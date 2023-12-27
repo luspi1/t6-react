@@ -1,11 +1,14 @@
 import React, { type FC } from 'react'
+
 import { CustomTable } from 'src/components/custom-table/custom-table'
+import { MainButton } from 'src/UI/MainButton/MainButton'
 import { tableColTitles } from 'src/pages/employees-page/employees-table/consts'
 import { useGetUserByIdQuery } from 'src/store/user/user.api'
 
 import styles from './index.module.scss'
 import { useActions } from 'src/hooks/actions/actions'
 import { type EmployeeFormData, employeeInputNames } from 'src/modals/employee-modal/schema'
+
 export const EmployeesTable: FC = () => {
 	const { data } = useGetUserByIdQuery('0')
 
@@ -35,9 +38,9 @@ export const EmployeesTable: FC = () => {
 					{
 						col: 6,
 						el: (
-							<button className={styles.editLink} onClick={handleEditEmployee} type='button'>
+							<MainButton className={styles.editLink} onClick={handleEditEmployee} as='button'>
 								Редактировать
-							</button>
+							</MainButton>
 						),
 					},
 				]}
