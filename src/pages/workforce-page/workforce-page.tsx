@@ -23,6 +23,7 @@ export const WorkforcePage: FC = () => {
 					<MainButton
 						svgNode={<PlusSvg />}
 						onClick={() => setEmployeeModal({ isActive: true, isEdit: false, formData: null })}
+						as='button'
 					>
 						Добавить сотрудника
 					</MainButton>

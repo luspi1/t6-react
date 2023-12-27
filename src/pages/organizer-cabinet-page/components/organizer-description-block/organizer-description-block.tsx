@@ -2,6 +2,7 @@ import { type FC } from 'react'
 import cn from 'classnames'
 
 import { CardInfo } from 'src/components/card-info/card-info'
+import { MainButton } from 'src/UI/MainButton/MainButton'
 import { EditPencilSVG } from 'src/UI/icons/editPencilSVG'
 
 import styles from '../../index.module.scss'
@@ -24,9 +25,9 @@ export const OrganizerDescriptionBlock: FC<OrganizerDescriptionBlockProps> = ({
 			<h6>Деятельность</h6>
 			<ul>{eventsDescription?.activity.map((item: string) => <li key={item}>{item}</li>)}</ul>
 
-			<div className={styles.editButton}>
+			<MainButton className={styles.editButton} as='link'>
 				<EditPencilSVG />
-			</div>
+			</MainButton>
 		</CardInfo>
 	)
 }

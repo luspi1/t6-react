@@ -1,8 +1,10 @@
 import { type FC, type PropsWithChildren } from 'react'
-import styles from './index.module.scss'
-import cn from 'classnames'
-import { CloseSvg } from 'src/UI/icons/closeSVG'
 import { createPortal } from 'react-dom'
+import cn from 'classnames'
+
+import styles from './index.module.scss'
+import { CloseSvg } from 'src/UI/icons/closeSVG'
+import { MainButton } from 'src/UI/MainButton/MainButton'
 
 type ModalProps = PropsWithChildren<{
 	active: boolean
@@ -30,9 +32,15 @@ export const Modal: FC<ModalProps> = ({ active, setActive, children, className, 
 	return createPortal(
 		<div className={cn(styles.modal, { [styles.active]: active })} onClick={handleCloseModal}>
 			<div className={cn(styles.modalContent, className)} onClick={(e) => e.stopPropagation()}>
-				<button className={styles.closeBtn} type='button' onClick={handleCloseModal}>
+				<MainButton
+					className={styles.closeBtn}
+					type='button'
+					as='button'
+					onClick={handleCloseModal}
+				>
 					<CloseSvg />
-				</button>
+				</MainButton>
+
 				{children}
 			</div>
 		</div>,
