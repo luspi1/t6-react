@@ -31,7 +31,6 @@ import { EventsListsLayout } from 'src/pages/events-lists-page/layout/events-lis
 import { ListsVisitors } from 'src/pages/events-lists-page/layout/lists-visitors/lists-visitors'
 import { ListsGroups } from 'src/pages/events-lists-page/layout/lists-groups/lists-groups'
 import { ListsTransport } from 'src/pages/events-lists-page/layout/lists-transport/lists-transport'
-import { EditEventsSchedulePage } from 'src/pages/edit-events-schedule-page/edit-events-schedule-page'
 
 export const App: FC = () => {
 	return (
