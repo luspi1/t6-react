@@ -1,0 +1,17 @@
+.navMenu {
+  display: flex;
+  gap: 20px;
+  padding: 25px 0;
+
+  a {
+    font-size: 17px;
+    font-weight: 600;
+    color: #113770;
+    text-decoration: underline;
+  }
+  .activeLink {
+    color: #000;
+    text-decoration: none;
+  }
+}
+

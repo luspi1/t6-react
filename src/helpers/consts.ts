@@ -23,6 +23,9 @@ export enum AppRoute {
 	EventsSchedule = 'events-schedule',
 	EventsLists = 'events-lists',
 	TypesVisitors = 'types-visitors',
+	EventsListsVisitors = 'events-visitors',
+	EventsListsGroups = 'events-groups',
+	EventsListsTransport = 'events-transport',
 }
 
 export enum NameSpace {

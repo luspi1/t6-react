@@ -14,7 +14,6 @@ import { PersonalPage } from 'src/pages/personal-page/personal-page'
 import { ContractPage } from 'src/pages/contract-page/contract-page'
 import { TariffsPage } from 'src/pages/tariffs-page/tariffs-page'
 import { EmployeesPage } from 'src/pages/employees-page/employees-page'
-import { EventsListsPage } from 'src/pages/events-lists-page/events-lists-page'
 import { CreateEventPage } from 'src/pages/create-event-page/create-event-page'
 import { TypesVisitorsPage } from 'src/pages/types-visitors-page/types-visitors-page'
 import { OrganizerCabinetPage } from 'src/pages/organizer-cabinet-page/organizer-cabinet-page'
@@ -28,6 +27,10 @@ import { EventsRegistrationPage } from 'src/pages/events-registration-page/event
 import { EventsTicketsPage } from 'src/pages/events-tickets-page/events-tickets-page'
 import { EventsContentPage } from 'src/pages/events-content-page/events-content-page'
 import { EventsLocationPage } from 'src/pages/events-location-page/events-location-page'
+import { EventsListsLayout } from 'src/pages/events-lists-page/layout/events-lists-layout'
+import { ListsVisitors } from 'src/pages/events-lists-page/layout/lists-visitors/lists-visitors'
+import { ListsGroups } from 'src/pages/events-lists-page/layout/lists-groups/lists-groups'
+import { ListsTransport } from 'src/pages/events-lists-page/layout/lists-transport/lists-transport'
 
 export const App: FC = () => {
 	return (
@@ -59,7 +62,11 @@ export const App: FC = () => {
 					<Route path={AppRoute.EventsContent} element={<EventsContentPage />} />
 					<Route path={AppRoute.EventsLocation} element={<EventsLocationPage />} />
 					<Route path={AppRoute.EventsSchedule} element={<SchedulePage />} />
-					<Route path={AppRoute.EventsLists} element={<EventsListsPage />} />
+					<Route path={AppRoute.EventsLists} element={<EventsListsLayout />}>
+						<Route path={AppRoute.EventsListsVisitors} element={<ListsVisitors />} />
+						<Route path={AppRoute.EventsListsGroups} element={<ListsGroups />} />
+						<Route path={AppRoute.EventsListsTransport} element={<ListsTransport />} />
+					</Route>
 				</Route>
 
 				<Route path={AppRoute.TypesVisitors} element={<TypesVisitorsPage />} />
