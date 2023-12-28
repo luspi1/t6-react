@@ -20,7 +20,11 @@ export enum AppRoute {
 	EventsTickets = 'events-tickets',
 	EventsContent = 'events-content',
 	EventsLocation = 'events-location',
+
+	Schedule = 'schedule',
 	EventsSchedule = 'events-schedule',
+	EditEventsSchedule = 'edit-events-schedule',
+
 	EventsLists = 'events-lists',
 	TypesVisitors = 'types-visitors',
 	EventsListsVisitors = 'events-visitors',
