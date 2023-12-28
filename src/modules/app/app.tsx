@@ -20,7 +20,7 @@ import { OrganizerCabinetPage } from 'src/pages/organizer-cabinet-page/organizer
 import { EmployeesLayout } from 'src/layouts/employees-layout/employees-layout'
 import { OneEmployeePage } from 'src/pages/one-employee-page/one-employee-page'
 import { WorkforcePage } from 'src/pages/workforce-page/workforce-page'
-import { SchedulePage } from 'src/pages/schedule-page/schedule-page'
+import { SchedulePage } from 'src/pages/events-schedule-page/events-schedule-page'
 import { EventsLayout } from 'src/layouts/events-layout/events-layout'
 import { EventsProfilePage } from 'src/pages/events-profile-page/events-profile-page'
 import { EventsRegistrationPage } from 'src/pages/events-registration-page/events-registration-page'
@@ -31,6 +31,7 @@ import { EventsListsLayout } from 'src/pages/events-lists-page/layout/events-lis
 import { ListsVisitors } from 'src/pages/events-lists-page/layout/lists-visitors/lists-visitors'
 import { ListsGroups } from 'src/pages/events-lists-page/layout/lists-groups/lists-groups'
 import { ListsTransport } from 'src/pages/events-lists-page/layout/lists-transport/lists-transport'
+import { EditEventsSchedulePage } from 'src/pages/edit-events-schedule-page/edit-events-schedule-page'
 
 export const App: FC = () => {
 	return (
@@ -55,12 +56,15 @@ export const App: FC = () => {
 				</Route>
 
 				<Route path={AppRoute.CreateEvent} element={<CreateEventPage />} />
+
 				<Route path={AppRoute.Events} element={<EventsLayout />}>
 					<Route path={AppRoute.EventsProfile} element={<EventsProfilePage />} />
 					<Route path={AppRoute.EventsRegistration} element={<EventsRegistrationPage />} />
 					<Route path={AppRoute.EventsTickets} element={<EventsTicketsPage />} />
 					<Route path={AppRoute.EventsContent} element={<EventsContentPage />} />
 					<Route path={AppRoute.EventsLocation} element={<EventsLocationPage />} />
+					<Route path={AppRoute.EventsLists} element={<EventsListsPage />} />
+
 					<Route path={AppRoute.EventsSchedule} element={<SchedulePage />} />
 					<Route path={AppRoute.EventsLists} element={<EventsListsLayout />}>
 						<Route path={AppRoute.EventsListsVisitors} element={<ListsVisitors />} />
