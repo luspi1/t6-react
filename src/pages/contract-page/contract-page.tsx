@@ -1,5 +1,4 @@
 import { type FC } from 'react'
-import { type SearchPanelData } from 'src/types/searchPanel'
 
 import { OrgStatus } from 'src/modules/org-status/org-status'
 import { SearchPanel } from 'src/components/search-panel/search-panel'
@@ -9,11 +8,12 @@ import { Pagination } from 'src/components/pagination/pagination'
 import { useGetAllContractsQuery, useGetAllPaymentsQuery } from 'src/store/contracts/contracts.api'
 import { ContractSelectOptions } from 'src/pages/contract-page/consts'
 import styles from './index.module.scss'
+import { type FormDataWithEntries } from 'src/types/global'
 
 export const ContractPage: FC = () => {
 	const { data: allContracts } = useGetAllContractsQuery(null)
 	const { data: allPayments } = useGetAllPaymentsQuery(null)
-	const getSearchPanelValues = (data: SearchPanelData) => {
+	const getSearchPanelValues = (data: FormDataWithEntries) => {
 		console.log(data)
 	}
 

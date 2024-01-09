@@ -8,7 +8,12 @@ export type Event = {
 	endDate: string
 }
 
+export type EventsLists = {
+	tableVisitors: string[][]
+}
+
 export type EventsData = {
 	schedule: Event[]
 	tableSchedule: string[][]
+	lists: EventsLists
 }

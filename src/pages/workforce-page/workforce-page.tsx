@@ -1,9 +1,11 @@
 import { type FC } from 'react'
-import { type SearchPanelData } from 'src/types/searchPanel'
+import { type FormDataWithEntries } from 'src/types/global'
+
+import { employeeSelect } from 'src/pages/employees-page/consts'
+
 import { SearchPanel } from 'src/components/search-panel/search-panel'
 import { MainButton } from 'src/UI/MainButton/MainButton'
 import { PlusSvg } from 'src/UI/icons/plusSVG'
-import { employeeSelect } from 'src/pages/employees-page/consts'
 import { EmployeesTable } from 'src/pages/employees-page/employees-table/employees-table'
 import { Pagination } from 'src/components/pagination/pagination'
 import { EmployeeModal } from 'src/modals/employee-modal/employee-modal'
@@ -12,7 +14,7 @@ import { useActions } from 'src/hooks/actions/actions'
 export const WorkforcePage: FC = () => {
 	const { setEmployeeModal } = useActions()
 
-	const getSearchPanelValues = (data: SearchPanelData) => {
+	const getSearchPanelValues = (data: FormDataWithEntries) => {
 		console.log(data)
 	}
 	return (

@@ -1,12 +1,12 @@
-import React, { type FC, type ReactNode, useState } from 'react'
+import React, { type FC, type ReactNode, type FormEvent } from 'react'
 import { type SelOption } from 'src/types/select'
 
 import styles from './index.module.scss'
 import { MainInput } from 'src/UI/MainInput/MainInput'
 import cn from 'classnames'
-import Select from 'react-select'
-import { type SearchPanelData } from 'src/types/searchPanel'
 import { MainButton } from 'src/UI/MainButton/MainButton'
+import { MainSelect } from 'src/UI/MainSelect/MainSelect'
+import { type FormDataWithEntries } from 'src/types/global'
 
 type SearchPanelProps = {
 	selectOptions: SelOption[] | null
@@ -15,7 +15,7 @@ type SearchPanelProps = {
 		placeholder: string
 	}
 	additionalNode?: ReactNode
-	handleFormData: (values: SearchPanelData) => void
+	handleFormData: (data: FormDataWithEntries) => void
 }
 export const SearchPanel: FC<SearchPanelProps & React.HTMLAttributes<HTMLDivElement>> = ({
 	additionalNode,
@@ -24,40 +24,21 @@ export const SearchPanel: FC<SearchPanelProps & React.HTMLAttributes<HTMLDivElem
 	handleFormData,
 	...props
 }) => {
-	const [inputValue, setInputValue] = useState<string>('')
-	const [selectValue, setSelectValue] = useState<SelOption | null>(selectOptions?.[0] ?? null)
+	const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault()
+		const formData = new FormData(e.currentTarget)
+		const data: FormDataWithEntries = Object.fromEntries(formData.entries())
+		handleFormData(data)
+	}
 
 	return (
 		<div className={cn(styles.searchPanelWrapper, props.className)}>
 			{additionalNode}
-			<form
-				className={styles.searchPanelForm}
-				action='#'
-				onSubmit={(e) => {
-					e.preventDefault()
-					const formData: SearchPanelData = {
-						inputValue,
-						selectValue,
-					}
-					handleFormData(formData)
-				}}
-			>
-				<MainInput
-					className={styles.searchPanelInput}
-					name={name}
-					placeholder={placeholder}
-					value={inputValue}
-					onChange={(e) => setInputValue(e.currentTarget.value)}
-				/>
-				{!!selectOptions?.length && (
-					<Select
-						classNamePrefix='main-select'
-						options={selectOptions}
-						value={selectValue}
-						defaultValue={selectOptions[0]}
-						onChange={setSelectValue}
-					/>
-				)}
+			<form className={styles.searchPanelForm} onSubmit={handleFormSubmit}>
+				<MainInput className={styles.searchPanelInput} name={name} placeholder={placeholder} />
+
+				{selectOptions && <MainSelect options={selectOptions} name='search_select' />}
+
 				<MainButton type='submit' as='button'>
 					Искать
 				</MainButton>

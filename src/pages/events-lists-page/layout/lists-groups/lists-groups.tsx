@@ -2,11 +2,12 @@ import { type FC } from 'react'
 import { SearchPanel } from 'src/components/search-panel/search-panel'
 import { MainButton } from 'src/UI/MainButton/MainButton'
 import { PlusSvg } from 'src/UI/icons/plusSVG'
-import { type SearchPanelData } from 'src/types/searchPanel'
+
 import { groupsSelect } from 'src/pages/events-lists-page/layout/lists-groups/consts'
+import { type FormDataWithEntries } from 'src/types/global'
 
 export const ListsGroups: FC = () => {
-	const getSearchPanelValues = (data: SearchPanelData) => {
+	const getSearchPanelValues = (data: FormDataWithEntries) => {
 		console.log(data)
 	}
 	return (

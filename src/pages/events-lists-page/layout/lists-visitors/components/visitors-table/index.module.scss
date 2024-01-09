@@ -1,0 +1,26 @@
+.visitorsTable {
+
+  grid-template-columns:
+    minmax(20px, 0.2fr)
+    minmax(150px, 1.4fr)
+    minmax(150px, 1.3fr)
+    minmax(60px, 0.5fr)
+    minmax(55px, 0.5fr)
+    minmax(70px, 0.6fr)
+    minmax(105px, 0.8fr)
+    minmax(105px, 0.8fr);
+
+    td, th {
+        text-align: left;
+        justify-content: flex-start;
+    }
+
+    td:first-child, th:first-child{
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+.visitorsSelect {
+  min-width: 105px;
+}

@@ -1,16 +1,17 @@
 import { type FC } from 'react'
+import { type FormDataWithEntries } from 'src/types/global'
 import { EmployeeInfo } from 'src/pages/one-employee-page/components/employee-info/employee-info'
 import { SearchPanel } from 'src/components/search-panel/search-panel'
-import { type SearchPanelData } from 'src/types/searchPanel'
+import { Pagination } from 'src/components/pagination/pagination'
 
 import { EventSelectOptions } from 'src/pages/one-employee-page/consts'
 
-import styles from './index.module.scss'
 import { EmployeeEventsTable } from 'src/pages/one-employee-page/components/employee-events-table/employee-events-table'
-import { Pagination } from 'src/components/pagination/pagination'
+
+import styles from './index.module.scss'
 
 export const OneEmployeePage: FC = () => {
-	const getSearchPanelValues = (data: SearchPanelData) => {
+	const getSearchPanelValues = (data: FormDataWithEntries) => {
 		console.log(data)
 	}
 	return (

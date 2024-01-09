@@ -38,3 +38,6 @@ export const deleteContractsFileById = (req, res) => {
 export const getAllEvents = (req, res) => {
 	res.status(200).json(events)
 }
+export const getEventsLists = (req, res) => {
+	res.status(200).json(events.lists)
+}

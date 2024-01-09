@@ -1,12 +1,13 @@
 import { type FC } from 'react'
+import { type FormDataWithEntries } from 'src/types/global'
+
 import { SearchPanel } from 'src/components/search-panel/search-panel'
 import { MainButton } from 'src/UI/MainButton/MainButton'
 import { PlusSvg } from 'src/UI/icons/plusSVG'
-import { type SearchPanelData } from 'src/types/searchPanel'
 import { transportSelect } from 'src/pages/events-lists-page/layout/lists-transport/consts'
 
 export const ListsTransport: FC = () => {
-	const getSearchPanelValues = (data: SearchPanelData) => {
+	const getSearchPanelValues = (data: FormDataWithEntries) => {
 		console.log(data)
 	}
 	return (

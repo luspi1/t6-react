@@ -2,13 +2,15 @@ import { type FC } from 'react'
 import { SearchPanel } from 'src/components/search-panel/search-panel'
 import { MainButton } from 'src/UI/MainButton/MainButton'
 import { PlusSvg } from 'src/UI/icons/plusSVG'
-import { type SearchPanelData } from 'src/types/searchPanel'
 import { visitorsSelect } from 'src/pages/events-lists-page/layout/lists-visitors/consts'
+import { type FormDataWithEntries } from 'src/types/global'
+import { VisitorsTable } from 'src/pages/events-lists-page/layout/lists-visitors/components/visitors-table/visitors-table'
 
 export const ListsVisitors: FC = () => {
-	const getSearchPanelValues = (data: SearchPanelData) => {
+	const getSearchPanelValues = (data: FormDataWithEntries) => {
 		console.log(data)
 	}
+
 	return (
 		<div>
 			<SearchPanel
@@ -24,7 +26,7 @@ export const ListsVisitors: FC = () => {
 					placeholder: 'Поиск по фамилии или имени',
 				}}
 			/>
-			<h2>Список посетителей</h2>
+			<VisitorsTable />
 		</div>
 	)
 }

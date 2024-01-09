@@ -1,7 +1,6 @@
 import { type FC } from 'react'
+import { type FormDataWithEntries } from 'src/types/global'
 
-import { type SearchPanelData } from 'src/types/searchPanel'
-import styles from './index.module.scss'
 import { useGetUserByIdQuery } from 'src/store/user/user.api'
 
 import { OrgStatus } from 'src/modules/org-status/org-status'
@@ -10,9 +9,11 @@ import { SearchPanel } from 'src/components/search-panel/search-panel'
 import { PaymentsTable } from 'src/pages/tariffs-page/components/payments-table/payments-table'
 import { Pagination } from 'src/components/pagination/pagination'
 
+import styles from './index.module.scss'
+
 export const TariffsPage: FC = () => {
 	const { data } = useGetUserByIdQuery('0')
-	const getSearchPanelValues = (data: SearchPanelData) => {
+	const getSearchPanelValues = (data: FormDataWithEntries) => {
 		console.log(data)
 	}
 
