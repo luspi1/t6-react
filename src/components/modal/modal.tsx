@@ -4,7 +4,6 @@ import cn from 'classnames'
 
 import styles from './index.module.scss'
 import { CloseSvg } from 'src/UI/icons/closeSVG'
-import { MainButton } from 'src/UI/MainButton/MainButton'
 
 type ModalProps = PropsWithChildren<{
 	active: boolean
@@ -32,14 +31,9 @@ export const Modal: FC<ModalProps> = ({ active, setActive, children, className, 
 	return createPortal(
 		<div className={cn(styles.modal, { [styles.active]: active })} onClick={handleCloseModal}>
 			<div className={cn(styles.modalContent, className)} onClick={(e) => e.stopPropagation()}>
-				<MainButton
-					className={styles.closeBtn}
-					type='button'
-					as='button'
-					onClick={handleCloseModal}
-				>
+				<button className={styles.closeBtn} type='button' onClick={handleCloseModal}>
 					<CloseSvg />
-				</MainButton>
+				</button>
 
 				{children}
 			</div>

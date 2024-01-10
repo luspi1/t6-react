@@ -3,16 +3,22 @@
   gap: 22px;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   margin-bottom: 20px;
 }
 
 .searchPanelForm {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: 10px;
   flex-grow: 1;
 }
 .searchPanelInput {
   flex-grow: 1;
+}
+
+.searchSelect {
+  min-width: 210px;
 }

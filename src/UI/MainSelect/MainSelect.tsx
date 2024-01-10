@@ -4,6 +4,7 @@ import Select from 'react-select'
 import { type SelOption } from 'src/types/select'
 
 import styles from './index.module.scss'
+import cn from 'classnames'
 
 type SelectProps = {
 	options: SelOption[]
@@ -17,8 +18,9 @@ export const MainSelect: FC<SelectProps> = ({ options, name, className }) => {
 
 	return (
 		<Select
-			className={styles.selectContainer}
-			classNamePrefix={styles.select}
+			unstyled
+			className={cn(styles.reactSelectContainer, className)}
+			classNamePrefix='react-select'
 			value={selectValue}
 			onChange={setSelectValue}
 			options={options}

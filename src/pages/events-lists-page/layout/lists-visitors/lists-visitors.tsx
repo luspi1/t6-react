@@ -5,6 +5,7 @@ import { PlusSvg } from 'src/UI/icons/plusSVG'
 import { visitorsSelect } from 'src/pages/events-lists-page/layout/lists-visitors/consts'
 import { type FormDataWithEntries } from 'src/types/global'
 import { VisitorsTable } from 'src/pages/events-lists-page/layout/lists-visitors/components/visitors-table/visitors-table'
+import { Pagination } from 'src/components/pagination/pagination'
 
 export const ListsVisitors: FC = () => {
 	const getSearchPanelValues = (data: FormDataWithEntries) => {
@@ -27,6 +28,7 @@ export const ListsVisitors: FC = () => {
 				}}
 			/>
 			<VisitorsTable />
+			<Pagination pagesCount={5} activePage={1} />
 		</div>
 	)
 }

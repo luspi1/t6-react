@@ -1,26 +1,43 @@
 .visitorsTable {
 
   grid-template-columns:
-    minmax(20px, 0.2fr)
+    minmax(25px, 0.3fr)
     minmax(150px, 1.4fr)
-    minmax(150px, 1.3fr)
-    minmax(60px, 0.5fr)
-    minmax(55px, 0.5fr)
-    minmax(70px, 0.6fr)
-    minmax(105px, 0.8fr)
-    minmax(105px, 0.8fr);
+    minmax(160px, 1.1fr)
+    minmax(65px, 0.5fr)
+    minmax(65px, 0.5fr)
+    minmax(80px, 0.6fr)
+    minmax(115px, 0.8fr)
+    minmax(115px, 0.8fr);
 
-    td, th {
-        text-align: left;
-        justify-content: flex-start;
-    }
+  td, th {
+    text-align: left;
+    justify-content: flex-start;
+  }
 
-    td:first-child, th:first-child{
-        text-align: center;
-        justify-content: center;
-    }
+  td:first-child, th:first-child {
+    text-align: center;
+    justify-content: center;
+  }
+
+  td {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+  }
 }
 
 .visitorsSelect {
-  min-width: 105px;
+  width: 110px;
+  height: 30px;
+
+  :global {
+    .react-select__input-container {
+      font-size: 13px;
+    }
+
+    .react-select__indicator {
+      margin-right: 8px;
+    }
+  }
 }

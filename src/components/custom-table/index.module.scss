@@ -7,7 +7,6 @@
   border-collapse: collapse;
   overflow-x: auto;
 
-
   thead,
   tbody,
   tr {
@@ -19,9 +18,14 @@
     th:first-child {
       border-radius: 5px 0 0 0;
     }
+
     th:last-child {
       border-radius: 0 5px 0 0;
     }
+  }
+
+  td, th {
+    padding-right: 5px;
   }
 
   th {
@@ -43,7 +47,6 @@
     text-align: center;
     padding: 15px 0;
     line-height: 1.2;
-
   }
 
   tbody {

@@ -1,12 +1,13 @@
 import React, { type FC, type ReactNode, type FormEvent } from 'react'
 import { type SelOption } from 'src/types/select'
 
-import styles from './index.module.scss'
 import { MainInput } from 'src/UI/MainInput/MainInput'
 import cn from 'classnames'
 import { MainButton } from 'src/UI/MainButton/MainButton'
 import { MainSelect } from 'src/UI/MainSelect/MainSelect'
 import { type FormDataWithEntries } from 'src/types/global'
+
+import styles from './index.module.scss'
 
 type SearchPanelProps = {
 	selectOptions: SelOption[] | null
@@ -37,7 +38,13 @@ export const SearchPanel: FC<SearchPanelProps & React.HTMLAttributes<HTMLDivElem
 			<form className={styles.searchPanelForm} onSubmit={handleFormSubmit}>
 				<MainInput className={styles.searchPanelInput} name={name} placeholder={placeholder} />
 
-				{selectOptions && <MainSelect options={selectOptions} name='search_select' />}
+				{selectOptions && (
+					<MainSelect
+						className={styles.searchSelect}
+						options={selectOptions}
+						name='search_select'
+					/>
+				)}
 
 				<MainButton type='submit' as='button'>
 					Искать
