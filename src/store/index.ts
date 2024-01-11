@@ -7,11 +7,13 @@ import { eventsApi } from 'src/store/events/events.api'
 
 import { profileSidebarReducer } from 'src/modules/profile-sidebar/store/profile-sidebar.slice'
 import { modalsReducer } from 'src/store/modals/modals.slice'
+import { eventsReducer } from 'src/store/events/events-schedule.slice'
 
 export const store = configureStore({
 	reducer: {
 		[NameSpace.ProfileSidebar]: profileSidebarReducer,
 		[NameSpace.Modals]: modalsReducer,
+		[NameSpace.Events]: eventsReducer,
 		[userApi.reducerPath]: userApi.reducer,
 		[eventsApi.reducerPath]: eventsApi.reducer,
 	},

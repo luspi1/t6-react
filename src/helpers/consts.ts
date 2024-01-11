@@ -36,6 +36,7 @@ export enum NameSpace {
 	User = 'USER',
 	ProfileSidebar = 'PROFILE_SIDEBAR',
 	Modals = 'MODALS',
+	Events = 'EVENTS',
 }
 
 export enum ReducerPath {

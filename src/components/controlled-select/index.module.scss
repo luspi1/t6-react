@@ -2,11 +2,13 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  width: 100%;
 
   label {
     min-width: 145px;
     margin-right: 6px;
   }
+
   span {
     margin-left: 10px;
     width: 20px;
@@ -15,4 +17,3 @@
   }
 
 }
-

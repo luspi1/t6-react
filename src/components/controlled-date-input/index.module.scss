@@ -1,0 +1,20 @@
+.datepickerContainer {
+    background-color: #fff;
+    padding: 8px;
+    width: 204px;
+    position: relative;
+    border-radius: 3px;
+    border: 1px solid #C2CAC9;
+    margin-bottom: 15px;
+
+    input {
+        border: none;
+        outline: #fff;
+    }
+
+    svg {
+        position: absolute;
+        top: 12px;
+        right: 11px;
+    }
+}
